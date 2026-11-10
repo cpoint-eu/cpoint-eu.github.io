@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kyllene – pracovní plocha pro Hermes Agent</title>
+<meta name="description" content="Kyllene je desktopová aplikace pro Hermes Agent: projekty, tasklisty, Kanban, kódovací agenti a víc konverzací najednou v jednom rychlém okně. Na Linux jedním řádkem.">
+<link rel="alternate" hreflang="en" href="https://cpoint-eu.github.io/kyllene/">
+<link rel="alternate" hreflang="cs" href="https://cpoint-eu.github.io/kyllene/cs/">
+<link rel="icon" type="image/svg+xml" href="../media/kyllene.svg">
+<meta property="og:title" content="Kyllene – pracovní plocha pro Hermes Agent">
+<meta property="og:description" content="Projekty, tasklisty, Kanban, kódovací agenti a víc konverzací najednou v jednom rychlém okně.">
+<meta property="og:image" content="https://cpoint-eu.github.io/kyllene/media/tour-poster.webp">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="../media/kyllene.svg" alt="">Kyllene</a>
+    <nav>
+      <a href="#features">Funkce</a>
+      <a href="#install">Instalace</a>
+      <a href="#updates">Aktualizace</a>
+      <a href="#uninstall">Odinstalace</a>
+      <a href="#troubleshooting">Řešení potíží</a>
+    </nav>
+    <a class="lang" href="../" hreflang="en" lang="en">English</a>
+  </div>
+</header>
+
+<main>
+<div class="hero wrap">
+  <img class="icon" src="../media/kyllene.svg" alt="Ikona Kyllene">
+  <h1>Pracovní plocha<br>pro <span>Hermes Agent</span></h1>
+  <p class="lead">Projekty, tasklisty, Kanban, kódovací agenti a víc konverzací najednou v jednom rychlém okně.
+    Pod tím je pořád tentýž Hermes: žádný účet, žádný cloud, žádná telemetrie.</p>
+  <div class="badges">
+    <span class="badge beta">Beta</span>
+    <span class="badge">Linux x86_64 · otestováno na Manjaru</span>
+    <span class="badge">Zdarma</span>
+    <span class="badge">Čeština · angličtina</span>
+  </div>
+  <div class="cta">
+    <a class="btn primary" href="#install">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m4 17 6-6-6-6"/><path d="M12 19h8"/></svg>
+      Instalace jedním řádkem</a>
+    <a class="btn" data-download href="https://github.com/cpoint-eu/kyllene-releases/releases/latest">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+      Stáhnout AppImage</a>
+  </div>
+  <div class="release-info" data-release-info></div>
+  <div class="shot-hero"><img src="../media/hero.gif" width="1200" height="675" alt="Kyllene: odpověď s tabulkou a diagramem"></div>
+</div>
+
+<section id="what">
+  <div class="wrap">
+    <h2>Co je Kyllene</h2>
+    <p class="sub">Hermes je skvělý agent: pamatuje si, učí se nové dovednosti a pracuje pro vás nonstop. Většinou se s ním ale
+      potkáváte v terminálu, jednu konverzaci po druhé. Kyllene z Hermesu dělá místo, kde žije vaše práce.</p>
+    <div class="two">
+      <div>
+        <p>Každý projekt má svůj domov s konverzacemi, soubory, tasklisty, nástěnkou Kanban a gitem. Můžete mít víc
+          konverzací vedle sebe, předat úkol agentovi a vrátit se, až bude hotový, vidět, kolik který den stál, a spravovat
+          celý Hermes bez úprav konfiguračních souborů.</p>
+        <p>Kyllene mluví s vaším stávajícím Hermesem, takže konverzace, paměť, skilly i profily jsou společné: co začnete
+          v Kyllene, dokončíte v terminálu, a naopak.</p>
+      </div>
+      <div>
+        <p>Když něco chybí, doplníte si to: widgety ukážou na obrazovce cokoli a Hermes vám je umí napsat.</p>
+        <p class="muted"><i>Kyllene je hora v Arkádii, kde se narodil Hermes. Proto podtitul „home of Hermes“.</i></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="wrap">
+    <h2>Co umí</h2>
+    <p class="sub">Ve zkratce. Celý seznam je v <a href="https://github.com/cpoint-eu/kyllene-releases#features">README</a> (anglicky).</p>
+    <div class="grid">
+      <div class="card"><span class="ico">💬</span><h3>Konverzace</h3><p>Vykreslený Markdown s tabulkami, diagramy a kódem, živý panel všech nástrojů, otázky a schválení na kliknutí.</p></div>
+      <div class="card"><span class="ico">🗂️</span><h3>Víc najednou</h3><p>Taby, mřížka nebo volná okna; libovolnou konverzaci vytáhnete do vlastního okna. <kbd>Ctrl</kbd>+<kbd>K</kbd> hledá ve všem.</p></div>
+      <div class="card"><span class="ico">📁</span><h3>Projekty</h3><p>Konverzace, soubory s náhledy, galerie výstupů a git, kde každý zápis čeká na vaše potvrzení.</p></div>
+      <div class="card"><span class="ico">✅</span><h3>Tasklisty a Kanban</h3><p>Tasklisty v Markdownu, které agent odškrtává, a nástěnka, na které agenti zpracují karty na pozadí a zeptají se, když nevědí.</p></div>
+      <div class="card"><span class="ico">🧑‍💻</span><h3>Kódovací agenti</h3><p>Claude Code a Codex přímo v appce, se stejnými kartami schválení a s jejich historií.</p></div>
+      <div class="card"><span class="ico">🧠</span><h3>Všechny modely</h3><p>Jeden výběr s hledáním, cenou, kontextem a třídou podle benchmarků; porovnání dvou modelů na jednom zadání.</p></div>
+      <div class="card"><span class="ico">📊</span><h3>Náklady a limity</h3><p>Tokeny a ceny podle modelu, agenta a projektu, limity předplatných s čárou tempa, časová osa celého dne.</p></div>
+      <div class="card"><span class="ico">🧩</span><h3>Widgety</h3><p>Hotové (limity, počasí, kalendář, pošta) i vlastní na cokoli. <a href="https://github.com/cpoint-eu/kyllene-releases/blob/main/docs/widgets.md">Návod</a> (anglicky).</p></div>
+      <div class="card"><span class="ico">⚙️</span><h3>Správa Hermesu</h3><p>Skilly, MCP servery, pluginy, cron, profily, klíče, paměť, logy a gatewaye na jedné obrazovce.</p></div>
+      <div class="card"><span class="ico">🎙️</span><h3>Hlas</h3><p>Diktování s lokálním modelem Whisper, předčítání odpovědí, přepis nahrávek.</p></div>
+      <div class="card"><span class="ico">🔄</span><h3>Víc počítačů</h3><p>Projekty, tasklisty, nastavení a widgety se synchronizují přes GitHub nebo váš cloudový disk.</p></div>
+      <div class="card"><span class="ico">🔒</span><h3>Soukromí</h3><p>Žádná telemetrie, žádný účet, žádný server. Jediné, co appka sama stahuje, je kontrola aktualizací (statický soubor na GitHubu).</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="tour">
+  <div class="wrap">
+    <h2>Tříminutová prohlídka</h2>
+    <p class="sub">Skutečné okno Kyllene, nahrané s vymyšlenými daty (rozhraní v angličtině).</p>
+    <div class="video">
+      <video controls preload="none" poster="../media/tour-poster.webp" width="1920" height="1080">
+        <source src="../media/kyllene-tour.mp4" type="video/mp4">
+        <a href="../media/kyllene-tour.mp4">Stáhnout video (MP4, 8 MB)</a>
+      </video>
+    </div>
+  </div>
+</section>
+
+<section id="screenshots">
+  <div class="wrap">
+    <h2>Snímky</h2>
+    <p class="sub">Kliknutím otevřete v plné velikosti. Všechna data na nich jsou vymyšlená.</p>
+    <div class="gallery">
+      <figure><a href="../media/screenshots/chat.webp"><img loading="lazy" src="../media/screenshots/chat.webp" alt="Konverzace s tabulkou a diagramem"></a><figcaption><b>Konverzace</b>: tabulky, diagramy, živý průběh nástrojů</figcaption></figure>
+      <figure><a href="../media/screenshots/agent-asks.webp"><img loading="lazy" src="../media/screenshots/agent-asks.webp" alt="Agent se ptá a čeká na potvrzení"></a><figcaption><b>Agent se ptá, vy rozhodujete</b></figcaption></figure>
+      <figure><a href="../media/screenshots/layout.webp"><img loading="lazy" src="../media/screenshots/layout.webp" alt="Šest konverzací najednou"></a><figcaption><b>Víc konverzací najednou</b></figcaption></figure>
+      <figure><a href="../media/screenshots/models.webp"><img loading="lazy" src="../media/screenshots/models.webp" alt="Výběr modelu"></a><figcaption><b>Všechny modely s hledáním</b></figcaption></figure>
+      <figure><a href="../media/screenshots/tasklist.webp"><img loading="lazy" src="../media/screenshots/tasklist.webp" alt="Tasklist s podúkoly od AI"></a><figcaption><b>Tasklisty</b>: AI rozdělí úkol, jde to vrátit</figcaption></figure>
+      <figure><a href="../media/screenshots/kanban.webp"><img loading="lazy" src="../media/screenshots/kanban.webp" alt="Detail karty Kanbanu"></a><figcaption><b>Kanban pro agenty</b></figcaption></figure>
+      <figure><a href="../media/screenshots/git.webp"><img loading="lazy" src="../media/screenshots/git.webp" alt="Git s rozdílem"></a><figcaption><b>Git</b> se zprávou commitu od AI</figcaption></figure>
+      <figure><a href="../media/screenshots/coding.webp"><img loading="lazy" src="../media/screenshots/coding.webp" alt="Claude Code v Kyllene"></a><figcaption><b>Claude Code uvnitř</b></figcaption></figure>
+      <figure><a href="../media/screenshots/overview.webp"><img loading="lazy" src="../media/screenshots/overview.webp" alt="Přehled, Dnes"></a><figcaption><b>Přehled</b>: co na vás dnes čeká</figcaption></figure>
+      <figure><a href="../media/screenshots/timeline.webp"><img loading="lazy" src="../media/screenshots/timeline.webp" alt="Časová osa dne"></a><figcaption><b>Časová osa</b> celého dne</figcaption></figure>
+      <figure><a href="../media/screenshots/widgets.webp"><img loading="lazy" src="../media/screenshots/widgets.webp" alt="Widget limitů Claude Code"></a><figcaption><b>Limity a náklady</b> na první pohled</figcaption></figure>
+      <figure><a href="../media/screenshots/admin.webp"><img loading="lazy" src="../media/screenshots/admin.webp" alt="Správa Hermesu"></a><figcaption><b>Správa Hermesu</b> bez terminálu</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="requirements">
+  <div class="wrap">
+    <h2>Co je potřeba</h2>
+    <ul>
+      <li><b>Linux x86_64.</b> Tahle beta je otestovaná na <b>Manjaru</b> (GNOME, Wayland). Stejný AppImage by měl běžet
+        i na jiných současných distribucích, jen tam zatím není otestovaný; instalátor jen upozorní. Windows a macOS jsou v plánu.</li>
+      <li><b>FUSE</b> pro spouštění AppImage (<code>fusermount3</code> nebo <code>fusermount</code>). Manjaro ho má; instalátor to zkontroluje.</li>
+      <li><b>Asi 100 MB</b> pro Kyllene a dalších <b>asi 2,7 GB</b>, pokud ještě nemáte Hermes.</li>
+      <li><b>Účet nebo API klíč k modelu</b> (třeba Claude, ChatGPT, OpenRouter). Kyllene vlastní účet nemá a používá to, co má váš Hermes.</li>
+    </ul>
+    <div class="note"><b>Hermes Agent předem instalovat nemusíte.</b> Když chybí, Kyllene při prvním spuštění ukáže
+      <span class="ui">Chybí Hermes Agent</span> a nainstaluje ho jedním tlačítkem (oficiální instalátor, bez
+      <code>sudo</code>, do <code>~/.hermes</code>, pár minut; potřebuje <code>git</code> a <code>curl</code>, které Manjaro má).
+      Hermes už máte? Kyllene použije ten váš.</div>
+  </div>
+</section>
+
+<section id="install">
+  <div class="wrap">
+    <h2>Instalace</h2>
+    <p class="sub">Jeden řádek v terminálu. Bez <code>sudo</code>, všechno jde do vaší domovské složky.</p>
+    <ol class="steps">
+      <li><b>Spusťte instalátor:</b>
+        <div class="cmd"><pre><code>curl -fsSL https://raw.githubusercontent.com/cpoint-eu/kyllene-releases/main/install.sh | bash</code></pre></div>
+        Stáhne nejnovější AppImage do <code>~/.local/bin/Kyllene.AppImage</code>, přidá Kyllene i s ikonou do menu
+        aplikací, zkontroluje FUSE a skončí řádkem <code>Done.</code></li>
+      <li><b>Spusťte Kyllene</b> z menu aplikací.</li>
+      <li><b>Ještě nemáte Hermes?</b> Klikněte na <span class="ui">Instalovat Hermes Agent</span>. Okno ukazuje jednotlivé
+        kroky i stahování; po dokončení se Kyllene připojí sama, bez restartu.</li>
+      <li><b>Připojte model.</b> Čerstvý Hermes žádný nemá: v pruhu <span class="ui">Hermes nemá připojený žádný model.</span>
+        klikněte na <span class="ui">Připojit model</span> a přihlaste se k poskytovateli nebo zadejte API klíč. První
+        připojený poskytovatel se zároveň stane hlavním modelem.</li>
+      <li><b>Začněte konverzaci.</b> Hotovo. Diktování si jednou řekne o stažení modelu pro přepis řeči (menší je rychlejší).</li>
+    </ol>
+    <p class="muted">Rozhraní se řídí jazykem systému; přepnete ho ikonou zeměkoule (CS / EN) ve spodní liště.</p>
+
+    <details>
+      <summary>Bez instalátoru: stáhnout AppImage ručně</summary>
+      <p>Stáhněte <code>Kyllene_&lt;verze&gt;_amd64.AppImage</code> tlačítkem níž (nebo z
+        <a href="https://github.com/cpoint-eu/kyllene-releases/releases/latest">posledního vydání</a>), povolte spouštění a spusťte:</p>
+      <p><a class="btn" data-download href="https://github.com/cpoint-eu/kyllene-releases/releases/latest">Stáhnout AppImage</a></p>
+      <div class="cmd"><pre><code>chmod +x ~/Stažené/Kyllene_*_amd64.AppImage</code>
+<code>~/Stažené/Kyllene_*_amd64.AppImage</code></pre></div>
+      <p>Položku v menu pro už stažený soubor přidá instalátor:</p>
+      <div class="cmd"><pre><code>curl -fsSL https://raw.githubusercontent.com/cpoint-eu/kyllene-releases/main/install.sh | bash -s -- --appimage ~/Stažené/Kyllene_0.0.1-beta_amd64.AppImage</code></pre></div>
+      <p class="muted">Složka se stahováním se může jmenovat i <code>~/Downloads</code>.</p>
+    </details>
+    <details>
+      <summary>Konkrétní verze</summary>
+      <div class="cmd"><pre><code>curl -fsSL https://raw.githubusercontent.com/cpoint-eu/kyllene-releases/main/install.sh | bash -s -- --version v0.0.1-beta</code></pre></div>
+      <p>Všechny verze s popisem změn: <a href="https://github.com/cpoint-eu/kyllene-releases/releases">vydání</a>.</p>
+    </details>
+    <details>
+      <summary>🤖 Ať to nainstaluje vaše AI</summary>
+      <p>Používáte Hermes, Claude Code, Codex nebo jiného kódovacího agenta? Vložte mu tohle:</p>
+      <div class="cmd"><pre><code>Install Kyllene for me by following the "Install guide for AI agents" in</code>
+<code>https://github.com/cpoint-eu/kyllene-releases/blob/main/README.md</code></pre></div>
+    </details>
+  </div>
+</section>
+
+<section id="updates">
+  <div class="wrap">
+    <h2>Aktualizace</h2>
+    <p class="sub">Kyllene se aktualizuje sama. Instalátor znovu pouštět nemusíte.</p>
+    <ul>
+      <li>Novou verzi hledá při startu a pak jednou denně. Když vyjde, ukáže okno s přehledem <span class="ui">Co je nového</span>
+        a tlačítky <span class="ui">Aktualizovat a restartovat</span>, <span class="ui">Později</span> (zeptá se zítra)
+        a <span class="ui">Přeskočit tuto verzi</span>.</li>
+      <li>Ručně: <b>Nastavení › O aplikaci › Zkontrolovat aktualizace</b>, nebo <kbd>Ctrl</kbd>+<kbd>K</kbd> a <span class="ui">Zkontrolovat aktualizace</span>.</li>
+      <li>Rozjeté konverzace běží v Hermesu dál; po restartu se k nim Kyllene znovu připojí.</li>
+      <li>Každé vydání je <b>podepsané</b> a svázané s verzemi Hermesu, se kterými bylo otestované. Když je váš Hermes na
+        novou Kyllene moc starý, okno nabídne nejdřív <span class="ui">Aktualizovat Hermes</span> (restartuje se tím
+        gateway Hermesu a přeruší rozjeté konverzace, nechte je nejdřív doběhnout).</li>
+      <li>Když Hermes aktualizujete sami, Kyllene si sama ověří, že všechno, co používá, pořád funguje, a řekne vám, kdyby se něco rozbilo.</li>
+    </ul>
+    <p class="muted">Kontrola aktualizací je jediné, co Kyllene sama stahuje z internetu: statický soubor v
+      <a href="https://github.com/cpoint-eu/kyllene-releases">repozitáři vydání</a>. Nic o vás se neodesílá.</p>
+  </div>
+</section>
+
+<section id="uninstall">
+  <div class="wrap">
+    <h2>Odinstalace</h2>
+    <div class="cmd"><pre><code>curl -fsSL https://raw.githubusercontent.com/cpoint-eu/kyllene-releases/main/install.sh | bash -s -- --uninstall</code></pre></div>
+    <p>Odstraní aplikaci, její položku v menu a ikonu. <b>Vaše data zůstanou</b>, takže pozdější instalace naváže, kde jste skončili.</p>
+    <details>
+      <summary>Smazat úplně všechno včetně dat</summary>
+      <p>Nastavení, rozložení a data Kyllene:</p>
+      <div class="cmd"><pre><code>rm -rf ~/.local/share/kyllene ~/.local/share/eu.cpoint.kyllene ~/.config/eu.cpoint.kyllene ~/.cache/kyllene ~/.cache/eu.cpoint.kyllene</code></pre></div>
+      <p>Hermes Agent se všemi konverzacemi, pamětí, skilly a klíči je v <code>~/.hermes</code>. Smažte ho, jen když Hermes
+        nepoužíváte nikde jinde (terminál, Discord…):</p>
+      <div class="cmd"><pre><code>rm -rf ~/.hermes ~/.local/bin/hermes</code></pre></div>
+      <p class="muted">Složek vašich projektů se odinstalace nikdy nedotkne. Pokud jste zapnuli synchronizaci, synchronizovaná kopie zůstane ve vašem repozitáři na GitHubu nebo na cloudovém disku.</p>
+    </details>
+  </div>
+</section>
+
+<section id="troubleshooting">
+  <div class="wrap">
+    <h2>Řešení potíží</h2>
+    <p class="muted">Hlášky instalátoru jsou anglicky, proto je tu uvádíme v původním znění.</p>
+    <table>
+      <thead><tr><th>Potíž</th><th>Co udělat</th></tr></thead>
+      <tbody>
+        <tr><td>Instalátor skončí hláškou <i>FUSE is missing.</i>, nebo AppImage hlásí <i>No suitable fusermount binary found on the $PATH</i></td>
+          <td>Nainstalujte FUSE a pusťte instalátor znovu: <code>sudo pacman -S fuse3</code> (Manjaro, Arch).</td></tr>
+        <tr><td><i>/dev/fuse is missing</i> (v kontejneru nebo ve virtuálu bez FUSE)</td>
+          <td>Spouštějte Kyllene jako <code>~/.local/bin/Kyllene.AppImage --appimage-extract-and-run</code>.</td></tr>
+        <tr><td>Okno zůstane <b>prázdné, bílé nebo černé</b> (často s grafikou NVIDIA)</td>
+          <td>Spusťte ho jednou z terminálu s obejitím GPU ve WebKitu:
+            <div class="cmd"><pre><code>WEBKIT_DISABLE_DMABUF_RENDERER=1 ~/.local/bin/Kyllene.AppImage</code></pre></div>
+            Když je pořád prázdné, zkuste místo toho <code>WEBKIT_DISABLE_COMPOSITING_MODE=1</code>. V obou případech prosím
+            <a href="https://github.com/cpoint-eu/kyllene-releases/issues">nahlaste</a> svou grafickou kartu, ovladač a prostředí
+            (GNOME/KDE, Wayland/X11), ať se to dá opravit pro všechny.</td></tr>
+        <tr><td>Kyllene není v menu aplikací</td>
+          <td>Pusťte instalátor znovu; přidá položku <code>~/.local/share/applications/kyllene.desktop</code>. Některá prostředí ji ukážou až po odhlášení a přihlášení.</td></tr>
+        <tr><td>Instalátor hlásí <i>… belongs to another Kyllene install (built from source?)</i></td>
+          <td>Už máte Kyllene sestavenou ze zdrojáků. Instalátor s <code>bash -s -- --force</code> pusťte, jen když ji chcete nahradit.</td></tr>
+        <tr><td><span class="ui">Hermes se nepodařilo spustit</span></td>
+          <td>Ověřte, že Hermes funguje v terminálu (<code>hermes</code>, případně <code>~/.local/bin/hermes</code>), a Kyllene restartujte. Podrobnosti na té obrazovce říkají, co selhalo.</td></tr>
+        <tr><td>Instalace Hermesu tlačítkem selže</td>
+          <td>Okno ukáže krok, který selhal, i výpis instalátoru. Většinou jde o síť nebo místo na disku (potřebuje asi 2,7 GB): napravte to a klikněte na instalaci znovu.</td></tr>
+        <tr><td>Konverzace začne, ale odpověď nepřijde</td>
+          <td>Hermes ještě nemá model: v pruhu <span class="ui">Hermes nemá připojený žádný model.</span> klikněte na <span class="ui">Připojit model</span>, nebo v terminálu spusťte <code>hermes setup</code>.</td></tr>
+        <tr><td>Diktování napoprvé nic neudělá</td>
+          <td>Jednou potřebuje model pro přepis řeči: Kyllene nabídne jeho stažení. Později ho změníte v <b>Nastavení › Přepis řeči</b>.</td></tr>
+        <tr><td>Po aktualizaci Hermesu se něco rozbilo</td>
+          <td>Kyllene vám řekne, co nefunguje. Než vyjde nová Kyllene, můžete Hermes vrátit na verzi uvedenou v <a href="https://github.com/cpoint-eu/kyllene-releases/releases">popisu vydání</a> („Tested with Hermes Agent …“).</td></tr>
+        <tr><td>Okno ukazuje jen horní lištu na tmavém pozadí</td>
+          <td>Část appky spadla. Prosím <a href="https://github.com/cpoint-eu/kyllene-releases/issues">nahlaste to</a> a přiložte <code>~/.local/share/kyllene/crash-log.json</code>.</td></tr>
+      </tbody>
+    </table>
+    <p>Pořád to nejde? <a href="https://github.com/cpoint-eu/kyllene-releases/issues/new">Založte issue</a> s distribucí,
+      prostředím, verzí Kyllene (Nastavení › O aplikaci) a tím, co vidíte. Psát můžete česky.</p>
+  </div>
+</section>
+
+<section id="more">
+  <div class="wrap">
+    <h2>Další</h2>
+    <div class="grid">
+      <div class="card"><h3><a href="https://github.com/cpoint-eu/kyllene-releases/blob/main/docs/widgets.md">Vlastní widget</a></h3><p>Cokoli na obrazovce, s ukázkou připravenou ke spuštění. Nebo ho nechte napsat Hermes. (anglicky)</p></div>
+      <div class="card"><h3><a href="https://github.com/cpoint-eu/kyllene-releases/blob/main/docs/README.md">Dokumentace</a></h3><p>Všechny návody v repozitáři vydání (anglicky).</p></div>
+      <div class="card"><h3><a href="https://github.com/cpoint-eu/kyllene-releases/releases">Popis vydání</a></h3><p>Co se v které verzi změnilo a s jakým Hermesem byla otestovaná.</p></div>
+      <div class="card"><h3><a href="https://github.com/cpoint-eu/kyllene-releases/issues">Chyby a nápady</a></h3><p>Nahlaste potíž nebo navrhněte zlepšení (potřebujete účet na GitHubu).</p></div>
+    </div>
+
+    <h3>Časté otázky</h3>
+    <p><b>Je zdarma?</b> Ano.</p>
+    <p><b>Jak se liší od Hermes Desktop?</b> <a href="https://hermes-agent.nousresearch.com/desktop">Hermes Desktop</a>
+      je oficiální aplikace od Nous Research a dobrý obecný klient. Kyllene je nezávislá aplikace postavená kolem projektů
+      a každodenní práce: tasklisty, Kanban, git, kódovací agenti, víc konverzací najednou, náklady a widgety. Obě mluví
+      se stejným Hermesem, takže můžete používat kteroukoli z nich, nebo obě.</p>
+    <p><b>Kde je zdrojový kód?</b> Zatím není veřejný. <a href="https://github.com/cpoint-eu/kyllene-releases">Repozitář vydání</a> obsahuje sestavené verze a hlášení chyb.</p>
+    <p><b>Podpora.</b> Kyllene vzniká ve volném čase. Pokud vám šetří čas, můžete
+      <a href="https://ko-fi.com/cpointeu">přispět na kafe přes Ko-fi</a> ☕</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Kyllene je nezávislý projekt bez vazby na Nous Research. Hermes Agent je projekt Nous Research.</span>
+    <span><a href="https://github.com/cpoint-eu/kyllene-releases">GitHub</a> · <a href="../" hreflang="en" lang="en">English</a></span>
+  </div>
+</footer>
+
+<script src="../assets/site.js"></script>
+</body>
+</html>

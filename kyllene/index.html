@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kyllene – the desktop workspace for Hermes Agent</title>
+<meta name="description" content="Kyllene is a desktop app for Hermes Agent: projects, tasklists, Kanban, coding agents and many conversations at once in one native window. Install on Linux with one line.">
+<link rel="alternate" hreflang="en" href="https://cpoint-eu.github.io/kyllene/">
+<link rel="alternate" hreflang="cs" href="https://cpoint-eu.github.io/kyllene/cs/">
+<link rel="icon" type="image/svg+xml" href="media/kyllene.svg">
+<meta property="og:title" content="Kyllene – the desktop workspace for Hermes Agent">
+<meta property="og:description" content="Projects, tasklists, Kanban, coding agents and many conversations at once, in one fast native window.">
+<meta property="og:image" content="https://cpoint-eu.github.io/kyllene/media/tour-poster.webp">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="media/kyllene.svg" alt="">Kyllene</a>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#install">Install</a>
+      <a href="#updates">Updates</a>
+      <a href="#uninstall">Uninstall</a>
+      <a href="#troubleshooting">Troubleshooting</a>
+    </nav>
+    <a class="lang" href="cs/" hreflang="cs" lang="cs">Česky</a>
+  </div>
+</header>
+
+<main>
+<div class="hero wrap">
+  <img class="icon" src="media/kyllene.svg" alt="Kyllene icon">
+  <h1>The desktop workspace<br>for <span>Hermes Agent</span></h1>
+  <p class="lead">Projects, tasklists, Kanban, coding agents and many conversations at once, in one fast native window.
+    It is the same Hermes underneath: no account, no cloud, no telemetry.</p>
+  <div class="badges">
+    <span class="badge beta">Beta</span>
+    <span class="badge">Linux x86_64 · tested on Manjaro</span>
+    <span class="badge">Free</span>
+    <span class="badge">English · Czech</span>
+  </div>
+  <div class="cta">
+    <a class="btn primary" href="#install">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m4 17 6-6-6-6"/><path d="M12 19h8"/></svg>
+      Install with one line</a>
+    <a class="btn" data-download href="https://github.com/cpoint-eu/kyllene-releases/releases/latest">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+      Download AppImage</a>
+  </div>
+  <div class="release-info" data-release-info></div>
+  <div class="shot-hero"><img src="media/hero.gif" width="1200" height="675" alt="Kyllene: an answer streams in with a table and a diagram"></div>
+</div>
+
+<section id="what">
+  <div class="wrap">
+    <h2>What Kyllene is</h2>
+    <p class="sub">Hermes is a great agent: it remembers, learns new skills and works for you around the clock. But most of the
+      time you meet it in a terminal, one conversation at a time. Kyllene turns Hermes into a place where your work lives.</p>
+    <div class="two">
+      <div>
+        <p>Every project gets a home with its conversations, files, tasklists, a Kanban board and git. You can run several
+          conversations side by side, hand a task to an agent and come back when it is done, see what each day cost, and
+          manage all of Hermes without touching a config file.</p>
+        <p>Kyllene talks to your existing Hermes install, so sessions, memory, skills and profiles are shared: start
+          something in Kyllene and continue it in the terminal, or the other way round.</p>
+      </div>
+      <div>
+        <p>When something is missing, you add it: widgets put anything on screen, and Hermes can write them for you.</p>
+        <p class="muted"><i>Kyllene is the mountain in Arcadia where Hermes was born. Hence the tagline: home of Hermes.</i></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="wrap">
+    <h2>What it can do</h2>
+    <p class="sub">The short version. The full list is in the <a href="https://github.com/cpoint-eu/kyllene-releases#features">README</a>.</p>
+    <div class="grid">
+      <div class="card"><span class="ico">💬</span><h3>Conversations</h3><p>Rendered Markdown with tables, diagrams and code, a live panel of every tool call, clickable questions and approvals.</p></div>
+      <div class="card"><span class="ico">🗂️</span><h3>Many at once</h3><p>Tabs, a grid or free windows; pop any conversation out into its own window. <kbd>Ctrl</kbd>+<kbd>K</kbd> searches everything.</p></div>
+      <div class="card"><span class="ico">📁</span><h3>Projects</h3><p>Conversations, files with previews, an outputs gallery and a git panel where every write waits for your OK.</p></div>
+      <div class="card"><span class="ico">✅</span><h3>Tasklists and Kanban</h3><p>Markdown tasklists the agent ticks off, and a board where agents run cards in the background and ask when stuck.</p></div>
+      <div class="card"><span class="ico">🧑‍💻</span><h3>Coding agents</h3><p>Claude Code and Codex inside the app, with the same approval cards and their history.</p></div>
+      <div class="card"><span class="ico">🧠</span><h3>Every model</h3><p>One searchable picker with price, context and benchmark class; compare two models on one prompt.</p></div>
+      <div class="card"><span class="ico">📊</span><h3>Costs and limits</h3><p>Tokens and costs by model, agent and project, subscription limits with a pace line, a timeline of the day.</p></div>
+      <div class="card"><span class="ico">🧩</span><h3>Widgets</h3><p>Ready-made ones (limits, weather, calendar, mail) and your own for anything. <a href="https://github.com/cpoint-eu/kyllene-releases/blob/main/docs/widgets.md">Build one</a>.</p></div>
+      <div class="card"><span class="ico">⚙️</span><h3>Manage Hermes</h3><p>Skills, MCP servers, plugins, cron, profiles, keys, memory, logs and gateways in one screen.</p></div>
+      <div class="card"><span class="ico">🎙️</span><h3>Voice</h3><p>Dictation with a local Whisper model, answers read aloud, transcription of recordings.</p></div>
+      <div class="card"><span class="ico">🔄</span><h3>Several computers</h3><p>Projects, tasklists, settings and widgets sync through GitHub or your cloud drive.</p></div>
+      <div class="card"><span class="ico">🔒</span><h3>Private</h3><p>No telemetry, no account, no server. The only call home is the update check, a static file on GitHub.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="tour">
+  <div class="wrap">
+    <h2>The 3-minute tour</h2>
+    <p class="sub">A real Kyllene window, recorded with made-up data.</p>
+    <div class="video">
+      <video controls preload="none" poster="media/tour-poster.webp" width="1920" height="1080">
+        <source src="media/kyllene-tour.mp4" type="video/mp4">
+        <a href="media/kyllene-tour.mp4">Download the video (MP4, 8 MB)</a>
+      </video>
+    </div>
+  </div>
+</section>
+
+<section id="screenshots">
+  <div class="wrap">
+    <h2>Screenshots</h2>
+    <p class="sub">Click a picture for full size. All data in them is made up.</p>
+    <div class="gallery">
+      <figure><a href="media/screenshots/chat.webp"><img loading="lazy" src="media/screenshots/chat.webp" alt="Chat with a table and a diagram"></a><figcaption><b>Chat</b>: tables, diagrams, live tool activity</figcaption></figure>
+      <figure><a href="media/screenshots/agent-asks.webp"><img loading="lazy" src="media/screenshots/agent-asks.webp" alt="The agent asks and waits for an OK"></a><figcaption><b>The agent asks, you decide</b></figcaption></figure>
+      <figure><a href="media/screenshots/layout.webp"><img loading="lazy" src="media/screenshots/layout.webp" alt="Six conversations at once"></a><figcaption><b>Many conversations at once</b></figcaption></figure>
+      <figure><a href="media/screenshots/models.webp"><img loading="lazy" src="media/screenshots/models.webp" alt="Model picker"></a><figcaption><b>Every model, searchable</b></figcaption></figure>
+      <figure><a href="media/screenshots/tasklist.webp"><img loading="lazy" src="media/screenshots/tasklist.webp" alt="Tasklist with subtasks written by AI"></a><figcaption><b>Tasklists</b>: AI splits a task, with Undo</figcaption></figure>
+      <figure><a href="media/screenshots/kanban.webp"><img loading="lazy" src="media/screenshots/kanban.webp" alt="Kanban card detail"></a><figcaption><b>Kanban for agents</b></figcaption></figure>
+      <figure><a href="media/screenshots/git.webp"><img loading="lazy" src="media/screenshots/git.webp" alt="Git panel with diff"></a><figcaption><b>Git</b> with AI commit messages</figcaption></figure>
+      <figure><a href="media/screenshots/coding.webp"><img loading="lazy" src="media/screenshots/coding.webp" alt="Claude Code inside Kyllene"></a><figcaption><b>Claude Code inside</b></figcaption></figure>
+      <figure><a href="media/screenshots/overview.webp"><img loading="lazy" src="media/screenshots/overview.webp" alt="Overview, Today"></a><figcaption><b>Overview</b>: what waits for you today</figcaption></figure>
+      <figure><a href="media/screenshots/timeline.webp"><img loading="lazy" src="media/screenshots/timeline.webp" alt="Timeline of the day"></a><figcaption><b>Timeline</b> of the whole day</figcaption></figure>
+      <figure><a href="media/screenshots/widgets.webp"><img loading="lazy" src="media/screenshots/widgets.webp" alt="Claude Code limits widget"></a><figcaption><b>Limits and costs</b> at a glance</figcaption></figure>
+      <figure><a href="media/screenshots/admin.webp"><img loading="lazy" src="media/screenshots/admin.webp" alt="Manage Hermes"></a><figcaption><b>Manage Hermes</b> without a terminal</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="requirements">
+  <div class="wrap">
+    <h2>What you need</h2>
+    <ul>
+      <li><b>Linux x86_64.</b> This beta is tested on <b>Manjaro</b> (GNOME, Wayland). The same AppImage is expected to
+        run on other modern distros, but it is not tested there yet; the installer only warns. Windows and macOS are planned.</li>
+      <li><b>FUSE</b> to run AppImages (<code>fusermount3</code> or <code>fusermount</code>). Manjaro ships it; the installer checks it.</li>
+      <li><b>About 100 MB</b> for Kyllene, <b>about 2.7 GB</b> more if Hermes is not installed yet.</li>
+      <li><b>An account or API key for a model</b> (for example Claude, ChatGPT, OpenRouter). Kyllene has no account of its own and uses whatever your Hermes has.</li>
+    </ul>
+    <div class="note"><b>Hermes Agent is not needed beforehand.</b> When it is missing, Kyllene shows
+      <span class="ui">Hermes Agent is missing</span> on the first start and installs it with one button
+      (the official installer, no <code>sudo</code>, into <code>~/.hermes</code>, a few minutes; it needs <code>git</code> and <code>curl</code>, which Manjaro has).
+      Already have Hermes? Kyllene uses your existing install.</div>
+  </div>
+</section>
+
+<section id="install">
+  <div class="wrap">
+    <h2>Install</h2>
+    <p class="sub">One line in a terminal. No <code>sudo</code>, everything goes into your home folder.</p>
+    <ol class="steps">
+      <li><b>Run the installer:</b>
+        <div class="cmd"><pre><code>curl -fsSL https://raw.githubusercontent.com/cpoint-eu/kyllene-releases/main/install.sh | bash</code></pre></div>
+        It downloads the newest AppImage to <code>~/.local/bin/Kyllene.AppImage</code>, adds Kyllene with its icon to your
+        app menu, checks FUSE and ends with <code>Done.</code></li>
+      <li><b>Start Kyllene</b> from the app menu.</li>
+      <li><b>No Hermes yet?</b> Click <span class="ui">Install Hermes Agent</span>. The window shows each step and the download;
+        Kyllene connects by itself when it is done, no restart.</li>
+      <li><b>Connect a model.</b> A fresh Hermes has none: in the bar <span class="ui">Hermes has no model connected.</span>
+        click <span class="ui">Connect a model</span> and sign in to a provider or add an API key. The first provider you
+        connect also becomes the main model.</li>
+      <li><b>Start a conversation.</b> That's it. Dictation asks once to download a speech model (the smaller one is faster).</li>
+    </ol>
+
+    <details>
+      <summary>Without the installer: download the AppImage yourself</summary>
+      <p>Download <code>Kyllene_&lt;version&gt;_amd64.AppImage</code> with the button below (or from the
+        <a href="https://github.com/cpoint-eu/kyllene-releases/releases/latest">latest release</a>), make it executable and run it:</p>
+      <p><a class="btn" data-download href="https://github.com/cpoint-eu/kyllene-releases/releases/latest">Download AppImage</a></p>
+      <div class="cmd"><pre><code>chmod +x ~/Downloads/Kyllene_*_amd64.AppImage</code>
+<code>~/Downloads/Kyllene_*_amd64.AppImage</code></pre></div>
+      <p>To get the menu entry for a file you already downloaded, pass it to the installer:</p>
+      <div class="cmd"><pre><code>curl -fsSL https://raw.githubusercontent.com/cpoint-eu/kyllene-releases/main/install.sh | bash -s -- --appimage ~/Downloads/Kyllene_0.0.1-beta_amd64.AppImage</code></pre></div>
+    </details>
+    <details>
+      <summary>A specific version</summary>
+      <div class="cmd"><pre><code>curl -fsSL https://raw.githubusercontent.com/cpoint-eu/kyllene-releases/main/install.sh | bash -s -- --version v0.0.1-beta</code></pre></div>
+      <p>All versions with their release notes: <a href="https://github.com/cpoint-eu/kyllene-releases/releases">releases</a>.</p>
+    </details>
+    <details>
+      <summary>🤖 Let your AI install it</summary>
+      <p>Already using Hermes, Claude Code, Codex or another coding agent? Paste this to it:</p>
+      <div class="cmd"><pre><code>Install Kyllene for me by following the "Install guide for AI agents" in</code>
+<code>https://github.com/cpoint-eu/kyllene-releases/blob/main/README.md</code></pre></div>
+    </details>
+  </div>
+</section>
+
+<section id="updates">
+  <div class="wrap">
+    <h2>Updates</h2>
+    <p class="sub">Kyllene updates itself. You do not need to run the installer again.</p>
+    <ul>
+      <li>It checks for a new version at start and once a day. When one is out, a window shows
+        <span class="ui">What's new</span> with <span class="ui">Update and restart</span>, <span class="ui">Later</span>
+        (asks again tomorrow) and <span class="ui">Skip this version</span>.</li>
+      <li>Check by hand: <b>Settings › About › Check for updates</b>, or <kbd>Ctrl</kbd>+<kbd>K</kbd> and <span class="ui">Check for updates</span>.</li>
+      <li>Running conversations keep going in Hermes; Kyllene reconnects to them after the restart.</li>
+      <li>Every release is <b>signed</b> and tied to the Hermes versions it was tested with. When your Hermes is too old
+        for a new Kyllene, the window offers <span class="ui">Update Hermes</span> first (that restarts the Hermes gateway
+        and interrupts running conversations, so let them finish).</li>
+      <li>After you update Hermes yourself, Kyllene checks on its own that everything it uses still works, and tells you if something broke.</li>
+    </ul>
+    <p class="muted">The update check is the only thing Kyllene fetches from the internet by itself: a static file in the
+      <a href="https://github.com/cpoint-eu/kyllene-releases">releases repository</a>. No data about you is sent.</p>
+  </div>
+</section>
+
+<section id="uninstall">
+  <div class="wrap">
+    <h2>Uninstall</h2>
+    <div class="cmd"><pre><code>curl -fsSL https://raw.githubusercontent.com/cpoint-eu/kyllene-releases/main/install.sh | bash -s -- --uninstall</code></pre></div>
+    <p>This removes the app, its menu entry and icon. <b>Your data stays</b>, so a later install continues where you left off.</p>
+    <details>
+      <summary>Remove everything, including your data</summary>
+      <p>Kyllene's settings, layout and app data:</p>
+      <div class="cmd"><pre><code>rm -rf ~/.local/share/kyllene ~/.local/share/eu.cpoint.kyllene ~/.config/eu.cpoint.kyllene ~/.cache/kyllene ~/.cache/eu.cpoint.kyllene</code></pre></div>
+      <p>Hermes Agent with all its conversations, memory, skills and keys lives in <code>~/.hermes</code>. Delete it only if
+        you do not use Hermes anywhere else (the terminal, Discord…):</p>
+      <div class="cmd"><pre><code>rm -rf ~/.hermes ~/.local/bin/hermes</code></pre></div>
+      <p class="muted">Your project folders are never touched. If you turned on sync, the synced copy stays in your GitHub repository or cloud drive.</p>
+    </details>
+  </div>
+</section>
+
+<section id="troubleshooting">
+  <div class="wrap">
+    <h2>Troubleshooting</h2>
+    <table>
+      <thead><tr><th>Problem</th><th>What to do</th></tr></thead>
+      <tbody>
+        <tr><td>The installer stops with <i>FUSE is missing.</i>, or the AppImage says <i>No suitable fusermount binary found on the $PATH</i></td>
+          <td>Install FUSE and run the installer again: <code>sudo pacman -S fuse3</code> (Manjaro, Arch).</td></tr>
+        <tr><td><i>/dev/fuse is missing</i> (in a container or a VM without FUSE)</td>
+          <td>Start Kyllene as <code>~/.local/bin/Kyllene.AppImage --appimage-extract-and-run</code>.</td></tr>
+        <tr><td>The window stays <b>empty, white or black</b> (often with an NVIDIA graphics card)</td>
+          <td>Start it once from a terminal with WebKit's GPU workaround:
+            <div class="cmd"><pre><code>WEBKIT_DISABLE_DMABUF_RENDERER=1 ~/.local/bin/Kyllene.AppImage</code></pre></div>
+            If it is still empty, try <code>WEBKIT_DISABLE_COMPOSITING_MODE=1</code> instead. Either way, please
+            <a href="https://github.com/cpoint-eu/kyllene-releases/issues">report</a> your graphics card, driver and desktop
+            (GNOME/KDE, Wayland/X11), so it can be fixed for everyone.</td></tr>
+        <tr><td>Kyllene is not in the app menu</td>
+          <td>Run the installer again; it adds the entry <code>~/.local/share/applications/kyllene.desktop</code>. Some desktops show it only after you log out and in.</td></tr>
+        <tr><td>The installer says <i>… belongs to another Kyllene install (built from source?)</i></td>
+          <td>You already have Kyllene built from source. Run the installer with <code>bash -s -- --force</code> only if you want to replace it.</td></tr>
+        <tr><td><i>Hermes could not be started</i></td>
+          <td>Check that Hermes works in a terminal (<code>hermes</code>, or <code>~/.local/bin/hermes</code>), then restart Kyllene. The details on that screen say what failed.</td></tr>
+        <tr><td>The Hermes install from the button fails</td>
+          <td>The window names the failed step and shows the installer's output. Usually it is the network or disk space (it needs about 2.7 GB): fix that and click install again.</td></tr>
+        <tr><td>Conversations start but no answer comes</td>
+          <td>Hermes has no model yet: click <span class="ui">Connect a model</span> in the bar <span class="ui">Hermes has no model connected.</span>, or run <code>hermes setup</code> in a terminal.</td></tr>
+        <tr><td>Dictation does nothing the first time</td>
+          <td>It needs a speech model once: Kyllene offers to download it. Change it later in <b>Settings › Speech to text</b>.</td></tr>
+        <tr><td>Something broke after a Hermes update</td>
+          <td>Kyllene tells you what does not work. Until a new Kyllene is out, you can go back to the Hermes version named in the <a href="https://github.com/cpoint-eu/kyllene-releases/releases">release notes</a> (“Tested with Hermes Agent …”).</td></tr>
+        <tr><td>The window shows only the top bar on a dark background</td>
+          <td>Part of the app crashed. Please <a href="https://github.com/cpoint-eu/kyllene-releases/issues">report it</a> and attach <code>~/.local/share/kyllene/crash-log.json</code>.</td></tr>
+      </tbody>
+    </table>
+    <p>Still stuck? <a href="https://github.com/cpoint-eu/kyllene-releases/issues/new">Open an issue</a> with your distro,
+      desktop, Kyllene version (Settings › About) and what you see.</p>
+  </div>
+</section>
+
+<section id="more">
+  <div class="wrap">
+    <h2>More</h2>
+    <div class="grid">
+      <div class="card"><h3><a href="https://github.com/cpoint-eu/kyllene-releases/blob/main/docs/widgets.md">Build your own widget</a></h3><p>Put anything on screen, with a ready-to-run example. Or let Hermes write it.</p></div>
+      <div class="card"><h3><a href="https://github.com/cpoint-eu/kyllene-releases/blob/main/docs/README.md">Documentation</a></h3><p>All guides in the releases repository.</p></div>
+      <div class="card"><h3><a href="https://github.com/cpoint-eu/kyllene-releases/releases">Release notes</a></h3><p>What changed in each version, and which Hermes it was tested with.</p></div>
+      <div class="card"><h3><a href="https://github.com/cpoint-eu/kyllene-releases/issues">Bugs and ideas</a></h3><p>Report a problem or suggest an improvement (needs a GitHub account).</p></div>
+    </div>
+
+    <h3>FAQ</h3>
+    <p><b>Is it free?</b> Yes.</p>
+    <p><b>How is it different from Hermes Desktop?</b> <a href="https://hermes-agent.nousresearch.com/desktop">Hermes Desktop</a>
+      is the official app by Nous Research and a fine general client. Kyllene is an independent app built around projects
+      and daily work: tasklists, Kanban, git, coding agents, several conversations at once, costs and widgets. Both talk
+      to the same Hermes, so you can use either, or both.</p>
+    <p><b>Where is the source code?</b> It is not public yet. The <a href="https://github.com/cpoint-eu/kyllene-releases">releases repository</a> holds the builds and the issue tracker.</p>
+    <p><b>Support.</b> Kyllene is built in spare time. If it saves you time, you can
+      <a href="https://ko-fi.com/cpointeu">buy me a coffee on Ko-fi</a> ☕</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Kyllene is an independent project, not affiliated with Nous Research. Hermes Agent is a project of Nous Research.</span>
+    <span><a href="https://github.com/cpoint-eu/kyllene-releases">GitHub</a> · <a href="cs/" hreflang="cs" lang="cs">Česky</a></span>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>
