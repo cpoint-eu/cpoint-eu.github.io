@@ -15,6 +15,7 @@
     <a class="brand" href="../"><img src="../media/kyllene.svg" alt="">Kyllene</a>
     <nav>
       <a href="./">Docs</a>
+      <a href="features.html">Features</a>
       <a href="settings.html">Settings</a>
       <a href="hermes.html">Manage Hermes</a>
       <a href="../#install">Install</a>
@@ -39,7 +40,7 @@ composer, live tool activity, approvals in the thread, their slash commands, and
 <p><a href="settings.html#coding-agents">Settings › Coding agents</a> shows for each agent what is ready and what is missing, plus
 its current limits. <strong>Check again</strong> after you install or sign in.</p>
 <h2 id="conversations">Conversations</h2>
-<p>Open <strong>Coding agents</strong> in the left menu. It has three tabs:</p>
+<p>Open <strong>Coding agents</strong> in the left menu. It has four tabs:</p>
 <div class="tbl"><table>
 <thead>
 <tr>
@@ -60,6 +61,10 @@ its current limits. <strong>Check again</strong> after you install or sign in.</
 <td><strong>Running</strong></td>
 <td>Open agent tabs and agents working right now: folder, branch, card or task, state, tokens.</td>
 </tr>
+<tr>
+<td><strong>Loops</strong></td>
+<td>Unattended loops on this computer: round, current step, <em>Pause after the current step</em> / <em>Continue</em> / <em>Stop now</em>. See <a href="#loops">Loops</a>.</td>
+</tr>
 </tbody>
 </table></div>
 <ul>
@@ -67,6 +72,10 @@ its current limits. <strong>Check again</strong> after you install or sign in.</
   subfolders of the <a href="settings.html#coding-agents">folders with projects</a> are offered.</li>
 <li>A conversation from <strong>History</strong> can be <strong>continued in Kyllene</strong> (the next message continues it in the same agent)
   or <strong>taken over into Hermes</strong> (copied into a normal Hermes conversation that Hermes continues).</li>
+<li><strong>Process a tasklist task with …</strong> (palette): pick a project, then one of its open tasklist tasks; the agent starts
+  on it in the project folder. Tasks that wait for unfinished ones are marked.</li>
+<li>Inside a project or in a coding conversation the palette offers <em>New conversation with Claude Code in project …</em>
+  and <em>… in this folder</em>, so you skip the folder picker.</li>
 <li><strong>End process</strong> stops the agent's process and whatever it started; the next message continues the conversation.</li>
 <li><strong>Remote Control</strong> (Claude Code): continue the conversation on claude.ai or in the Claude app on your phone;
   prompts written there show up here. Needs Claude Code's own claude.ai login.</li>
@@ -75,6 +84,26 @@ its current limits. <strong>Check again</strong> after you install or sign in.</
 <p>A <a href="kanban.html">Kanban</a> card can be handed to a coding agent: <strong>Process with …</strong> gives it its own git worktree and
 branch of the project's code repository; the card moves to <em>Running</em> and to <em>Review</em> when the agent finishes.
 <strong>Review with …</strong> lets another agent review that branch read-only and writes its findings into the card's comments.</p>
+<h2 id="loops">Loops</h2>
+<p>A <strong>loop</strong> lets coding agents work through something unattended, in rounds, until a condition says it is done, for
+example "until the tasklist has no open item". It keeps running when you close Kyllene (as a background service of
+your desktop session).</p>
+<ul>
+<li><strong>Where</strong>: <em>Loops</em> in a project's menu (the workflow editor), the <strong>Loops</strong> tab of the Coding agents window (the
+  runs), or the palette <em>Loops: workflow editor</em> / <em>Loops: running loops</em>.</li>
+<li><strong>Editor</strong>: boxes connected with arrows. <em>Start</em>; <em>Step</em> (who works: Claude Code, Codex, a Hermes profile or a
+  shell command, with the task, model, permissions, allowed tools and a time limit); <em>Condition</em> (the tasklist has no
+  open item, a command ends with exit code 0, the last step went fine, the agent asked a question; a <em>yes</em> and a <em>no</em>
+  way); <em>Loop</em> (the safety limits: <em>Max rounds</em>, <em>Max time</em>, <em>Stop after rounds without progress</em>, <em>Max spend</em>,
+  <em>Commit after each round</em>); <em>End</em>. <strong>From template</strong> gives the ready-made <em>Claude Code → finished tasklist</em> (max 10
+  rounds, stops after 2 rounds without progress). <em>Start</em> stays disabled until the workflow is valid (one start,
+  every way ends, every cycle goes through a Loop box).</li>
+<li>The workflow is saved in the project as <code>.kyllene/workflows/&lt;name&gt;.json</code>, so it travels with the project.</li>
+<li><strong>Runs</strong>: round x of max, the current step, time and spend; <em>Pause after the current step</em>, <em>Continue</em>, <em>Stop
+  now</em> and the <em>Log</em> of every step. With <em>Pause when the agent asks</em>, an answer that ends with a question pauses the
+  run and notifies you; your answer goes to the same step again.</li>
+<li>Each round is a fresh, non-interactive run of the agent. Agents in a loop <strong>never push</strong>: <code>git push</code> is denied.</li>
+</ul>
 <h2 id="limits">Limits</h2>
 <p>The <strong>Claude Code</strong> and <strong>OpenAI Codex</strong> widgets show your plan limits with a pace line: is your usage on track to
 last until the reset? They read the logins on this computer; switch them on in the <strong>Widgets</strong> menu.</p>

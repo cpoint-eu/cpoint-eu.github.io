@@ -1,0 +1,1299 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Everything in Kyllene – Kyllene documentation</title>
+<meta name="description" content="A catalog of what the app can do, by area: what each feature is for, where you find it, and the guide that explains it in detail. Lost? Press Ctrl+K and type what you are looking for: the command pale">
+<link rel="icon" type="image/svg+xml" href="../media/kyllene.svg">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="docs">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../"><img src="../media/kyllene.svg" alt="">Kyllene</a>
+    <nav>
+      <a href="./">Docs</a>
+      <a href="features.html">Features</a>
+      <a href="settings.html">Settings</a>
+      <a href="hermes.html">Manage Hermes</a>
+      <a href="../#install">Install</a>
+    </nav>
+    <a class="lang" href="https://github.com/cpoint-eu/kyllene-releases/blob/main/docs/features.md">Edit on GitHub</a>
+  </div>
+</header>
+
+<main class="wrap doc">
+<h1 id="everything-in-kyllene">Everything in Kyllene</h1>
+<p>A catalog of what the app can do, by area: what each feature is for, where you find it, and the guide that explains
+it in detail. Lost? Press <code>Ctrl+K</code> and type what you are looking for: the <strong>command palette</strong> runs every command
+listed here (the names in <em>italics</em> below are exactly what the palette shows), and from two letters on it also
+searches your conversations, tasklists, Kanban cards, project files and memory.</p>
+<p><strong>Areas:</strong> <a href="#conversations-and-the-thread">Conversations</a> · <a href="#activity">Activity</a> ·
+<a href="#the-message-box-and-commands">Writing a message</a> · <a href="#attachments">Attachments</a> ·
+<a href="#prompt-templates">Prompt templates</a> · <a href="#continue-later-later">Continue later</a> · <a href="#bookmarks-and-pins">Bookmarks</a> ·
+<a href="#compare-models">Compare models</a> · <a href="#choosing-a-model">Choosing a model</a> · <a href="#windows-and-layout">Windows and layout</a> ·
+<a href="#left-menu-and-navigation">Left menu</a> · <a href="#top-menu">Top menu</a> · <a href="#palette-and-search">Palette and search</a> ·
+<a href="#overview-today-and-timeline">Overview</a> · <a href="#projects">Projects</a> · <a href="#kanban">Kanban</a> ·
+<a href="#agents-rooms-and-delegated-agents">Agents and rooms</a> · <a href="#coding-agents">Coding agents</a> · <a href="#widgets">Widgets</a> ·
+<a href="#voice">Voice</a> · <a href="#quick-capture">Quick capture</a> · <a href="#servers-and-gateway">Servers and Gateway</a> ·
+<a href="#safety-and-approvals">Safety</a> · <a href="#notifications-and-the-bell">Notifications</a> · <a href="#achievements">Achievements</a> ·
+<a href="#appearance-and-themes">Look</a> · <a href="#sync-backups-and-clean-up">Sync and backups</a> · <a href="#managing-hermes">Hermes</a> ·
+<a href="#updates-help-and-first-start">Updates and help</a></p>
+<p>How to read the tables: <strong>Where</strong> gives the path in the app (› = then click), the keyboard shortcut if there is one,
+and the palette command. Every shortcut in one list: <a href="shortcuts.html">Keyboard shortcuts</a>.</p>
+<h2 id="conversations-and-the-thread">Conversations and the thread</h2>
+<p>A conversation is a chat with Hermes (or one of your <a href="#agents-rooms-and-delegated-agents">agents</a>). Answers stream
+live and render tables, Mermaid diagrams, charts and syntax-highlighted code.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>What it is for</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>New conversation</td>
+<td>Start a chat. Inside a project or an agent (left menu) it starts there, with that folder or agent.</td>
+<td><strong>+</strong> in the tab strip or the left menu, <code>Ctrl+N</code> / <code>Ctrl+T</code>, palette <em>New conversation</em>; with an agent: <em>New conversation with Builder</em> (one command per agent)</td>
+</tr>
+<tr>
+<td>Close conversation</td>
+<td>Close the tab; the conversation stays in the list and keeps running if it is working.</td>
+<td>✕ on the tab, <code>Ctrl+W</code>, palette <em>Close conversation</em></td>
+</tr>
+<tr>
+<td>All conversations</td>
+<td>Every conversation without a project, by day, with search: open, rename, move, delete.</td>
+<td>Left menu › <em>Conversations</em>, Top menu › Work › <em>Conversations</em>, palette <em>All conversations</em></td>
+</tr>
+<tr>
+<td>Rename</td>
+<td>Give the conversation a title.</td>
+<td>Double-click the tab, or the conversation's row in the left menu</td>
+</tr>
+<tr>
+<td>Move to a project or agent</td>
+<td>Put a conversation into a project (its folder and instructions apply) or hand it to another agent (its model, personality and skills continue it).</td>
+<td>Click the project label on the tab, drag the conversation onto a project, or ⋯ <em>Conversation tools</em> › <em>Move to project…</em></td>
+</tr>
+<tr>
+<td>Delete conversation</td>
+<td>Delete it from Hermes for good (asks first).</td>
+<td><em>Delete conversation</em> at the end of the bar under the message box, or the conversation's row in the left menu</td>
+</tr>
+<tr>
+<td>Delete old conversations</td>
+<td>Preview which old conversations would go, then delete them in one go.</td>
+<td>Palette <em>Delete old conversations…</em>; automatic deletion: <a href="settings.html#automatic-deletion">Settings › Automatic deletion</a>, palette <em>Settings: automatic deletion</em></td>
+</tr>
+<tr>
+<td>Stop</td>
+<td>Stop the running answer; <em>Stop all running conversations (3)</em> stops every busy conversation at once.</td>
+<td><code>Esc</code> in the message box, the stop button, the status bar; palette <em>Stop all running conversations (n)</em> (shown while something runs)</td>
+</tr>
+<tr>
+<td>Edit and resend</td>
+<td>Rewrite one of your messages and send it again (later answers go away).</td>
+<td>Hover your message › <em>Rewrite this message and send it again</em></td>
+</tr>
+<tr>
+<td>Branch</td>
+<td>A new conversation with everything before a message, that message ready to edit; the original stays.</td>
+<td>Hover your message › <em>New conversation with everything before this message</em></td>
+</tr>
+<tr>
+<td>Copy</td>
+<td>Copy one code block, the whole conversation, or the n-th answer.</td>
+<td><em>copy</em> on a code block; palette <em>Conversation: copy as Markdown</em>; <code>/copy</code></td>
+</tr>
+<tr>
+<td>Undo file changes</td>
+<td>Put files an answer changed back the way they were (Hermes' checkpoints, kept 7 days).</td>
+<td><em>Undo file changes</em> under an answer that changed files</td>
+</tr>
+<tr>
+<td>Diagrams</td>
+<td>Edit a Mermaid diagram from an answer as a draggable canvas or as Excalidraw and save it into the project.</td>
+<td><em>edit &amp; save</em> on a diagram; keys: <a href="shortcuts.html#diagram-canvas">shortcuts › Diagram</a></td>
+</tr>
+<tr>
+<td>Conversation details</td>
+<td>Context window used (with a breakdown: system prompt, tools, skills, memory…), tokens, cache hits, cost at API prices, speed, compressions, running sub-agents, time since the last answer, folder and git branch.</td>
+<td>The bar under the message box; click any value for <em>Conversation details</em></td>
+</tr>
+<tr>
+<td>Context and compression</td>
+<td>See what fills the context and compress the conversation when it gets long.</td>
+<td>⋯ <em>Conversation tools</em> › <em>Context and compression…</em>, palette <em>Conversation: context and compression</em></td>
+</tr>
+<tr>
+<td>Export</td>
+<td>Save the conversation as Markdown, HTML or PDF.</td>
+<td>⋯ <em>Conversation tools</em> › <em>Save as …</em>, palette <em>Conversation: save as Markdown</em> / <em>Conversation: save as HTML</em> / <em>Conversation: save as PDF</em></td>
+</tr>
+<tr>
+<td>Hand over</td>
+<td>A handoff document for a person or another AI: asks who it is for and what to include.</td>
+<td>⋯ <em>Conversation tools</em> › <em>Hand over (/handover)</em>, palette <em>Conversation: hand over (/handover)</em></td>
+</tr>
+<tr>
+<td>Carry into a new conversation</td>
+<td>Picked messages, word for word or as an AI summary, start a new conversation, also in another project, agent or model.</td>
+<td>⋯ <em>Conversation tools</em> › <em>Carry into a new conversation…</em>, palette <em>Conversation: carry into a new conversation…</em></td>
+</tr>
+<tr>
+<td>Terminal view</td>
+<td>Show the same conversation in the real Hermes terminal (TUI), with everything the terminal can do, and back.</td>
+<td><em>Terminal</em> in the bar under the message box, <code>Ctrl+`</code>, palette <em>Conversation ⇄ terminal (Hermes TUI)</em></td>
+</tr>
+<tr>
+<td>Questions with choices</td>
+<td>When the agent asks, the question shows as a card with clickable answers.</td>
+<td>In the thread; also in the <a href="#notifications-and-the-bell">bell</a> and in <a href="#overview-today-and-timeline">Today</a></td>
+</tr>
+<tr>
+<td>Background processes</td>
+<td>Commands the agent left running in the background: a strip shows them; click for the last output lines and <em>Stop</em>. When one finishes, Hermes' reaction shows as a grey note, not as a new answer.</td>
+<td>The strip above the message box, palette <em>Background processes of the conversation</em></td>
+</tr>
+<tr>
+<td>Side questions</td>
+<td><code>/btw &lt;question&gt;</code>: a quick side question while the work goes on; <code>/bg &lt;prompt&gt;</code>: a task in a separate session whose result comes back here.</td>
+<td>Type the command in the message box</td>
+</tr>
+<tr>
+<td>Self-improvement notes</td>
+<td>When Hermes changes its own skills or memory after a turn, a small note says what changed, with a link to the skill.</td>
+<td>In the thread after the turn</td>
+</tr>
+<tr>
+<td>Stuck conversation</td>
+<td>When Hermes shows no sign of life for minutes, a bar offers <em>Stop and send again</em>.</td>
+<td>In the thread</td>
+</tr>
+<tr>
+<td>Keeps running</td>
+<td>A conversation keeps running when you close the app; on the next start it reconnects and shows what happened. Drafts and unsent attachments survive restarts.</td>
+<td>Automatic</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="activity">Activity</h2>
+<p>Every tool call the agent makes, live: what ran, how long it took and what it returned. Delegated agents and the
+agent's browser show here too.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>What it is for</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Activity row</td>
+<td>One line per turn in the thread with what the agent is doing right now.</td>
+<td>In the thread, above the answer</td>
+</tr>
+<tr>
+<td>Activity panel</td>
+<td>The full list of tool calls of a turn on the side; <em>Previous turn</em> / <em>Next turn</em>, <em>↓ latest</em>.</td>
+<td>Click the Activity row (<em>Open in the Activity panel</em>), <code>Ctrl+Shift+F9</code>, palette <em>Activity: toggle panel</em>; resize with the arrow keys (<a href="shortcuts.html#activity-panel-edge-focused">shortcuts</a>)</td>
+</tr>
+<tr>
+<td>In place</td>
+<td>Unfold the tool calls right in the conversation instead of the panel.</td>
+<td><em>Unfold here in the conversation</em> on the row; default in <a href="settings.html#appearance">Settings › Appearance</a></td>
+</tr>
+<tr>
+<td>Agent's browser</td>
+<td>Watch the agent's browser live while it works on a web page; <em>Stop the agent</em> from there.</td>
+<td>Right panel (opens by itself, <a href="settings.html#appearance">Settings › Appearance</a>), the globe next to the Activity row, palette <em>Agent's browser</em> / <em>Hide the agent's browser</em></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="the-message-box-and-commands">The message box and commands</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>What it is for</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Write and send</td>
+<td><code>Enter</code> sends, <code>Shift+Enter</code> = new line. A message sent while an answer runs waits for it, steers the running turn or interrupts it, as <code>/busy queue</code>, <code>/busy steer</code> or <code>/busy interrupt</code> sets; waiting messages show as <em>Queued: 2</em> and can be cancelled.</td>
+<td>The message box; <code>Ctrl+L</code> or palette <em>Write into the conversation</em> puts the cursor there</td>
+</tr>
+<tr>
+<td>Slash commands</td>
+<td>Hermes' commands and skills with suggestions as you type <code>/</code>. Kyllene adds its own: <code>/later</code>, <code>/compare</code>, <code>/widget</code>, <code>/queue</code>, <code>/steer</code>.</td>
+<td>Type <code>/</code> in the message box; palette <em>Search commands</em>, or <code>/</code> in the palette</td>
+</tr>
+<tr>
+<td>Command prefix</td>
+<td>Prefix one message with a command or skill picked from a list; resets after sending.</td>
+<td><em>No command</em> chip in the toolbar under the message box</td>
+</tr>
+<tr>
+<td>Model and thinking</td>
+<td>Switch the model of this conversation and how hard it thinks (this conversation only).</td>
+<td>Model chip and thinking chip under the message box, palette <em>Switch model of this conversation</em>; see <a href="#choosing-a-model">Choosing a model</a></td>
+</tr>
+<tr>
+<td>Ask another agent</td>
+<td>Send a question to another of your agents; it runs as that agent's own conversation in the background and the answer comes back as a card (<em>Pass the answer into the conversation</em>).</td>
+<td><em>Ask another agent</em> under the message box; overview in Top menu › Agents › <em>Agent calls</em></td>
+</tr>
+<tr>
+<td>Tidy up the text</td>
+<td>Fix typos, punctuation and dictation mistakes in the selection, the last dictation or the whole draft; <em>Restore original</em> undoes it.</td>
+<td><em>Tidy up the text</em> under the message box, <code>Ctrl+Shift+E</code>, palette <em>Tidy up the message text</em> / <em>Restore original</em></td>
+</tr>
+<tr>
+<td>Goal</td>
+<td><code>/goal</code> gives the conversation a goal Hermes keeps working towards; a chip shows its state and verdict.</td>
+<td>Type <code>/goal &lt;what&gt;</code></td>
+</tr>
+<tr>
+<td>Remember</td>
+<td>Save an answer to the project memory (in a project) or to a memory tool you set, optionally with a note.</td>
+<td><em>Remember in the project memory</em> on a message (<em>More ways to remember</em> for a note), palette <em>Remember the latest answer</em>; the memory tool: <a href="settings.html#projects">Settings › Projects</a></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="attachments">Attachments</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>What it is for</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Attach files</td>
+<td>Send files with the next message.</td>
+<td><em>Attach files</em> under the message box, or drag files into the conversation</td>
+</tr>
+<tr>
+<td>Paste an image</td>
+<td>A screenshot or picture from the clipboard becomes an attachment.</td>
+<td><code>Ctrl+V</code> in the message box</td>
+</tr>
+<tr>
+<td>PDFs</td>
+<td>The agent reads a PDF's text; one click sends its pages as images instead (scans, charts, layout).</td>
+<td>The <em>as text</em> / <em>pages</em> chip on an attached PDF</td>
+</tr>
+<tr>
+<td>Files from answers</td>
+<td>Files the agent created open in the right panel: preview, source, <em>Edit</em>, <em>Open in the system app</em>, <em>Download</em>.</td>
+<td>Click the file in the answer</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="prompt-templates">Prompt templates</h2>
+<p>Saved prompts you start with one click; <code>{{Name}}</code> in a template asks for a value first.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>What it is for</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Run a template</td>
+<td>Start a saved prompt in the current (empty) conversation or a new one.</td>
+<td>Palette <em>Template: Summary</em> (one command per template, named <em>Template: name</em>), or the templates list in an empty conversation</td>
+</tr>
+<tr>
+<td>Manage templates</td>
+<td>Create, edit, delete; the three built-in examples go away once you make your own list.</td>
+<td><a href="settings.html#prompt-templates">Settings › Prompt templates</a>, palette <em>Prompt templates…</em> / <em>New prompt template</em></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="continue-later-later">Continue later (<code>/later</code>)</h2>
+<p>Let a conversation continue by itself later, even with the app closed (while the computer is on).</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>What it is for</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>At a time</td>
+<td><code>/later 22:00</code>, <code>/later in 2 hours check the build</code>, <code>/later tomorrow morning</code>: the message (or a plain „continue“) is sent at that time.</td>
+<td>Type <code>/later</code> in the message box, or ⋯ <em>Conversation tools</em> › <em>Continue later…</em> (<em>In an hour</em>, <em>This evening</em>, <em>Tomorrow morning</em>), palette <em>Continue later…</em></td>
+</tr>
+<tr>
+<td>When a process ends</td>
+<td>Continue when a background process of the conversation (a build) finishes.</td>
+<td><code>/later when done [what to continue with]</code>, <em>Continue later…</em> › <em>When a process finishes</em></td>
+</tr>
+<tr>
+<td>List and cancel</td>
+<td>What is scheduled in this conversation; cancel one.</td>
+<td>Palette <em>Scheduled continuations</em>, <code>/later list</code>, <code>/later cancel &lt;id&gt;</code></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="bookmarks-and-pins">Bookmarks and pins</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>What it is for</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bookmark a message</td>
+<td>Keep important messages across all conversations, with a label and a note.</td>
+<td><em>Add to bookmarks</em> on a message (<em>More bookmark actions</em> for a label and a note), palette <em>Add the last answer to bookmarks</em></td>
+</tr>
+<tr>
+<td>Bookmarks window</td>
+<td>All bookmarks, searchable; per project too.</td>
+<td>Left menu › <em>Bookmarks</em>, the project menu › <em>Bookmarks</em>, <code>Ctrl+Shift+D</code>, palette <em>Bookmarks</em> / <em>Bookmarks: project</em></td>
+</tr>
+<tr>
+<td>Pin in conversation</td>
+<td>Up to 10 messages per conversation stay reachable from a strip at the top of the thread.</td>
+<td><em>Pin in conversation</em> on a message, palette <em>Pin the last answer</em></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="compare-models">Compare models</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>What it is for</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Model comparison</td>
+<td>Send one prompt to 2–4 models side by side (read-only: web and images only), then continue with the best answer.</td>
+<td><code>/compare</code>, palette <em>Compare models</em></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="choosing-a-model">Choosing a model</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>What it is for</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Model picker</td>
+<td>Every model of every provider Hermes knows: favourites first, then the detailed choice with search, description, price, context window, capabilities and benchmark classes.</td>
+<td>Model chip under the message box, palette <em>Switch model of this conversation</em></td>
+</tr>
+<tr>
+<td>Thinking</td>
+<td>How hard the model thinks, per conversation.</td>
+<td>Thinking chip next to the model</td>
+</tr>
+<tr>
+<td>Defaults</td>
+<td>The model for new conversations, backup models, the provider per model maker.</td>
+<td><a href="settings.html#models">Settings › Models</a>, palette <em>Settings › Models</em>; providers: <a href="hermes.html#models--providers">Hermes › Models &amp; providers</a></td>
+</tr>
+<tr>
+<td>Limits</td>
+<td>Plan limits of the current provider (session, week) with the time to reset.</td>
+<td>Bottom of the left menu (<em>Limits · provider</em>); click for models and providers</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="windows-and-layout">Windows and layout</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>What it is for</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tabs, side by side, free windows</td>
+<td>Several conversations at once: tabs, a grid (2–4 side by side or stacked) or free windows you move and resize.</td>
+<td><em>Layout</em> button in the tab strip, palette <em>Layout: tabs</em> / <em>Layout: side by side</em> / <em>Layout: free windows</em></td>
+</tr>
+<tr>
+<td>Switch and move tabs</td>
+<td>Go to the next, previous or n-th conversation; move a tab; drag tabs to reorder.</td>
+<td><code>Ctrl+Tab</code>, <code>Ctrl+1</code>…<code>Ctrl+9</code>, <code>Ctrl+Shift+PageUp</code>/<code>PageDown</code></td>
+</tr>
+<tr>
+<td>Conversation in its own window</td>
+<td>Pop a conversation out into a separate window (for another monitor); <em>Bring all windows back</em>.</td>
+<td>⋯ <em>Conversation tools</em> › <em>Open in a new window</em>, palette <em>Open conversation in a new window</em> / <em>Bring all conversation windows back</em>; the <em>n in windows</em> chip</td>
+</tr>
+<tr>
+<td>Hide panels</td>
+<td>Hide the left menu or the right panel behind the edge (they slide out on hover) or pin them again.</td>
+<td><code>Ctrl+B</code>, <code>Ctrl+.</code>, palette <em>Hide the left menu</em> / <em>Pin the left menu</em>, <em>Hide the right panel</em> / <em>Pin the right panel</em></td>
+</tr>
+<tr>
+<td>Right panel</td>
+<td>Widgets, an opened file, project outputs, the Git panel or the agent's browser: one at a time.</td>
+<td>Right side of the window; see <a href="#widgets">Widgets</a> and <a href="#projects">Projects</a></td>
+</tr>
+<tr>
+<td>Layouts</td>
+<td>Saved arrangements of the whole app: which parts show where (menus, bars, widgets); switch between them.</td>
+<td><em>Layout: presets, edit, new</em> in the top bar, palette <em>Edit layout</em> / <em>New layout</em> / <em>Layout: Default</em> (one command per layout, <em>Layout: name</em>)</td>
+</tr>
+<tr>
+<td>Edit layout</td>
+<td>Hide (eye) or drag (grip) any part: status bar parts, toolbar buttons, widgets, top-menu widgets.</td>
+<td>Palette <em>Edit layout</em>; <code>Esc</code> finishes</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="left-menu-and-navigation">Left menu and navigation</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Entry</th>
+<th>What it is for</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>New conversation / on a server</td>
+<td>A new conversation here, or on one of your <a href="#servers-and-gateway">servers</a>.</td>
+<td><strong>+</strong> buttons at the top of the left menu</td>
+</tr>
+<tr>
+<td>Overview</td>
+<td>The dashboard: usage, costs, running work, Kanban.</td>
+<td>Left menu › <em>Overview</em>, palette <em>Overview (dashboard)</em></td>
+</tr>
+<tr>
+<td>Conversations</td>
+<td>All conversations by day, with search.</td>
+<td>Left menu › <em>Conversations</em></td>
+</tr>
+<tr>
+<td>Bookmarks</td>
+<td>Bookmarked messages across conversations.</td>
+<td>Left menu › <em>Bookmarks</em></td>
+</tr>
+<tr>
+<td>Projects</td>
+<td>The list of projects in the menu; a click opens a project's own menu.</td>
+<td>Left menu › <em>Projects</em>, palette <em>Projects (2)</em></td>
+</tr>
+<tr>
+<td>Kanban</td>
+<td>All boards; the number = unfinished cards and how many run now.</td>
+<td>Left menu › <em>Kanban</em>, palette <em>Kanban: all boards</em></td>
+</tr>
+<tr>
+<td>Agents</td>
+<td>Your agents (Hermes profiles) by category; a click shows the agent and its conversations.</td>
+<td>Left menu › <em>Agents</em>, palette <em>Agents (3)</em></td>
+</tr>
+<tr>
+<td>Rooms</td>
+<td>Rooms where several agents talk with you.</td>
+<td>Left menu › <em>Rooms</em>, palette <em>Agent rooms</em></td>
+</tr>
+<tr>
+<td>Coding agents</td>
+<td>Claude Code and Codex: their conversations, history, running agents, loops.</td>
+<td>Left menu › <em>Coding agents</em>, palette <em>Coding agents</em></td>
+</tr>
+<tr>
+<td>Gateway</td>
+<td>Threads from Discord, Telegram and other channels as conversations (shown when Hermes has some).</td>
+<td>Left menu › <em>Gateway</em>, palette <em>Gateway – conversations from channels (Discord, Telegram…)</em></td>
+</tr>
+<tr>
+<td>Automation</td>
+<td>Cron jobs: scheduled tasks and their runs.</td>
+<td>Left menu › <em>Automation</em>, Top menu › Work › <em>Automation</em></td>
+</tr>
+<tr>
+<td>Favourites</td>
+<td>Projects and conversations you starred, at the top of the menu.</td>
+<td><em>Add to favourites</em> on a project or conversation in the left menu</td>
+</tr>
+<tr>
+<td>Project menu</td>
+<td>Inside a project: <em>Overview</em>, <em>Conversations</em>, <em>Files</em>, <em>Git</em>, <em>Outputs</em>, <em>Tasklists</em>, <em>Bookmarks</em>, <em>Kanban</em>, <em>Loops</em> and widgets you added.</td>
+<td>Click a project in the left menu; <strong>‹ Back</strong> returns. See <a href="#projects">Projects</a></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="top-menu">Top menu</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Menu</th>
+<th>What is in it</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Work</td>
+<td><em>Conversations</em>, <em>New project</em>, <em>Kanban</em>, <em>Automation</em>, your first projects, the last conversation.</td>
+<td>Top bar › <em>Work</em>, palette <em>Menu: Work</em></td>
+</tr>
+<tr>
+<td>Agents</td>
+<td>Tab <em>Agents</em>: <em>New agent</em>, <em>Agent calls</em> (who asked whom and what), your agents by category (a click starts a conversation), <em>Manage agents</em>. Tab <em>Rooms</em>: your rooms, <em>New room</em>, <em>Quick room</em>, <em>All rooms (1)</em>.</td>
+<td>Top bar › <em>Agents</em>, palette <em>Menu: Agents</em></td>
+</tr>
+<tr>
+<td>Hermes</td>
+<td><em>Skills</em>, <em>MCP servers</em>, <em>Plugins</em>, <em>Models &amp; providers</em>, <em>Keys</em>, <em>Cron jobs</em>, <em>Memory</em>, <em>Logs</em>, <em>System</em>, <em>Open management</em>. See <a href="#managing-hermes">Managing Hermes</a>.</td>
+<td>Top bar › <em>Hermes</em>, palette <em>Menu: Hermes</em></td>
+</tr>
+<tr>
+<td>Widgets</td>
+<td><em>Overview</em> and every widget by group; a click shows a widget or puts a closed one back.</td>
+<td>Top bar › <em>Widgets</em>; see <a href="#widgets">Widgets</a></td>
+</tr>
+<tr>
+<td>Help</td>
+<td><em>Documentation</em>, <em>What's new</em>, <em>Check for updates</em>, <em>Report a bug</em>, <em>Suggest an improvement</em>, <em>About</em>, <em>Support development ☕</em>.</td>
+<td>Top bar › <em>Help</em>, palette <em>Menu: Help</em>; see <a href="#updates-help-and-first-start">Updates and help</a></td>
+</tr>
+<tr>
+<td>Your widgets in a menu</td>
+<td>Put any widget into the Work, Agents or Hermes menu as a live link.</td>
+<td>In <em>Edit layout</em> › <em>+ Widget</em> at the bottom of the menu</td>
+</tr>
+</tbody>
+</table></div>
+<p>Keyboard in the top menu: <a href="shortcuts.html#top-menu-work--agents--hermes">shortcuts › Top menu</a>.</p>
+<h2 id="palette-and-search">Palette and search</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>What it is for</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Command palette</td>
+<td>Every command, conversation, project, agent, widget and template in one searchable list; accents and word order do not matter.</td>
+<td><code>Ctrl+K</code>, the search field in the top bar</td>
+</tr>
+<tr>
+<td>Search everywhere</td>
+<td>From two letters on: message content of all agents, tasklists, project files, Kanban cards and memory, also on your servers. A click opens the exact place.</td>
+<td>Type into the palette</td>
+</tr>
+<tr>
+<td>Hermes commands</td>
+<td><code>/</code> in the palette lists the active conversation's commands and skills.</td>
+<td><code>Ctrl+K</code>, then <code>/</code></td>
+</tr>
+<tr>
+<td>New task in Inbox</td>
+<td>Write a task into the Kanban Inbox without leaving what you do (parked, nothing starts it).</td>
+<td>Palette <em>New task in Inbox</em></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="overview-today-and-timeline">Overview, Today and Timeline</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>What it is for</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Overview</td>
+<td>A dashboard of cards: tokens, value at API prices, conversations, finished tasks, usage over time, by model, running and recent work, Kanban, cost breakdown, limits. Pick the period (7, 30, 90 days; daily or weekly) and <em>All devices</em>.</td>
+<td>Left menu › <em>Overview</em>, Top menu › Widgets › <em>Overview</em>, palette <em>Overview (dashboard)</em></td>
+</tr>
+<tr>
+<td>Tabs</td>
+<td><em>Today</em>, <em>Summary</em>, <em>Costs</em>, <em>Agents</em> (table per agent), <em>Projects</em> (table per project + Kanban), <em>Timeline</em>.</td>
+<td>Tabs at the top of the Overview</td>
+</tr>
+<tr>
+<td>Today</td>
+<td>What waits for you (approvals, questions, reviews, blocked cards), what is in progress (tasklist items, Kanban cards), last night's scheduled jobs, plus calendar and tasks widgets.</td>
+<td>Overview › <em>Today</em></td>
+</tr>
+<tr>
+<td>Timeline</td>
+<td>What Hermes, your agents, coding agents, cron jobs, Kanban runs (and servers, n8n) did, with the cost of each entry; filter by agent, provider, project, day or range.</td>
+<td>Overview › <em>Timeline</em>, palette <em>Timeline: what Hermes did</em></td>
+</tr>
+<tr>
+<td>Cards as widgets</td>
+<td>Each card is a widget: show one in its own window or add it elsewhere.</td>
+<td>Overview › <em>Edit</em> (hide, reorder, resize, <em>Add widget</em>), palette <em>Widget: Tokens</em> (one command per card, <em>Widget: name</em>)</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="projects">Projects</h2>
+<p>A project is a folder with its conversations, files, instructions, memory, tasklists and Kanban board. Guide:
+<a href="projects.html">Projects and tasklists</a>.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>What it is for</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>New project</td>
+<td>Create a project (new or existing folder).</td>
+<td><strong>+</strong> next to <em>Projects</em> in the left menu, Top menu › Work › <em>New project</em>, palette <em>New project</em></td>
+</tr>
+<tr>
+<td>Project overview</td>
+<td>Everything about the project in one place: conversations, files with their origin, tasklists, Kanban, tokens, models.</td>
+<td><em>Project overview</em> next to the project, project menu › <em>Overview</em> (<a href="projects.html#project-overview">guide</a>)</td>
+</tr>
+<tr>
+<td>Edit project</td>
+<td><em>Basics</em> (code repository, file-write review, safety mode), <em>Look</em>, <em>Instructions</em> (default agent), <em>Memory</em>, <em>Files</em>, <em>Tasklists</em>, <em>Storage</em>, <em>Sensitive data</em>.</td>
+<td>⋯ › <em>Edit project</em> (<a href="projects.html#the-project-window">guide</a>)</td>
+</tr>
+<tr>
+<td>Files</td>
+<td>Browse and preview the project's files in the right panel.</td>
+<td>Project menu › <em>Files</em></td>
+</tr>
+<tr>
+<td>Tasklists</td>
+<td>Markdown checklists the agent reads and ticks; edit like a document, <em>Ask AI…</em> on a task, <em>Send to Kanban</em>, <em>Tasklist by AI…</em>.</td>
+<td>Project menu › <em>Tasklists</em> (<a href="projects.html#tasklists">guide</a>)</td>
+</tr>
+<tr>
+<td>Outputs</td>
+<td>A gallery of what agents made in the project: HTML, images, diagrams, PDFs, documents.</td>
+<td>Project menu › <em>Outputs</em>, <code>Ctrl+Shift+O</code>, palette <em>Project outputs</em> / <em>Close project outputs</em></td>
+</tr>
+<tr>
+<td>Git</td>
+<td>Changes with diffs, an AI commit message, branches, pull and push, each write confirmed first.</td>
+<td>Project menu › <em>Git</em>, palette <em>Git: project</em> (<a href="projects.html#outputs-git-and-focus">guide</a>)</td>
+</tr>
+<tr>
+<td>Focus mode</td>
+<td>Narrow the app to one project; other conversations keep running hidden, their notifications wait in the bell.</td>
+<td>⋯ › <em>Focus mode</em>, <code>Ctrl+Shift+F</code>, palette <em>Focus mode: project</em> / <em>End focus mode (project)</em></td>
+</tr>
+<tr>
+<td>Project agents</td>
+<td>Agents that belong to one project and work in its folder.</td>
+<td>The project's Agents section in the left menu (+)</td>
+</tr>
+<tr>
+<td>Move to a server</td>
+<td>Copy a project with its conversations to one of your servers.</td>
+<td><em>Edit project</em> › <em>Move to a server…</em> (when you have a server)</td>
+</tr>
+<tr>
+<td>Delete project</td>
+<td>Deletes for good, also on your other computers; shows what goes first and asks for the name.</td>
+<td>⋯ › <em>Delete project…</em>, palette <em>Project: delete… – project</em> (<a href="projects.html#move-archive-and-delete">guide</a>)</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="kanban">Kanban</h2>
+<p>Hand work to agents as cards; they run in the background, ask when stuck, and you review. Guide: <a href="kanban.html">Kanban</a>.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>What it is for</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Boards</td>
+<td>One board per project plus the shared <em>Inbox</em>.</td>
+<td>Left menu › <em>Kanban</em>, project menu › <em>Kanban</em>, palette <em>Kanban: all boards</em> / <em>Kanban: project</em></td>
+</tr>
+<tr>
+<td>Cards and runs</td>
+<td>Create, assign, drag between columns; follow a run live or in its own window.</td>
+<td>On the board; <code>Ctrl+Shift+R</code> / palette <em>Open card run – card</em> opens the last run (<a href="kanban.html#working-with-cards">guide</a>)</td>
+</tr>
+<tr>
+<td>Answer a question</td>
+<td>A blocked card shows the agent's question; <em>Answer and resume</em>.</td>
+<td>Card detail; also in the bell and in Today</td>
+</tr>
+<tr>
+<td>Process with a Hermes agent</td>
+<td>Pick a card and hand it to an agent.</td>
+<td>Palette <em>Process a card with a Hermes agent…</em></td>
+</tr>
+<tr>
+<td>Review</td>
+<td>Let another agent review a finished card.</td>
+<td>Palette <em>Review a card with …</em></td>
+</tr>
+<tr>
+<td>Clean up</td>
+<td>Delete archived cards older than a set age.</td>
+<td><em>Archived</em> column header, palette <em>Kanban: clean up the archive</em> (<a href="kanban.html#old-cards">guide</a>)</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="agents-rooms-and-delegated-agents">Agents, rooms and delegated agents</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>What it is for</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Agents</td>
+<td>Hermes profiles with their own model, personality, skills, memory and cron jobs, grouped in categories.</td>
+<td>Left menu › <em>Agents</em>, Top menu › Agents</td>
+</tr>
+<tr>
+<td>New agent</td>
+<td>A wizard: name, purpose, personality, groups.</td>
+<td>Top menu › Agents › <em>New agent</em>, palette <em>New agent</em>; details: <a href="hermes.html#profiles">Hermes › Profiles</a></td>
+</tr>
+<tr>
+<td>Agent window</td>
+<td><em>Basics</em>, <em>Skills</em>, <em>Memory</em>, <em>Cron</em>, <em>Groups</em>, <em>Project</em>, <em>Look</em>, <em>Calls</em>.</td>
+<td><em>Agent settings</em> next to an agent in the left menu, Top menu › Agents › <em>Manage agents</em></td>
+</tr>
+<tr>
+<td>Categories</td>
+<td>Fold agents into categories in the menus; drag a category header to reorder.</td>
+<td><em>Categories…</em> on an agent</td>
+</tr>
+<tr>
+<td>Rooms</td>
+<td>A named room with 2–6 agents: everyone answers your message and they may discuss; <code>@name</code> addresses one.</td>
+<td>Left menu › <em>Rooms</em>, palette <em>Agent rooms</em> / <em>New room</em></td>
+</tr>
+<tr>
+<td>Quick room</td>
+<td>Just pick agents and write; keep it as a named room later.</td>
+<td>Top menu › Agents › Rooms › <em>Quick room</em>, palette <em>Quick room</em></td>
+</tr>
+<tr>
+<td>Agent calls</td>
+<td>Which agent asked which, and what.</td>
+<td>Top menu › Agents › <em>Agent calls</em></td>
+</tr>
+<tr>
+<td>Delegated agents</td>
+<td>When Hermes delegates work to sub-agents, each shows as a card in the thread with its state, tools and result; send it a message while it runs.</td>
+<td>In the thread</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="coding-agents">Coding agents</h2>
+<p>Claude Code and OpenAI Codex inside the app, with approvals, their slash commands and history. Guide:
+<a href="coding-agents.html">Coding agents</a>.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>What it is for</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Coding agents window</td>
+<td>Tabs <em>In Kyllene</em>, <em>Running</em>, <em>Loops</em>, <em>History</em>.</td>
+<td>Left menu › <em>Coding agents</em>, palette <em>Coding agents</em> / <em>Coding agents history (Claude Code, Codex)</em> / <em>Coding agents: who works on what</em></td>
+</tr>
+<tr>
+<td>New conversation</td>
+<td>Claude Code or Codex in a folder you pick.</td>
+<td>Palette <em>New coding-agent conversation (Claude Code, Codex)…</em>, <em>New conversation with Claude Code in project project</em>, <em>New conversation with Claude Code in this folder (folder)</em></td>
+</tr>
+<tr>
+<td>Process a tasklist task</td>
+<td>Pick an open task of a project; the agent starts on it in the project folder.</td>
+<td>Palette <em>Process a tasklist task with Claude Code…</em> (one per agent)</td>
+</tr>
+<tr>
+<td>Remote Control</td>
+<td>Continue a Claude Code conversation on claude.ai or your phone.</td>
+<td>Palette <em>Remote Control: continue this conversation on claude.ai / phone</em> / <em>Remote Control: turn off</em></td>
+</tr>
+<tr>
+<td>Setup</td>
+<td>What each agent needs (installed, signed in, provider) and its limits.</td>
+<td><a href="settings.html#coding-agents">Settings › Coding agents</a>, palette <em>Coding agents: status, install and sign-in</em></td>
+</tr>
+<tr>
+<td>Loops</td>
+<td>Unattended workflows that run in rounds (even with the app closed): steps with Claude Code, Codex, a Hermes agent or a shell command, conditions, safety limits.</td>
+<td>Project menu › <em>Loops</em>, palette <em>Loops: workflow editor</em> / <em>Loops: running loops</em> (<a href="coding-agents.html#loops">guide</a>)</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="widgets">Widgets</h2>
+<p>Cards and windows with live data: in the right panel, the Overview, the top or bottom bar or the main area. Guide for
+your own: <a href="widgets.html">Build your own widget</a>.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>What it is for</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Built-in widgets</td>
+<td>Calendar, Google Tasks, Mail, Weather, Claude Code, OpenAI Codex, OpenRouter, GitLab, Teamwork, Achievements, Transcribe a recording.</td>
+<td>Top menu › <em>Widgets</em>, palette <em>Widget: Weather</em> (one command per widget, <em>Widget: name</em>); <code>/widget</code> in a conversation</td>
+</tr>
+<tr>
+<td>Connect</td>
+<td>Sign in or give a key for widgets that need one; Google accounts for Calendar, Mail and Tasks.</td>
+<td>The widget's card, palette <em>Connect widget: Weather</em>, <em>Connect a Google account (Calendar, Mail, Tasks)</em></td>
+</tr>
+<tr>
+<td>Widget settings</td>
+<td>Where it shows, its own options and shortcut.</td>
+<td>⋯ on the card › <em>Widget settings…</em>; <a href="settings.html#widgets">Settings › Widgets</a></td>
+</tr>
+<tr>
+<td>Own copy</td>
+<td>Copy a built-in widget into your own widgets to change its code.</td>
+<td>⋯ › <em>Create own copy</em>, palette <em>Create own copy of widget: Weather</em></td>
+</tr>
+<tr>
+<td>Your own widgets</td>
+<td>Publish changes to your widget so it runs (and syncs).</td>
+<td>⋯ › <em>Publish changes</em>, palette <em>Publish widget: name</em> (<a href="widgets.html#publishing-a-widget">guide</a>)</td>
+</tr>
+<tr>
+<td>Approve code from other computers</td>
+<td>A widget's code that came by sync runs only after you approve it on this computer.</td>
+<td>Palette <em>Widgets waiting for approval (n)</em> (<a href="sync.html#widgets-from-other-computers">guide</a>)</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="voice">Voice</h2>
+<p>Guide: <a href="voice.html">Voice</a>.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>What it is for</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dictation</td>
+<td>Speak into the message box; transcribed locally with Whisper.</td>
+<td><em>Dictate</em> under the message box, hold <code>Ctrl+Space</code>, palette <em>Dictate into the conversation (start / stop)</em> (<a href="voice.html#dictation">guide</a>)</td>
+</tr>
+<tr>
+<td>Read aloud</td>
+<td>Have answers read to you.</td>
+<td><em>Read aloud</em> on an answer, palette <em>Read the latest answer aloud</em> / <em>Read answers aloud</em> / <em>Stop reading</em> (<a href="voice.html#reading-answers-aloud">guide</a>)</td>
+</tr>
+<tr>
+<td>Voice modes</td>
+<td><em>Manual</em>, <em>Semi-automatic</em> (answers are read), <em>Automatic</em> (a pause sends, hands-free).</td>
+<td>The <em>Voice</em> chip under the message box, palette <em>Voice: Manual</em> / <em>Voice: Semi-automatic</em> / <em>Voice: Automatic</em> (<a href="voice.html#voice-modes">guide</a>)</td>
+</tr>
+<tr>
+<td>Conversation mode</td>
+<td>Speak, pause to send, hear the answer; say <em>stop</em> to finish.</td>
+<td>Palette <em>Conversation mode</em></td>
+</tr>
+<tr>
+<td>Wake word</td>
+<td>Start listening with a spoken phrase (Hermes' local detector).</td>
+<td>Palette <em>Toggle wake word</em>, <a href="settings.html#voice">Settings › Voice</a></td>
+</tr>
+<tr>
+<td>Transcribe a recording</td>
+<td>A meeting recording to text with speakers.</td>
+<td>Top menu › Widgets › <em>Transcribe a recording</em> (<a href="voice.html#transcribe-a-recording">guide</a>)</td>
+</tr>
+<tr>
+<td>Settings and test</td>
+<td>Speech model, voice, microphone and speaker test.</td>
+<td>Palette <em>Settings › Speech to text</em>, <em>Settings › Voice</em>, <em>Settings › Microphone and speaker test</em></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="quick-capture">Quick capture</h2>
+<p>A small window from anywhere, even with Kyllene in the background: ask Hermes, make a note or add a task, with a
+screenshot or the selected text. Guide: <a href="quick-capture.html">Quick capture</a>.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>What it is for</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Quick capture</td>
+<td>Ask / note / task in a small window; the answer shows there.</td>
+<td>System-wide shortcut (switch on in <a href="settings.html#quick-capture">Settings › Quick capture</a>), tray icon, palette <em>Quick capture…</em></td>
+</tr>
+<tr>
+<td>Screenshot → Hermes</td>
+<td>Take a screenshot and ask about it.</td>
+<td>Tray menu, palette <em>Screenshot → Hermes…</em></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="servers-and-gateway">Servers and Gateway</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>What it is for</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Servers</td>
+<td>Hermes on another machine over SSH; its conversations work with that server's files.</td>
+<td><a href="settings.html#servers">Settings › Servers</a>; <strong>+</strong> <em>New conversation on a server</em> in the left menu</td>
+</tr>
+<tr>
+<td>Cron jobs on a server</td>
+<td>Manage the scheduled jobs of a server.</td>
+<td>Palette <em>Hermes › Cron jobs on server</em></td>
+</tr>
+<tr>
+<td>Gateway</td>
+<td>Threads of Hermes' bots (Discord, Telegram…) as normal conversations: what you write goes to the channel too.</td>
+<td>Left menu › <em>Gateway</em>; channels are set up in <a href="hermes.html#channels">Hermes › Channels</a></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="safety-and-approvals">Safety and approvals</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>What it is for</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Command approvals</td>
+<td>Risky commands wait for <em>Allow once</em> / <em>Allow in this conversation</em> / <em>Always allow</em> or deny. Mode <em>manual</em>, <em>smart</em> or <em>off</em>.</td>
+<td>Card in the thread; mode in the status bar (<em>Approvals</em>) (<a href="settings.html#the-status-bar">status bar</a>)</td>
+</tr>
+<tr>
+<td>YOLO</td>
+<td>Don't ask before commands in this one conversation.</td>
+<td><em>YOLO</em> in the bar under the message box, palette <em>Don't ask before commands (YOLO) – this conversation</em> / <em>Ask before commands again – this conversation</em></td>
+</tr>
+<tr>
+<td>Review file writes</td>
+<td>Before Hermes writes a file, see the diff and approve or reject it.</td>
+<td>The <em>writes</em> chip in the bar under the message box, palette <em>Review file writes in this conversation</em> / <em>Write files without review in this conversation</em> / <em>File review as the project</em>; per project in <em>Edit project</em> › <em>Basics</em></td>
+</tr>
+<tr>
+<td>Safety mode</td>
+<td>Which tools the agent may use: all, no terminal, read only, or custom.</td>
+<td>The 🛡 chip in the bar under the message box, ⋯ <em>Conversation tools</em> › <em>Safety mode…</em>, palette <em>Conversation: safety mode…</em>; per project in <em>Edit project</em> › <em>Basics</em></td>
+</tr>
+<tr>
+<td>Sensitive data</td>
+<td>Warns before keys, passwords or personal data go to a provider the project does not allow.</td>
+<td><em>Edit project</em> › <em>Sensitive data</em> (<a href="projects.html#the-project-window">guide</a>)</td>
+</tr>
+<tr>
+<td>Plugins in open conversations</td>
+<td>Activate a newly installed Hermes plugin in conversations that are already open.</td>
+<td>Palette <em>Activate a plugin in open conversations</em></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="notifications-and-the-bell">Notifications and the bell</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>What it is for</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bell</td>
+<td>Everything that needs you or finished: approvals, questions, finished answers, Kanban, widgets, updates. <em>All</em> / <em>Unread</em>, <em>Mark all as read</em>, <em>Remove read notifications</em>; a click opens the place.</td>
+<td>The bell in the top bar, <code>Ctrl+Shift+N</code>, palette <em>Notifications</em> / <em>Mark all notifications as read</em></td>
+</tr>
+<tr>
+<td>Read notifications aloud</td>
+<td>The first line of new notifications is read while the app is visible.</td>
+<td>Switch in the bell</td>
+</tr>
+<tr>
+<td>System notifications</td>
+<td>Desktop notifications while the window is not focused, per kind.</td>
+<td><a href="settings.html#notifications">Settings › Notifications</a>, palette <em>Settings › Notifications</em></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="achievements">Achievements</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>What it is for</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Achievements</td>
+<td>Hermes' achievements with tiers and progress.</td>
+<td><a href="hermes.html#achievements">Hermes › Achievements</a>, palette <em>Hermes › Achievements</em>; the <em>Achievements</em> widget</td>
+</tr>
+<tr>
+<td>Your own achievements</td>
+<td>Create achievements of your own (synced to every device).</td>
+<td>Palette <em>Hermes › New custom achievement</em>; <a href="settings.html#widgets">Settings › Widgets</a></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="appearance-and-themes">Appearance and themes</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>What it is for</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Light / dark</td>
+<td>Switch the mode.</td>
+<td>Status bar, palette <em>Light mode</em> / <em>Dark mode</em></td>
+</tr>
+<tr>
+<td>Colours and surface</td>
+<td>Colour scheme and surface style.</td>
+<td>Status bar</td>
+</tr>
+<tr>
+<td>Themes</td>
+<td>Your own look in the theme editor (from the current look or a preset), <em>Import…</em> and <em>Export…</em>.</td>
+<td><a href="settings.html#appearance">Settings › Appearance</a>, palette <em>Look: edit theme</em> / <em>Look: restore default</em></td>
+</tr>
+<tr>
+<td>Language</td>
+<td>English or Czech.</td>
+<td>Status bar (<code>EN</code> / <code>CS</code>)</td>
+</tr>
+<tr>
+<td>Project look</td>
+<td>A project's colour and icon (symbol, emoji, image, or generated by AI).</td>
+<td><em>Edit project</em> › <em>Look</em></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="sync-backups-and-clean-up">Sync, backups and clean-up</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>What it is for</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sync between computers</td>
+<td>Projects, settings, widgets and layouts follow you to your other computers (GitHub or cloud).</td>
+<td><a href="settings.html#backup--sync">Settings › Backup &amp; sync</a>, palette <em>Settings › Backup &amp; sync</em> (<a href="sync.html">guide</a>)</td>
+</tr>
+<tr>
+<td>Backups</td>
+<td>Daily backups of the app settings and projects (not conversations, not passwords) to this computer, git or a cloud.</td>
+<td><a href="settings.html#backup">Settings › Backup &amp; sync</a></td>
+</tr>
+<tr>
+<td>Project storage</td>
+<td>Each project on this computer, in GitHub or in a cloud folder.</td>
+<td><em>Edit project</em> › <em>Storage</em></td>
+</tr>
+<tr>
+<td>Automatic deletion</td>
+<td>Delete old conversations and archived Kanban cards on a schedule (off by default).</td>
+<td><a href="settings.html#automatic-deletion">Settings › Automatic deletion</a></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="managing-hermes">Managing Hermes</h2>
+<p>The <strong>Hermes</strong> window manages Hermes itself without a terminal. Guide: <a href="hermes.html">Manage Hermes in Kyllene</a>.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Tab</th>
+<th>Palette</th>
+<th>Guide</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Skills, Download skills</td>
+<td><em>Hermes › Skills</em>, <em>Hermes › Download skills</em></td>
+<td><a href="hermes.html#skills">Skills</a></td>
+</tr>
+<tr>
+<td>MCP servers</td>
+<td><em>Hermes › MCP servers</em></td>
+<td><a href="hermes.html#mcp-servers">MCP servers</a></td>
+</tr>
+<tr>
+<td>Plugins</td>
+<td><em>Hermes › Plugins</em></td>
+<td><a href="hermes.html#plugins">Plugins</a></td>
+</tr>
+<tr>
+<td>Cron jobs</td>
+<td><em>Hermes › Cron jobs</em>, <em>Hermes › New cron job from a template</em></td>
+<td><a href="hermes.html#cron-jobs">Cron jobs</a></td>
+</tr>
+<tr>
+<td>Profiles</td>
+<td><em>Hermes › Profiles</em>, <em>Hermes › New profile (wizard)</em>, <em>Hermes › Import profile</em>, <em>Hermes › Export profile</em></td>
+<td><a href="hermes.html#profiles">Profiles</a></td>
+</tr>
+<tr>
+<td>Models &amp; providers</td>
+<td><em>Hermes › Models &amp; providers</em></td>
+<td><a href="hermes.html#models--providers">Models &amp; providers</a></td>
+</tr>
+<tr>
+<td>Keys, Memory, Logs, System, Config</td>
+<td><em>Hermes › Keys</em>, <em>Hermes › Memory</em>, <em>Hermes › Logs</em>, <em>Hermes › System</em>, <em>Hermes › Config</em></td>
+<td><a href="hermes.html#keys">Keys</a> · <a href="hermes.html#memory">Memory</a> · <a href="hermes.html#logs">Logs</a> · <a href="hermes.html#system">System</a> · <a href="hermes.html#config">Config</a></td>
+</tr>
+<tr>
+<td>Hooks</td>
+<td><em>Hermes › Hooks</em>, <em>Hermes › Hooks › Gateway</em>, <em>Hermes › Hooks › Outbound webhooks</em></td>
+<td><a href="hermes.html#hooks">Hooks</a></td>
+</tr>
+<tr>
+<td>Channels, Webhooks</td>
+<td><em>Hermes › Channels</em>, <em>Hermes › Webhooks</em></td>
+<td><a href="hermes.html#channels">Channels</a> · <a href="hermes.html#webhooks">Webhooks</a></td>
+</tr>
+<tr>
+<td>Statistics, Achievements, Documentation</td>
+<td><em>Hermes › Statistics</em>, <em>Hermes › Achievements</em>, <em>Hermes › Documentation</em></td>
+<td><a href="hermes.html#statistics">Statistics</a> · <a href="hermes.html#achievements">Achievements</a> · <a href="hermes.html#documentation">Documentation</a></td>
+</tr>
+</tbody>
+</table></div>
+<p>Open the window with <code>Ctrl+Shift+H</code>, Top menu › Hermes › <em>Open management</em>, or palette <em>Hermes management</em>. When the
+Hermes engine stops, Kyllene restarts it by itself and reconnects the conversations; palette <em>Start again</em> restarts
+it by hand. After every Hermes update Kyllene checks that everything it uses still works and tells you if not.</p>
+<h2 id="updates-help-and-first-start">Updates, help and first start</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>What it is for</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Updates</td>
+<td>Kyllene checks once a day; a new version opens <em>What's new</em> and <em>Update and restart</em>.</td>
+<td>Top menu › Help › <em>Check for updates</em>, palette <em>Check for updates</em> (in the released app)</td>
+</tr>
+<tr>
+<td>Documentation and What's new</td>
+<td>These guides and the release notes of every version.</td>
+<td>Top menu › Help, palette <em>Help › Documentation</em> / <em>Help › What's new</em></td>
+</tr>
+<tr>
+<td>Report a bug, suggest an improvement</td>
+<td>Forms on GitHub.</td>
+<td>Top menu › Help, palette <em>Help › Report a bug</em> / <em>Help › Suggest an improvement</em></td>
+</tr>
+<tr>
+<td>About</td>
+<td>Version and the Hermes versions it was tested with.</td>
+<td>Top menu › Help › <em>About</em>, palette <em>About</em> (<a href="settings.html#about">Settings › About</a>)</td>
+</tr>
+<tr>
+<td>Support development</td>
+<td>A tip on Ko-fi, if you like the app.</td>
+<td>Top menu › Help › <em>Support development ☕</em>, palette <em>Help › Support development ☕</em></td>
+</tr>
+<tr>
+<td>Settings</td>
+<td>Everything Kyllene itself remembers.</td>
+<td>The gear in the top bar, <code>Ctrl+,</code>, palette <em>Settings</em> (<a href="settings.html">guide</a>)</td>
+</tr>
+<tr>
+<td>First start</td>
+<td>Without Hermes, Kyllene offers <em>Install Hermes Agent</em>; without a model, <em>Connect a model</em>.</td>
+<td>Shown by itself (<a href="index.html#troubleshooting">troubleshooting</a>)</td>
+</tr>
+</tbody>
+</table></div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Kyllene is an independent project, not affiliated with Nous Research. Hermes Agent is a project of Nous Research.</span>
+    <span><a href="./">All guides</a> · <a href="https://github.com/cpoint-eu/kyllene-releases">GitHub</a></span>
+  </div>
+</footer>
+</body>
+</html>
