@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Settings – Kyllene documentation</title>
+<meta name="description" content="Everything Kyllene itself remembers lives in Settings: open it with the gear icon in the top bar, with Ctrl+,, or from the palette . The dialog has one tab per area on the left and remembers the tab y">
+<link rel="icon" type="image/svg+xml" href="../media/kyllene.svg">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="docs">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../"><img src="../media/kyllene.svg" alt="">Kyllene</a>
+    <nav>
+      <a href="./">Docs</a>
+      <a href="settings.html">Settings</a>
+      <a href="hermes.html">Manage Hermes</a>
+      <a href="../#install">Install</a>
+    </nav>
+    <a class="lang" href="https://github.com/cpoint-eu/kyllene-releases/blob/main/docs/settings.md">Edit on GitHub</a>
+  </div>
+</header>
+
+<main class="wrap doc">
+<h1 id="settings">Settings</h1>
+<p>Everything Kyllene itself remembers lives in <strong>Settings</strong>: open it with the gear icon in the top bar, with
+<code>Ctrl+,</code>, or from the palette (<code>Ctrl+K</code> › <em>Settings</em>). The dialog has one tab per area on the left and remembers the
+tab you used last.</p>
+<p>Settings that belong to <strong>Hermes</strong> (skills, MCP servers, keys, cron jobs, Hermes' own config) are not here but in the
+<strong>Hermes</strong> window: see <a href="hermes.html">Manage Hermes in Kyllene</a>.</p>
+<p>Some choices are kept <strong>only on this computer</strong> (folders, devices, microphone), others <strong>travel to your other
+computers</strong> when <a href="sync.html">sync</a> is on. Each section below says which.</p>
+<p><strong>Tabs:</strong> <a href="#projects">Projects</a> · <a href="#appearance">Appearance</a> · <a href="#models">Models</a> · <a href="#backup--sync">Backup &amp; sync</a> ·
+<a href="#notifications">Notifications</a> · <a href="#speech-to-text">Speech to text</a> · <a href="#voice">Voice</a> ·
+<a href="#automatic-deletion">Automatic deletion</a> · <a href="#widgets">Widgets</a> · <a href="#shortcuts">Shortcuts</a> · <a href="#servers">Servers</a> ·
+<a href="#coding-agents">Coding agents</a> · <a href="#prompt-templates">Prompt templates</a> · <a href="#quick-capture">Quick capture</a> ·
+<a href="#about">About</a> · <a href="#the-status-bar">Status bar</a></p>
+<p><img alt="Settings › Models" src="../media/docs/settings-models.webp"></p>
+<h2 id="projects">Projects</h2>
+<p>Where new projects go and how they are stored. More about projects: <a href="projects.html">Projects and tasklists</a>.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>What it does / when to change it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Folder for new projects</strong></td>
+<td><code>~/KylleneProjects</code></td>
+<td>Each new project gets its own subfolder here. You can still pick another folder when you create a project. <strong>Default</strong> puts the suggested folder back. Only this computer.</td>
+</tr>
+<tr>
+<td><strong>Storage</strong></td>
+<td><em>This computer</em></td>
+<td>Where <strong>new</strong> projects are stored: <em>This computer</em> (a plain folder), <em>GitHub (git)</em> (Kyllene commits and pushes after every agent answer that changed files) or <em>Cloud</em> (Google Drive, OneDrive or Dropbox). Each project can be switched later on its own <em>Storage</em> tab.</td>
+</tr>
+<tr>
+<td><strong>GitHub owner</strong> <em>(with GitHub)</em></td>
+<td>your signed-in account</td>
+<td>Account or organisation that gets the new repos. Needs the GitHub CLI (<code>gh auth login</code>). <strong>Move existing projects to GitHub…</strong> gives each ticked project a private repo; folders stay where they are.</td>
+</tr>
+<tr>
+<td><strong>Memory tool for „Remember“</strong></td>
+<td>empty</td>
+<td>Name of a Hermes tool with one text parameter (for example from a memory plugin). When set, messages outside projects get a <strong>Remember</strong> button that hands the message to this tool. In a project conversation, Remember always writes to the project memory.</td>
+</tr>
+<tr>
+<td><strong>Memory tool label</strong></td>
+<td>the tool name</td>
+<td>The name shown on that button.</td>
+</tr>
+<tr>
+<td><strong>Archived projects</strong></td>
+<td>–</td>
+<td>Projects you archived. <strong>Restore</strong> brings one back; its conversations come back with it.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="appearance">Appearance</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>What it does / when to change it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Theme</strong></td>
+<td>built-in look (<em>Navy</em>)</td>
+<td>The list of looks. <strong>New theme</strong> starts the theme editor (from the current look or a preset; nothing is saved before <em>Create</em>). <strong>Import…</strong> loads a theme exported from Kyllene as <code>.json</code>. <strong>Restore default look</strong> switches back to the built-in look in both modes; your own themes stay.</td>
+</tr>
+<tr>
+<td><strong>Open Activity in the thread</strong></td>
+<td><em>In panel</em></td>
+<td>Where a click on a turn's Activity row opens the list of tool calls: <em>In panel</em> = the Activity panel on the side, <em>In place</em> = unfolded right in the conversation.</td>
+</tr>
+<tr>
+<td><strong>Open the agent's browser by itself</strong></td>
+<td>on</td>
+<td>The first time a turn works in a browser, the right panel switches to the agent's browser so you can watch. Off = open it yourself with the globe next to the turn's Activity row or from the palette.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Light/dark mode, the colour scheme, the surface style and the <strong>language</strong> (English / Czech) sit in the
+<a href="#the-status-bar">status bar</a> at the bottom, so you can switch them without opening Settings.</p>
+<h2 id="models">Models</h2>
+<p>Hermes' defaults for every <strong>new</strong> conversation. They are written to Hermes' <code>config.yaml</code>, so the Hermes terminal,
+cron jobs and messaging bots use them too. A conversation that is already open keeps its model; switch it in the
+composer.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>What it does / when to change it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Main model</strong></td>
+<td>what Hermes has (the first provider you connect sets it)</td>
+<td>Used by new conversations and scheduled jobs. Agents with their own profile have their own main model. <strong>Change</strong> opens the model picker.</td>
+</tr>
+<tr>
+<td><strong>Backup model</strong></td>
+<td>not set</td>
+<td>When the main model fails (outage, rate limit), Hermes switches to this one. Pick one from a different provider.</td>
+</tr>
+<tr>
+<td><strong>Free backup model</strong></td>
+<td>not set</td>
+<td>The last resort when the backup fails too; pick a free model so it never costs anything.</td>
+</tr>
+<tr>
+<td><strong>Thinking</strong></td>
+<td>Hermes' default (<em>Medium</em>)</td>
+<td>How hard the model thinks in every new conversation, and in helper tasks without their own level. One conversation can change it in the composer.</td>
+</tr>
+<tr>
+<td><strong>Provider per model maker</strong></td>
+<td><em>Any provider</em></td>
+<td>When the same models come from several providers (Claude from Anthropic and from OpenRouter, for example), pick the one to use: the others then hide that maker's models in every model list. Saves you from picking the paid route by mistake. Shared across your devices.</td>
+</tr>
+<tr>
+<td><strong>Model classes from benchmarks</strong></td>
+<td>estimated</td>
+<td>The picker sorts models into classes. Without a key the class is estimated from the model name and price; with a free <a href="https://artificialanalysis.ai">Artificial Analysis</a> API key it comes from benchmarks. The key goes into Hermes' <code>.env</code>; Kyllene does not keep it.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Providers themselves (sign-in, API keys) are connected in <strong>Hermes › Models &amp; providers</strong>, see
+<a href="hermes.html#models--providers">Manage Hermes</a>.</p>
+<h2 id="backup--sync">Backup &amp; sync</h2>
+<p><img alt="Settings › Backup &amp; sync" src="../media/docs/settings-backup-sync.webp"></p>
+<h3 id="backup">Backup</h3>
+<p>A backup holds the app settings (look, language, favourite models, model classes, layout), all projects (name,
+description, colour, icon, instructions, folder) and the main and backup models. <strong>Conversations and passwords are
+not part of it</strong> (conversations are in Hermes' own database).</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>What it does / when to change it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Back up now / Export to a file… / Restore from a file…</strong></td>
+<td>–</td>
+<td>Manual backup, a backup file you keep yourself, and restore from such a file.</td>
+</tr>
+<tr>
+<td><strong>Back up automatically once a day</strong></td>
+<td>on</td>
+<td>One backup per day.</td>
+</tr>
+<tr>
+<td><strong>Keep backups for</strong></td>
+<td>7 days</td>
+<td>This device's older backups are deleted at the next backup (in the folder and in the cloud or git repo). The newest backup always stays; other devices' backups are never deleted.</td>
+</tr>
+<tr>
+<td><strong>Where to store backups</strong></td>
+<td><em>This computer</em></td>
+<td><em>This computer</em> (the folder below), <em>GitHub (git)</em> or <em>Cloud</em>.</td>
+</tr>
+<tr>
+<td><strong>Backup folder</strong></td>
+<td>the app's data folder</td>
+<td>Pick a folder that a cloud tool syncs (Google Drive, Dropbox…) to keep backups off this computer too.</td>
+</tr>
+<tr>
+<td><strong>Backups in the folder</strong></td>
+<td>–</td>
+<td>Every backup with its date; <strong>Restore…</strong> returns to it.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="sync-with-other-devices">Sync with other devices</h3>
+<p>Only needed when you use Kyllene on more than one computer. How it works and what travels: <a href="sync.html">Sync between
+computers</a>.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>What it does / when to change it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sync this device</strong></td>
+<td>off</td>
+<td>Switch it on on every computer that should share settings, projects and widgets.</td>
+</tr>
+<tr>
+<td><strong>Sync through</strong></td>
+<td><em>Synced folder</em></td>
+<td><em>Synced folder</em> = a folder another tool keeps the same everywhere (Google Drive, OneDrive, Dropbox, Nextcloud, Syncthing); <em>GitHub (git)</em> = Kyllene keeps its own clone of a private repo and commits and pushes it; <em>Cloud</em> = a Google Drive, OneDrive or Dropbox account connected in Kyllene.</td>
+</tr>
+<tr>
+<td><strong>Sync folder</strong> / <strong>Sync repo</strong></td>
+<td>empty</td>
+<td>The place itself. Each device writes only its own file (<code>kyllene-sync-&lt;computer&gt;.json</code>), so there are no conflicts; the newest change wins.</td>
+</tr>
+<tr>
+<td><strong>Also store backups in the repo</strong> <em>(git)</em></td>
+<td>off</td>
+<td>Puts backups into the sync repo too (<code>backups/</code>, newest 7 per device).</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="notifications">Notifications</h2>
+<p><img alt="Settings › Notifications" src="../media/docs/settings-notifications.webp"></p>
+<p>System notifications appear only while the Kyllene window is not focused; a click brings you to the conversation.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>What it does / when to change it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Show system notifications</strong></td>
+<td>on</td>
+<td>The master switch for desktop notifications.</td>
+</tr>
+<tr>
+<td><strong>Finished answer that took at least</strong></td>
+<td>20 s</td>
+<td>Short answers you are waiting for anyway do not need a notification. Raise it if you get too many.</td>
+</tr>
+<tr>
+<td><strong>When Hermes waits for your approval or answer</strong></td>
+<td>on</td>
+<td>A command to approve or a question with choices. Keep it on: a turn stands still until you answer.</td>
+</tr>
+<tr>
+<td><strong>When the Hermes engine stops</strong></td>
+<td>on</td>
+<td>Hermes exited or crashed.</td>
+</tr>
+<tr>
+<td><strong>When a Kanban task or a cron job finishes or fails, and on a new achievement</strong></td>
+<td>on</td>
+<td>Background work you did not start by hand.</td>
+</tr>
+<tr>
+<td><strong>Notices from widgets</strong></td>
+<td>on</td>
+<td>Rain alerts, errors, warnings from widgets.</td>
+</tr>
+<tr>
+<td><strong>Try a notification</strong></td>
+<td>–</td>
+<td>Sends a test, so you can check the desktop really shows them.</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>In the bell</strong> (the bell in the top bar keeps the last 14 days; things that wait for you are always shown):
+finished answers in conversations you are not looking at, Kanban tasks, cron job runs, achievements and errors, each
+with its own switch (all on).</p>
+<p><strong>From widgets</strong>: one switch per widget that can send notices. Off = nothing from that widget, neither in the bell
+nor as a desktop notification.</p>
+<p><strong>Skill and memory changes in the thread</strong>: when Hermes updates a skill or saves to its memory, Kyllene shows it as a
+muted line in the conversation. How much Hermes' review after a turn reports is Hermes' own setting
+<code>display.memory_notifications</code> (off / on / verbose); this section only shows its current value.</p>
+<h2 id="speech-to-text">Speech to text</h2>
+<p>Local transcription of recordings and dictation with <strong>Whisper running inside Hermes</strong>. The audio stays on this
+computer. More: <a href="voice.html">Voice</a>.</p>
+<ul>
+<li><strong>System check</strong> lists what transcription needs (Hermes' Python, Whisper, the model, disk space, memory, an NVIDIA
+  card for speed, speaker detection). A missing part has <strong>Fix</strong> (Kyllene installs or downloads it) and <strong>Fix with
+  AI</strong> (hands the problem to Hermes in a conversation).</li>
+</ul>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>What it does / when to change it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Local speech to text</strong></td>
+<td>off</td>
+<td>Turning it on installs what is missing and downloads the chosen model.</td>
+</tr>
+<tr>
+<td><strong>Detect speakers</strong></td>
+<td>on</td>
+<td>Marks who is speaking in a transcript (Speaker 1, 2…), on this computer, no account. Installs <code>sherpa-onnx</code> and two small models (~90 MB).</td>
+</tr>
+<tr>
+<td><strong>Model for recordings</strong></td>
+<td><code>large-v3</code></td>
+<td><em>large-v3</em> (most accurate, ~2.9 GB, slow on a processor), <em>turbo</em> (almost as accurate, several times faster, ~1.5 GB), <em>medium</em> (~1.4 GB), <em>small</em> (~463 MB, a rough draft). Each shows an estimated time per hour of recording. Without an NVIDIA card, <em>turbo</em> is the usual choice.</td>
+</tr>
+<tr>
+<td><strong>Language</strong></td>
+<td>as in Hermes</td>
+<td>The language spoken in recordings. A fixed language is more reliable than detection.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="voice">Voice</h2>
+<p>Dictation, reading answers aloud and the voice modes. Explained in <a href="voice.html">Voice</a>.</p>
+<ul>
+<li>The top shows a <strong>read-only overview</strong>: which dictation engine is used (<em>Automatic</em> = the local Whisper model,
+  Hermes' speech recognition only when the local engine cannot run), which models and which reading voice Hermes has.
+  The buttons lead to Hermes › Config, where Hermes' own voice settings live.</li>
+</ul>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>What it does / when to change it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Same model as for recordings transcription</strong></td>
+<td>on</td>
+<td>Dictation uses the recordings model. Turn it off to dictate with a smaller, faster model (on a processor <em>turbo</em> takes about half the time of <em>large-v3</em>).</td>
+</tr>
+<tr>
+<td><strong>Dictation model</strong></td>
+<td>–</td>
+<td>Only downloaded models are offered. Only this computer.</td>
+</tr>
+<tr>
+<td><strong>Microphone and speaker test</strong></td>
+<td>–</td>
+<td><strong>Say something</strong> records five seconds and shows the transcript (never sent anywhere); <strong>Play sample</strong> plays Hermes' reading voice.</td>
+</tr>
+<tr>
+<td><strong>Dictation shortcut</strong></td>
+<td><code>Ctrl+Space</code></td>
+<td>Hold to dictate, release to transcribe into the message. <strong>Change</strong> sets your own keys.</td>
+</tr>
+<tr>
+<td><strong>Voice mode</strong></td>
+<td><em>Manual</em></td>
+<td><em>Manual</em>: microphone button or shortcut, you send and read yourself. <em>Semi-automatic</em>: hold the shortcut, speak, release; Enter sends; finished answers are read aloud. <em>Automatic</em>: start listening once; a pause sends, the answer is read, then it listens again. The microphone is always off after a restart.</td>
+</tr>
+<tr>
+<td><strong>Reading language</strong></td>
+<td>the app language</td>
+<td>The language answers are read in. It does not translate; Edge voices pick a matching voice.</td>
+</tr>
+<tr>
+<td><strong>Speech volume threshold</strong></td>
+<td>0.025</td>
+<td>How loud sound must be to count as speech (Automatic mode). Raise it in a noisy room.</td>
+</tr>
+<tr>
+<td><strong>Pause before sending (ms)</strong></td>
+<td>900</td>
+<td>How long a pause sends the message in Automatic mode. Raise it if you get cut off while thinking.</td>
+</tr>
+<tr>
+<td><strong>Wake word on this computer</strong></td>
+<td>off</td>
+<td>Listens for Hermes' wake phrase with Hermes' local detector; the room audio stays on this computer and listening pauses while you dictate or Kyllene reads. Prepare the wake-word engine and model in Hermes first; Kyllene does not install them. When Hermes itself already listens (<code>/wake</code>), Kyllene does not take over.</td>
+</tr>
+</tbody>
+</table></div>
+<p>All voice choices are <strong>saved only on this computer</strong> (each computer has its own microphone).</p>
+<h2 id="automatic-deletion">Automatic deletion</h2>
+<p>Two independent parts, each with its own switch and age. <strong>Both are off by default</strong>: nothing is deleted until you
+switch a part on.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>What it does / when to change it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Kanban archive › Delete old archived cards automatically</strong></td>
+<td>off</td>
+<td>Checked shortly after start and then daily, on every board.</td>
+</tr>
+<tr>
+<td><strong>Time in the archive</strong></td>
+<td>30 days</td>
+<td>A card is deleted once it has been archived longer than this (7 days … 6 months).</td>
+</tr>
+<tr>
+<td><strong>Clean up now…</strong></td>
+<td>–</td>
+<td>Deletes, on every board, the cards archived longer than the limit, with comments, history and attachments. Shows the count first. Never deleted: cards an open card still waits for, and the sources of moved cards.</td>
+</tr>
+<tr>
+<td><strong>Conversations › Delete old conversations automatically</strong></td>
+<td>off</td>
+<td>Checked a minute after start and then daily, on this computer, in every Hermes profile. Switching on first shows what would be deleted.</td>
+</tr>
+<tr>
+<td><strong>No activity for longer than</strong></td>
+<td>3 months</td>
+<td>30 days … 6 months.</td>
+</tr>
+<tr>
+<td><strong>Delete old conversations now / Preview…</strong></td>
+<td>–</td>
+<td>Shows the list first and asks; works with the switch off too. Never deleted: pinned conversations (in Hermes or in Kyllene's favourites), conversations open on this computer or with an unsent draft, running ones, conversations a Kanban card points to, and messaging, cron and Kanban worker conversations.</td>
+</tr>
+<tr>
+<td><strong>Timeline between computers › Delete old synced timeline records</strong></td>
+<td>on</td>
+<td>Your computers exchange what ran on them through the sync folder, one file per month; older months are removed there. Hermes' own data is not touched.</td>
+</tr>
+<tr>
+<td><strong>Keep for</strong></td>
+<td>6 months</td>
+<td>3 months, 6 months or a year.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="widgets">Widgets</h2>
+<p>The widgets themselves (what they show, how to make your own) are explained in <a href="widgets.html">Build your own widget</a>.
+This tab manages them.</p>
+<ul>
+<li><strong>AI services usage</strong>: the built-in Claude Code, Codex and OpenRouter widgets with their version, state (<em>logged
+  in</em>, <em>not connected</em>) and <strong>Widget settings</strong>. They read the logins on this computer; nothing private is synced.</li>
+<li><strong>System widgets</strong> (Calendar, Mail, Google Tasks, GitLab, Teamwork, Weather): part of the app, they update with
+  every new version. You switch them on in the <strong>Widgets</strong> menu and connect your own accounts in their settings.
+  Their settings sync to your other computers.</li>
+<li><strong>Widgets</strong>: your own widgets. With sync on they live in the sync folder (every device gets them), otherwise in
+  the app's local folder (<strong>Open folder</strong>). A widget with unpublished changes has <strong>Publish</strong> (see
+  <a href="widgets.html#publishing-a-widget">Publishing</a>).</li>
+</ul>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>What it does / when to change it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Approve widget code from other devices</strong></td>
+<td>on</td>
+<td>New or changed widget code that arrives by sync runs here only after you approve it on this computer; changes made on this computer approve themselves. Turn it off only if you are the only one who can write to the sync place.</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Custom achievements</strong>: your own achievements as one <code>&lt;id&gt;.json</code> file each in the shown folder (synced when sync is
+on). Files that cannot be used are listed with the reason.</p>
+<h2 id="shortcuts">Shortcuts</h2>
+<p>Every keyboard shortcut of the app, grouped by where it works. Most are fixed; the dictation keys can be changed
+here (<strong>Change</strong>), widget shortcuts in the widget's ⋯ › <em>Widget settings</em>, the system-wide quick-capture keys in your
+desktop's settings. The full list: <a href="shortcuts.html">Keyboard shortcuts</a>.</p>
+<h2 id="servers">Servers</h2>
+<p>Hermes on another machine (a VPS, a home server), reached <strong>over SSH</strong>. Conversations on a server are visible from
+every computer that has it set up and work with that server's files and terminal. Only this computer.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>What to enter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Name</strong></td>
+<td>Any name you will recognise in the menus.</td>
+</tr>
+<tr>
+<td><strong>SSH host</strong></td>
+<td>As for the <code>ssh</code> command: a host from <code>~/.ssh/config</code> or <code>user@192.0.2.5:22</code>.</td>
+</tr>
+<tr>
+<td><strong>Hermes folder on the server</strong></td>
+<td>Optional; only when Hermes is not in the usual place.</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Add and test</strong> checks the connection. Needs a key login without a password (<code>ssh &lt;host&gt;</code> must work without
+prompting) and Hermes installed on the server. Kyllene uploads a small bridge to <code>~/.cache/kyllene</code> on the server
+and runs it over SSH; nothing is exposed to the internet. Without a server, <em>New conversation on a server</em> stays
+disabled.</p>
+<h2 id="coding-agents">Coding agents</h2>
+<p>What each coding agent needs on this computer. More: <a href="coding-agents.html">Coding agents</a>.</p>
+<ul>
+<li><strong>Agents</strong>: Claude Code and Codex, each with its state (<em>Ready</em> or what is missing): the command installed, the
+  agent's own sign-in, the Hermes provider it runs on, and its current limits from the usage widgets.
+  <strong>Check again</strong> after you install or sign in.</li>
+<li><strong>Folders with projects</strong> (default <code>~/Projects</code> when it exists): a new Claude Code / Codex conversation offers the
+  subfolders of these folders, next to your Kyllene projects and recently used folders. Add your code folders here.
+  Only this computer.</li>
+</ul>
+<h2 id="prompt-templates">Prompt templates</h2>
+<p>Saved prompts you start with one click from the palette (<code>Ctrl+K</code>) or from an empty conversation.</p>
+<ul>
+<li><strong>New template</strong>, then <em>Name</em>, <em>Description</em> (shown in the palette) and <em>Prompt</em>.</li>
+<li>Variables: <code>{{Name}}</code> is a field to fill in, <code>{{Name|default}}</code> a field with a default value. Before the start a
+  short form asks for them; a repeated name is asked once.</li>
+<li><strong>Run</strong> starts the template right away. The app ships three examples (Summary, Explain code, Write an e-mail);
+  edit or delete them and your own list replaces them. Templates are the same on every device.</li>
+</ul>
+<h2 id="quick-capture">Quick capture</h2>
+<p>A small window you open from anywhere, even with Kyllene in the background. Explained in <a href="quick-capture.html">Quick
+capture</a>.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>What it does / when to change it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Icon in the system tray</strong></td>
+<td>on</td>
+<td>Its menu opens the capture or takes a screenshot. On GNOME it needs the AppIndicator extension.</td>
+</tr>
+<tr>
+<td><strong>System-wide shortcut</strong></td>
+<td>off (suggested <code>Ctrl+Alt+Space</code>)</td>
+<td>Works in every app. The desktop asks you once to confirm it; change the keys later in the system settings (<em>Apps › Kyllene › Global shortcuts</em>).</td>
+</tr>
+<tr>
+<td><strong>Try it</strong></td>
+<td>–</td>
+<td>Opens the capture window now.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="about">About</h2>
+<p>The Kyllene version, the Hermes versions this release was tested with (and the oldest one it supports) next to the
+Hermes you have, and <strong>Check for updates</strong>. Kyllene checks by itself shortly after start and once a day; a new
+version opens a window with <em>What's new</em> and <strong>Update and restart</strong>. A build from source code does not update itself.</p>
+<h2 id="the-status-bar">The status bar</h2>
+<p>The strip at the bottom of the window holds quick switches that are not in Settings:</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Part</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>connection</td>
+<td>Whether Kyllene is connected to Hermes.</td>
+</tr>
+<tr>
+<td>approvals</td>
+<td>Command approvals: <em>manual</em> (asks about every risky command), <em>smart</em> (a helper model decides and asks when unsure) or <em>off</em>, for this conversation or for all (Hermes setting).</td>
+</tr>
+<tr>
+<td>language</td>
+<td><code>EN</code> / <code>CS</code>: the app language.</td>
+</tr>
+<tr>
+<td>surface, colours, light/dark</td>
+<td>The surface style, the colour scheme and light or dark mode.</td>
+</tr>
+<tr>
+<td>stop all</td>
+<td>Stops every running answer at once.</td>
+</tr>
+</tbody>
+</table></div>
+<p>To hide parts you do not need, run <strong>Edit layout</strong> from the palette (<code>Ctrl+K</code>): the eye hides or shows a part, the
+grip drags it elsewhere.</p>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Kyllene is an independent project, not affiliated with Nous Research. Hermes Agent is a project of Nous Research.</span>
+    <span><a href="./">All guides</a> · <a href="https://github.com/cpoint-eu/kyllene-releases">GitHub</a></span>
+  </div>
+</footer>
+</body>
+</html>

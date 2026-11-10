@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sync between computers – Kyllene documentation</title>
+<meta name="description" content="Use Kyllene on more than one computer  and keep it the same on all of them. Nothing goes through a Kyllene server: sync uses a place you own, a synced folder, a private git repo or your cloud drive.">
+<link rel="icon" type="image/svg+xml" href="../media/kyllene.svg">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="docs">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../"><img src="../media/kyllene.svg" alt="">Kyllene</a>
+    <nav>
+      <a href="./">Docs</a>
+      <a href="settings.html">Settings</a>
+      <a href="hermes.html">Manage Hermes</a>
+      <a href="../#install">Install</a>
+    </nav>
+    <a class="lang" href="https://github.com/cpoint-eu/kyllene-releases/blob/main/docs/sync.md">Edit on GitHub</a>
+  </div>
+</header>
+
+<main class="wrap doc">
+<h1 id="sync-between-computers">Sync between computers</h1>
+<p>Use Kyllene on more than one computer (a desktop at work, a laptop at home) and keep it the same on all of them.
+Nothing goes through a Kyllene server: sync uses a place <strong>you</strong> own, a synced folder, a private git repo or your
+cloud drive.</p>
+<p><img alt="Settings › Backup &amp; sync" src="../media/docs/settings-backup-sync.webp"></p>
+<h2 id="what-travels-and-what-does-not">What travels and what does not</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Travels to your other computers</th>
+<th>Stays on each computer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Look, language, favourite models, model classes</td>
+<td>Conversations (in each computer's Hermes database)</td>
+</tr>
+<tr>
+<td>Projects: name, description, colour, icon, instructions, folder, settings</td>
+<td>Kanban boards and cards (also Hermes' database)</td>
+</tr>
+<tr>
+<td>Widgets: your own widgets, their layout, settings and choices</td>
+<td>Panel widths and which side panel is open</td>
+</tr>
+<tr>
+<td>Prompt templates, cron job templates</td>
+<td>Voice and microphone choices, dictation model</td>
+</tr>
+<tr>
+<td>Which projects are deleted (a project deleted on one computer is deleted on the others)</td>
+<td>Folders with code projects, servers</td>
+</tr>
+<tr>
+<td>What ran on each computer (for the Timeline)</td>
+<td>Hermes' own settings, keys and skills</td>
+</tr>
+</tbody>
+</table></div>
+<p>A project's <strong>files</strong> sync separately, through the project's own storage (<em>GitHub (git)</em> or <em>Cloud</em> on its
+<em>Storage</em> tab, see <a href="projects.html#the-project-window">Projects</a>). Hermes itself is not synced: install it on every
+computer and connect the providers there.</p>
+<h2 id="set-it-up">Set it up</h2>
+<ol>
+<li>On the first computer open <a href="settings.html#sync-with-other-devices">Settings › Backup &amp; sync</a> and switch on <strong>Sync
+   this device</strong>.</li>
+<li>Choose <strong>Sync through</strong>:</li>
+<li><strong>Synced folder</strong>: a folder that another tool keeps the same everywhere (Google Drive, OneDrive, Dropbox,
+     Nextcloud, Syncthing).</li>
+<li><strong>GitHub (git)</strong>: a private repo. Kyllene keeps its own clone, commits and pushes; no other tool needed. Git
+     uses your own credentials (SSH key, <code>gh</code>); Kyllene never stores a password.</li>
+<li><strong>Cloud</strong>: a Google Drive, OneDrive or Dropbox account connected in Kyllene.</li>
+<li>On every other computer, install Kyllene and choose <strong>the same</strong> folder, repo or cloud account.</li>
+</ol>
+<p>Each computer writes only its own file (<code>kyllene-sync-&lt;computer&gt;.json</code>), so two computers never overwrite each
+other; for the same setting the newest change wins. <strong>Sync now</strong> syncs at once; <em>Devices</em> lists the computers and
+when each last changed something.</p>
+<h2 id="widgets-from-other-computers">Widgets from other computers</h2>
+<p>Widget code that arrives from another computer runs only after you <strong>approve</strong> it on this one (Settings › Widgets ›
+<em>Approve widget code from other devices</em>, on by default). Changes you make on this computer approve themselves. This
+stops broken or unwanted code from spreading to all your computers.</p>
+<h2 id="backups-are-separate">Backups are separate</h2>
+<p>Backups are not sync: they are snapshots you can go back to. They have their own place (<em>Where to store backups</em>)
+and can also go into the sync repo. See <a href="settings.html#backup">Settings › Backup</a>.</p>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Kyllene is an independent project, not affiliated with Nous Research. Hermes Agent is a project of Nous Research.</span>
+    <span><a href="./">All guides</a> · <a href="https://github.com/cpoint-eu/kyllene-releases">GitHub</a></span>
+  </div>
+</footer>
+</body>
+</html>

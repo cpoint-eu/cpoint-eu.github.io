@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manage Hermes in Kyllene – Kyllene documentation</title>
+<meta name="description" content="Everything you would otherwise do in Hermes&#x27; terminal or its web dashboard  is in the Hermes window.">
+<link rel="icon" type="image/svg+xml" href="../media/kyllene.svg">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="docs">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../"><img src="../media/kyllene.svg" alt="">Kyllene</a>
+    <nav>
+      <a href="./">Docs</a>
+      <a href="settings.html">Settings</a>
+      <a href="hermes.html">Manage Hermes</a>
+      <a href="../#install">Install</a>
+    </nav>
+    <a class="lang" href="https://github.com/cpoint-eu/kyllene-releases/blob/main/docs/hermes.md">Edit on GitHub</a>
+  </div>
+</header>
+
+<main class="wrap doc">
+<h1 id="manage-hermes-in-kyllene">Manage Hermes in Kyllene</h1>
+<p>Everything you would otherwise do in Hermes' terminal or its web dashboard (skills, MCP servers, plugins, cron
+jobs, profiles, keys, memory, logs, hooks, webhooks, messaging channels, config) is in the <strong>Hermes</strong> window.</p>
+<p>Open it with the sliders icon in the top bar, <code>Ctrl+Shift+H</code>, the top menu <strong>Hermes</strong>, or the palette (<code>Ctrl+K</code>,
+every tab has its own entry). The window works on the <strong>same data</strong> as the Hermes dashboard and terminal: a change
+here applies to every Hermes window, and a change made in the terminal shows up here.</p>
+<p>Most tabs are a list on the left and the detail of the selected item on the right. Where Hermes has a catalog, a
+switch at the top flips between what you have (<em>Installed</em> / <em>Connected</em>) and what you can add (<em>Catalog</em>).</p>
+<p><strong>Whose settings?</strong> Hermes keeps skills, keys, models, memory and hooks per <strong>profile</strong> (an agent). Tabs that work
+per profile have a <strong>Hermes</strong> button at the top: it shows whose data you see and lets you switch to another agent.</p>
+<p><strong>Secrets</strong> (API keys, tokens) you type in this window go straight into Hermes' <code>.env</code> through Hermes itself, in
+masked fields. Kyllene never keeps them and never shows them again, only Hermes' short preview (<code>sk-…a1b2</code>).</p>
+<p><strong>Tabs:</strong> <a href="#skills">Skills</a> · <a href="#download-skills">Download skills</a> · <a href="#mcp-servers">MCP servers</a> ·
+<a href="#plugins">Plugins</a> · <a href="#cron-jobs">Cron jobs</a> · <a href="#profiles">Profiles</a> · <a href="#models--providers">Models &amp; providers</a> ·
+<a href="#keys">Keys</a> · <a href="#memory">Memory</a> · <a href="#logs">Logs</a> · <a href="#system">System</a> · <a href="#config">Config</a> · <a href="#hooks">Hooks</a> ·
+<a href="#channels">Channels</a> · <a href="#webhooks">Webhooks</a> · <a href="#statistics">Statistics</a> · <a href="#achievements">Achievements</a> ·
+<a href="#documentation">Documentation</a></p>
+<h2 id="skills">Skills</h2>
+<p>Skills are Hermes' procedural memory: a <code>SKILL.md</code> with instructions it loads when a task matches.</p>
+<ul>
+<li>The list is grouped by category, with a search, a filter by <strong>origin</strong> (<em>Built-in</em>, <em>Own</em> = written by the agent
+  or by you, <em>External folder</em>, <em>From the hub</em>) and <strong>Only switched off</strong>. The switch in each row turns a skill off
+  or on for this profile.</li>
+<li>The detail shows the origin, category, how often it was used, its folder, the description and the full text
+  (<strong>Source</strong> flips between the formatted text and the raw <code>SKILL.md</code>). Own skills can be edited and deleted;
+  built-in ones only switched off (a Hermes update would overwrite an edit).</li>
+<li><strong>New skill</strong>: <em>Name</em>, <em>Category</em>, <em>When to use it</em> (one line starting with "Use when …"; Hermes decides from it
+  when to load the skill) and <em>Instructions</em>.</li>
+</ul>
+<h2 id="download-skills">Download skills</h2>
+<p>The Skills Hub: skills other people and Nous Research published.</p>
+<ul>
+<li><strong>Recommended</strong> (Hermes' picks from all hub sources), <strong>Official catalog</strong> (every optional skill shipped with
+  Hermes, by category), or search the hub by a word (<em>pdf</em>, <em>calendar</em>).</li>
+<li>The detail shows the source, its trust level and a <strong>safety check</strong> with every finding (for example "pip install
+  without version pinning", with the file and line) and the full text, <strong>before</strong> you install.</li>
+<li><strong>Install</strong> downloads the skill into this computer's Hermes; <strong>Update skills</strong> updates every skill installed from
+  the hub.</li>
+</ul>
+<h2 id="mcp-servers">MCP servers</h2>
+<p>MCP servers give Hermes new tools (GitLab, Notion, a database, your own service).</p>
+<p><img alt="Hermes › MCP servers › Tools" src="../media/docs/hermes-mcp-tools.webp"></p>
+<ul>
+<li><strong>Connected</strong>: your servers with their type (<em>stdio</em> = a local program, <em>http</em> = remote) and a switch. Adding,
+  removing or switching off applies within a minute; editing an enabled server needs a gateway restart (Kyllene
+  tells you).</li>
+<li><strong>Add server</strong>: <em>Name</em>, <em>Type</em> (<em>Remote (URL)</em> with an address, or <em>Local program</em> with a command),
+  <em>Environment variables</em> (one <code>NAME=value</code> per line; keys go to <code>.env</code>) and <em>Login</em> (<em>No login</em>; <em>API key in header</em>, a token sent with every request and stored in <code>.env</code>; or <em>OAuth login</em>,
+  where Hermes opens a browser once and you approve access).</li>
+<li><strong>Catalog</strong>: ready-made servers (Asana, Airtable, n8n…) with what each needs; most sign in with OAuth.</li>
+<li><strong>Test connection</strong> connects, lists the tools and disconnects.</li>
+<li><strong>Tools</strong>: choose which of the server's tools Hermes may use. Each tool shows its description and roughly how
+  many tokens its definition costs in every request, so switching off tools you never use makes every turn cheaper.
+  <em>Allow new server tools automatically</em>, <em>Resources</em> and <em>Prompts</em> decide what else the server may add.</li>
+<li><strong>Activate in open conversations</strong> connects a new server in conversations that are already open, without
+  restarting them (Hermes otherwise picks it up only in new conversations).</li>
+</ul>
+<h2 id="plugins">Plugins</h2>
+<ul>
+<li><strong>Installed</strong>: your own plugins and Hermes' built-in ones, with a switch each. A plugin marked <em>not activated</em>
+  is installed but off.</li>
+<li><strong>Providers</strong> at the top: the active <strong>memory provider</strong> (set up in <a href="#memory">Memory</a>) and the <strong>context
+  engine</strong> (how long conversations are compressed). Both are chosen when a conversation starts, so a change applies
+  to new conversations.</li>
+<li><strong>Catalog</strong>: plugins you can install, with <strong>Official only</strong> (maintained by Nous Research) and <strong>Desktop too</strong>
+  (plugins for the official Hermes Desktop app, which do nothing in Kyllene and are hidden by default).</li>
+<li>A plugin with settings or its own MCP server shows them in its detail; <strong>Activate in open conversations</strong> connects
+  it in conversations that are already open.</li>
+</ul>
+<h2 id="cron-jobs">Cron jobs</h2>
+<p>A cron job sends Hermes a prompt on a schedule (a morning brief every day at 7:00, a mail watch every 30 minutes)
+and delivers the answer where you choose. Jobs are run by the Hermes <strong>gateway</strong>; the top line shows on which Hermes
+(this computer or a <a href="settings.html#servers">server</a>) and whether its scheduler is running.</p>
+<p><img alt="Hermes › Cron jobs › From template" src="../media/docs/hermes-cron-templates.webp"></p>
+<ul>
+<li><strong>From template</strong>: Hermes' templates (Morning brief, Mail watch, Weekly review, Reminder, Drink and move…) and
+  <strong>My templates</strong> (jobs you saved with <em>Save as template</em>, on every computer). The result is an ordinary job you
+  can edit.</li>
+<li><strong>New job</strong>:</li>
+</ul>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Agent / Script</strong></td>
+<td><em>Agent</em>: a model runs the prompt on every run (costs tokens). <em>Script</em>: Hermes runs a script from its scripts folder without any model; its output is the result.</td>
+</tr>
+<tr>
+<td><strong>Name</strong>, <strong>What should Hermes do</strong></td>
+<td>Each run is a new conversation without context, so write the prompt so it stands on its own.</td>
+</tr>
+<tr>
+<td><strong>Schedule</strong></td>
+<td>A cron expression (<code>0 7 * * *</code>), an interval (<code>every 30m</code>), weekly (<code>every monday 9am</code>) or one-off (<code>in 2h</code>, <code>2026-11-01T09:00</code>); the chips fill in common ones.</td>
+</tr>
+<tr>
+<td><strong>Deliver to</strong></td>
+<td><em>Only save</em> or a connected messaging platform (<a href="#channels">Channels</a>).</td>
+</tr>
+<tr>
+<td><strong>Skills</strong>, <strong>Model</strong>, <strong>Thinking</strong></td>
+<td>What the run loads and which model runs it (empty = Hermes' default).</td>
+</tr>
+<tr>
+<td><strong>Run the agent</strong></td>
+<td><em>Always</em>, <em>When a script changes</em> or <em>When a URL changes</em>: the cheap check runs on schedule without a model and the agent runs only once the output changes. The cheapest way to watch something.</td>
+</tr>
+<tr>
+<td><strong>Folder</strong>, <strong>Runs</strong></td>
+<td>The working folder of the run, and how many runs before the job stops (empty = keep running).</td>
+</tr>
+<tr>
+<td><strong>Create paused</strong></td>
+<td>Create it switched off.</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>A job's detail has <strong>Run now</strong>, <strong>Edit</strong>, <strong>Save as template</strong>, <strong>Delete</strong> and its <strong>History</strong>; a click on a run
+  opens its output in the right panel.</li>
+</ul>
+<h2 id="profiles">Profiles</h2>
+<p>Every Hermes profile is an <strong>agent</strong> with its own model, personality, memory, skills and keys.</p>
+<ul>
+<li>The list shows each profile with its model and description, grouped by your categories (<strong>Category actions</strong>).</li>
+<li><strong>New profile</strong> is a short wizard: <em>Basics</em> (name, description, model, start from a fresh profile or a copy,
+  take over the keys), then <em>MCP servers</em>, <em>Skills</em>, <em>Channels</em>, <em>Variables</em> and a <em>Summary</em>. The description
+  matters: Hermes uses it to decide which profile gets a Kanban task.</li>
+<li>The detail: the model (changeable), whether its gateway runs, its folder, description, <strong>Personality</strong>
+  (<code>SOUL.md</code>, who the agent is and how it talks), its skills and tool sets with switches, and its own variables
+  (<code>.env</code>). Changes apply to the profile's new conversations.</li>
+<li><strong>Export</strong> saves a profile to an archive (choose settings, skills, memory, cron jobs, code); secret values are
+  never put in. <strong>Import</strong> creates a profile from such an archive or from <code>hermes profile export</code>.</li>
+<li><strong>Agent detail</strong> opens the agent's own window (look, skills, memory, cron, groups).</li>
+</ul>
+<h2 id="models--providers">Models &amp; providers</h2>
+<p>Who Hermes can talk to, and which model does what.</p>
+<p><img alt="Hermes › Models &amp; providers" src="../media/docs/hermes-models.webp"></p>
+<ul>
+<li><strong>Providers</strong>: every provider Hermes knows, connected ones first (<em>Connected only</em> hides the rest). Sign in with
+  an account (ChatGPT/Codex, Nous Portal…) or paste an API key; <em>Provider's guide</em> explains where to get one. A
+  connected provider shows its models, its keys <strong>in rotation</strong> (Hermes tries them in order and switches when one
+  hits a limit or fails; <em>Try again</em> clears an error, the arrows change the order) and <em>Remove</em>.</li>
+<li><strong>Helper tasks</strong>: which model does the side work (image reading, context compression, conversation titles, smart
+  approvals, the review after a turn, Kanban task splitting…). <em>auto</em> = the main model; give cheap work a cheaper
+  model here.</li>
+<li><strong>Endpoints</strong>: your own OpenAI-compatible server, such as a local LM Studio, Ollama or vLLM, or a company proxy.</li>
+<li><strong>MoA</strong> (Mixture of Agents): presets where several reference models answer at once and an aggregator merges
+  their answers, with temperatures and a time limit.</li>
+</ul>
+<p>The main and backup model for new conversations are set in <a href="settings.html#models">Settings › Models</a>.</p>
+<h2 id="keys">Keys</h2>
+<p>Every variable in Hermes' <code>.env</code>, grouped (<em>Model providers</em>, <em>Tools</em>, …) with what each is for. <strong>Only set</strong> shows
+the ones with a value, <strong>Advanced</strong> adds base-URL overrides and debug switches. A key's detail sets a new value or
+<strong>Remove</strong>s it (also from Hermes' credential pool). <strong>Add key</strong> stores your own variable, for example a token a
+skill or MCP server needs.</p>
+<h2 id="memory">Memory</h2>
+<p>What Hermes remembers between conversations. It reads both lists at the start of every conversation.</p>
+<ul>
+<li><strong>Agent's notes</strong> (<code>MEMORY.md</code>) and <strong>About you</strong> (<code>USER.md</code>), each entry with <strong>Edit</strong> and <strong>Delete</strong>, plus
+  <strong>Add an entry</strong>. The counter shows how full each list is (Hermes has a size limit).</li>
+<li><strong>External memory</strong>: a memory provider on top of the built-in lists (from a plugin). Hermes refuses a provider
+  that is not ready; new conversations pick up the change.</li>
+<li>The <strong>Hermes</strong> button at the top switches to another agent's memory.</li>
+</ul>
+<h2 id="logs">Logs</h2>
+<p>Hermes' logs: the file (<code>agent.log</code>, gateway…), minimum level, one part of Hermes, how many lines, a search, and
+<strong>Follow</strong> to keep reading new lines. The first place to look when something does not work.</p>
+<h2 id="system">System</h2>
+<ul>
+<li><strong>Hermes</strong>: version, whether an update is available (with what it would bring), how it was installed, the config
+  version, its home folder. <strong>Update</strong> runs <code>hermes update</code>, <strong>Check</strong> looks for a new version, <strong>Doctor</strong> runs
+  <code>hermes doctor</code> (config, keys, dependencies, services).</li>
+<li><strong>Gateway</strong>: state, mode, running sessions, health. The gateway runs cron jobs, Kanban tasks and messaging bots.
+  <strong>Restart gateway</strong> (<code>hermes gateway restart</code>) interrupts the cron jobs, Kanban tasks and bot conversations
+  that are running at that moment.</li>
+<li><strong>Computer</strong>: machine, CPU, memory, disk, uptime, Python.</li>
+</ul>
+<p>Kyllene checks itself after every Hermes update and tells you if something it uses changed. The Hermes versions a
+Kyllene release was tested with are in <a href="settings.html#about">Settings › About</a>.</p>
+<h2 id="config">Config</h2>
+<p>All of Hermes' <code>config.yaml</code>. <strong>Form</strong> lists every setting by section (General, Agent, Terminal, Display, Voice,
+Text to speech, Speech to text, Memory, Security…) with Hermes' own description; <strong>Changed</strong> shows only what you
+set yourself. <strong>Text</strong> edits the YAML directly. Only changed values are written; the rest of the file stays as it is.</p>
+<h2 id="hooks">Hooks</h2>
+<p>Scripts Hermes runs when something happens. A hook runs on your computer with your rights, so add only scripts you
+know.</p>
+<ul>
+<li><strong>Shell</strong>: a command for an event (<code>post_tool_call</code>, <code>on_session_end</code>…), optionally only for some tools (a regex
+  such as <code>terminal|write_file</code>), with a timeout. Hermes runs a hook only after you <strong>approve</strong> it once (<em>Approve
+  now</em> in the form). <strong>Try it</strong> fires it with a sample event; <strong>Check hooks</strong> runs <code>hermes hooks doctor</code>.</li>
+<li><strong>Gateway</strong>: Python hooks in <code>~/.hermes/hooks</code> that react to gateway events (<code>agent:start</code>, <code>agent:end</code>…); a broken
+  one shows why.</li>
+<li><strong>Outbound webhooks</strong>: send Hermes' events to your URL (signed or not).</li>
+</ul>
+<h2 id="channels">Channels</h2>
+<p>Messaging platforms Hermes can be reached through (Hermes calls this the gateway): Discord, Telegram, Slack, e-mail,
+Matrix, WhatsApp, Signal and more than twenty others.</p>
+<p><img alt="Hermes › Channels" src="../media/docs/hermes-channels.webp"></p>
+<ul>
+<li>Each channel shows its state and a switch. The detail has the setup fields (tokens, allowed users) with a link to
+  where you get them, <strong>Save</strong> and <strong>Check</strong> (asks Hermes whether it is connected).</li>
+<li><strong>People</strong>: users waiting for approval (<strong>Approve</strong>) and approved ones (<strong>Revoke</strong>).</li>
+<li>Threads of Hermes' bots on this computer or on a server show up under <strong>Gateway</strong> in the left menu (the last 30
+  days; search finds older ones). They open as normal conversations, and what you write there goes to the channel
+  too.</li>
+</ul>
+<h2 id="webhooks">Webhooks</h2>
+<p>Let other services (GitLab, GitHub, n8n…) wake Hermes with an HTTP call. Webhooks are off until you <strong>Switch on</strong>
+(this restarts the gateway). <strong>New webhook</strong>: <em>Name</em>, <em>Events</em> to accept, <em>What should Hermes do</em> (<code>{placeholders}</code>
+take values from the payload; empty = the raw payload goes to the agent), where the answer goes and which skills it
+loads. The detail shows the address to give the other service, its signature secret and <strong>Send a test</strong>.</p>
+<h2 id="statistics">Statistics</h2>
+<p>Conversations, model calls, tokens and the estimated price over 7, 30 or 90 days; tokens per day; usage per model,
+the most used tools and skills, and what the helper tasks cost. Kyllene's own <strong>Overview</strong> has more (per agent, per
+project, limits).</p>
+<h2 id="achievements">Achievements</h2>
+<p>Hermes' achievements (tool chains, debugging, autonomy…) with tiers and progress. <strong>Rescan</strong> scans your
+conversations again; <strong>New achievement</strong> creates your own (see
+<a href="settings.html#widgets">Settings › Widgets</a> › Custom achievements).</p>
+<h2 id="documentation">Documentation</h2>
+<p>Hermes' own documentation, readable and searchable inside the app; <strong>Open online</strong> opens the same page on
+hermes-agent.nousresearch.com.</p>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Kyllene is an independent project, not affiliated with Nous Research. Hermes Agent is a project of Nous Research.</span>
+    <span><a href="./">All guides</a> · <a href="https://github.com/cpoint-eu/kyllene-releases">GitHub</a></span>
+  </div>
+</footer>
+</body>
+</html>

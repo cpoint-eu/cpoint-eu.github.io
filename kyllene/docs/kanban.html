@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kanban – Kyllene documentation</title>
+<meta name="description" content="Kanban hands work to agents. Each card is a task with an assignment; Hermes starts it with the agent  you pick, the agent works in the background, asks when it is stuck, and you check the result. It u">
+<link rel="icon" type="image/svg+xml" href="../media/kyllene.svg">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="docs">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../"><img src="../media/kyllene.svg" alt="">Kyllene</a>
+    <nav>
+      <a href="./">Docs</a>
+      <a href="settings.html">Settings</a>
+      <a href="hermes.html">Manage Hermes</a>
+      <a href="../#install">Install</a>
+    </nav>
+    <a class="lang" href="https://github.com/cpoint-eu/kyllene-releases/blob/main/docs/kanban.md">Edit on GitHub</a>
+  </div>
+</header>
+
+<main class="wrap doc">
+<h1 id="kanban">Kanban</h1>
+<p>Kanban hands work to agents. Each card is a task with an assignment; Hermes starts it with the agent (profile) you
+pick, the agent works in the background, asks when it is stuck, and you check the result. It uses Hermes' own Kanban
+boards, so the same cards are visible in Hermes' terminal and dashboard.</p>
+<p><img alt="Kanban card detail" src="../media/screenshots/kanban.webp"></p>
+<h2 id="boards">Boards</h2>
+<ul>
+<li>Every project can have <strong>its own board</strong> (<em>Kanban</em> in the project's menu; <em>Create board</em> the first time). Agents
+  working on its cards use the project folder, or their own copy of the project's code repository for coding roles
+  (see <a href="projects.html#the-project-window">Projects › Basics</a>).</li>
+<li>The <strong>Inbox</strong> is the shared board for work that does not belong to a project yet. Anything you capture as a
+  Kanban task lands there parked: nothing starts it on its own. <strong>To triage</strong> shows only open unassigned cards and
+  cards returned from projects.</li>
+<li><strong>Kanban</strong> in the left menu opens the boards; the palette has <em>Kanban: <project></em> and <em>New task in Inbox</em>.</li>
+</ul>
+<p>The header says whether <strong>Hermes runs tasks</strong>: cards are started by the Hermes gateway's dispatcher. If it says
+<em>tasks will not run</em>, start the Hermes gateway (<code>hermes gateway</code>, or its service) with Kanban dispatch enabled.</p>
+<h2 id="columns">Columns</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Triage</strong></td>
+<td>New ideas to sort out, not started.</td>
+</tr>
+<tr>
+<td><strong>To do</strong></td>
+<td>Planned work. An agent starts it only after you move it to <em>Ready</em>.</td>
+</tr>
+<tr>
+<td><strong>Scheduled</strong></td>
+<td>Waits for its time.</td>
+</tr>
+<tr>
+<td><strong>Ready</strong></td>
+<td>Hermes starts it with the assigned profile as soon as it can.</td>
+</tr>
+<tr>
+<td><strong>Running</strong></td>
+<td>An agent is working on it now; Hermes moves it when the agent finishes.</td>
+</tr>
+<tr>
+<td><strong>Blocked</strong></td>
+<td>The agent needs something: a question to you is marked and sorted to the top.</td>
+</tr>
+<tr>
+<td><strong>Review</strong></td>
+<td>Done by the agent, waits for your check.</td>
+</tr>
+<tr>
+<td><strong>Done</strong></td>
+<td>Finished.</td>
+</tr>
+<tr>
+<td><strong>Archived</strong></td>
+<td>Hidden from the board, kept with its history. Only finished cards can be archived; <strong>Restore</strong> brings one back.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Drag a card to another column to change its state.</p>
+<h2 id="working-with-cards">Working with cards</h2>
+<ul>
+<li><strong>New task</strong>: what should be done, details for the agent (Markdown), who works on it (a Hermes profile) and the
+  priority. The card waits in <em>To do</em> until you move it to <em>Ready</em>.</li>
+<li>The <strong>card detail</strong> shows the assignment, the result, subtasks, comments, dependencies (cards it waits for) and
+  every <strong>run</strong>. <em>Open the run's progress</em> follows the agent live; <strong>Separate window</strong> keeps the run next to the
+  board; after the run you can <strong>Open as conversation</strong> and continue it.</li>
+<li>When the agent asks, the card shows the question with its choices: <strong>Answer and resume</strong> sends your answer and
+  starts the card again. A comment you add is read by the agent on its next run.</li>
+<li><strong>Process with …</strong> hands the card to a coding agent (Claude Code or Codex) in its own git worktree and branch;
+  the card moves to <em>Running</em> and to <em>Review</em> when it finishes. <strong>Review with …</strong> lets another agent review that
+  branch read-only and puts its findings into the comments. See <a href="coding-agents.html">Coding agents</a>.</li>
+<li><strong>Send to project…</strong> moves an Inbox card to a project board (parked, or to <em>Triage</em> to be split up); <strong>↩ Return
+  to Inbox</strong> sends it back.</li>
+<li>A tasklist task sent to Kanban (<strong>Send to Kanban</strong> in the tasklist) is ticked by itself once its card is
+  finished.</li>
+</ul>
+<h2 id="old-cards">Old cards</h2>
+<p>Archived cards are kept until you delete them: <em>Delete older than …</em> in the <em>Archived</em> column header for one board,
+or automatic clean-up for all boards in <a href="settings.html#automatic-deletion">Settings › Automatic deletion</a> (off by
+default).</p>
+<p>Notifications about finished, blocked or failed cards: <a href="settings.html#notifications">Settings › Notifications</a>.</p>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Kyllene is an independent project, not affiliated with Nous Research. Hermes Agent is a project of Nous Research.</span>
+    <span><a href="./">All guides</a> · <a href="https://github.com/cpoint-eu/kyllene-releases">GitHub</a></span>
+  </div>
+</footer>
+</body>
+</html>

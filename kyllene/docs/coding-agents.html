@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coding agents – Kyllene documentation</title>
+<meta name="description" content="Kyllene runs Claude Code and OpenAI Codex inside the app, next to your Hermes conversations: the same composer, live tool activity, approvals in the thread, their slash commands, and their whole histo">
+<link rel="icon" type="image/svg+xml" href="../media/kyllene.svg">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="docs">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../"><img src="../media/kyllene.svg" alt="">Kyllene</a>
+    <nav>
+      <a href="./">Docs</a>
+      <a href="settings.html">Settings</a>
+      <a href="hermes.html">Manage Hermes</a>
+      <a href="../#install">Install</a>
+    </nav>
+    <a class="lang" href="https://github.com/cpoint-eu/kyllene-releases/blob/main/docs/coding-agents.md">Edit on GitHub</a>
+  </div>
+</header>
+
+<main class="wrap doc">
+<h1 id="coding-agents">Coding agents</h1>
+<p>Kyllene runs <strong>Claude Code</strong> and <strong>OpenAI Codex</strong> inside the app, next to your Hermes conversations: the same
+composer, live tool activity, approvals in the thread, their slash commands, and their whole history.</p>
+<p><img alt="Claude Code inside Kyllene" src="../media/screenshots/coding.webp"></p>
+<h2 id="what-you-need">What you need</h2>
+<p>Each agent needs, on this computer:</p>
+<ol>
+<li><strong>Its command installed</strong>: <code>claude</code> (Claude Code) or <code>codex</code> (Codex CLI).</li>
+<li><strong>Its own sign-in</strong>: run <code>claude</code> or <code>codex</code> once in a terminal and log in.</li>
+<li><strong>A signed-in Hermes provider</strong> for it: Anthropic for Claude Code, ChatGPT/Codex for Codex. Connect it in
+   <a href="hermes.html#models--providers">Hermes › Models &amp; providers</a>.</li>
+</ol>
+<p><a href="settings.html#coding-agents">Settings › Coding agents</a> shows for each agent what is ready and what is missing, plus
+its current limits. <strong>Check again</strong> after you install or sign in.</p>
+<h2 id="conversations">Conversations</h2>
+<p>Open <strong>Coding agents</strong> in the left menu. It has three tabs:</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Tab</th>
+<th>What it shows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>In Kyllene</strong></td>
+<td>Conversations you started or continued in Kyllene.</td>
+</tr>
+<tr>
+<td><strong>History</strong></td>
+<td>Every Claude Code and Codex conversation on this computer, read from the agents' own logs, also those from the terminal. <em>This project only</em> narrows it to the current project's folder.</td>
+</tr>
+<tr>
+<td><strong>Running</strong></td>
+<td>Open agent tabs and agents working right now: folder, branch, card or task, state, tokens.</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>New conversation</strong> asks for the folder the agent works in: your Kyllene projects, recently used folders and the
+  subfolders of the <a href="settings.html#coding-agents">folders with projects</a> are offered.</li>
+<li>A conversation from <strong>History</strong> can be <strong>continued in Kyllene</strong> (the next message continues it in the same agent)
+  or <strong>taken over into Hermes</strong> (copied into a normal Hermes conversation that Hermes continues).</li>
+<li><strong>End process</strong> stops the agent's process and whatever it started; the next message continues the conversation.</li>
+<li><strong>Remote Control</strong> (Claude Code): continue the conversation on claude.ai or in the Claude app on your phone;
+  prompts written there show up here. Needs Claude Code's own claude.ai login.</li>
+</ul>
+<h2 id="coding-agents-and-kanban">Coding agents and Kanban</h2>
+<p>A <a href="kanban.html">Kanban</a> card can be handed to a coding agent: <strong>Process with …</strong> gives it its own git worktree and
+branch of the project's code repository; the card moves to <em>Running</em> and to <em>Review</em> when the agent finishes.
+<strong>Review with …</strong> lets another agent review that branch read-only and writes its findings into the card's comments.</p>
+<h2 id="limits">Limits</h2>
+<p>The <strong>Claude Code</strong> and <strong>OpenAI Codex</strong> widgets show your plan limits with a pace line: is your usage on track to
+last until the reset? They read the logins on this computer; switch them on in the <strong>Widgets</strong> menu.</p>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Kyllene is an independent project, not affiliated with Nous Research. Hermes Agent is a project of Nous Research.</span>
+    <span><a href="./">All guides</a> · <a href="https://github.com/cpoint-eu/kyllene-releases">GitHub</a></span>
+  </div>
+</footer>
+</body>
+</html>

@@ -168,3 +168,19 @@ footer a { color: var(--ink-2); }
   .gallery { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* Documentation pages (docs/*.html, rendered from kyllene-releases/docs by the app repo's scripts/site_docs.py) */
+.doc { max-width: 920px; padding: 40px 0 64px; }
+.doc h1 { font-size: clamp(30px, 4vw, 40px); line-height: 1.15; margin: 0 0 18px; letter-spacing: -.02em; }
+.doc h2 { font-size: 25px; line-height: 1.25; margin: 44px 0 12px; padding-top: 22px; border-top: 1px solid var(--line); }
+.doc h3 { font-size: 19px; margin: 28px 0 8px; }
+.doc h4 { font-size: 16px; margin: 22px 0 6px; }
+.doc h2, .doc h3, .doc h4 { scroll-margin-top: 76px; }
+.doc img { border: 1px solid var(--line); border-radius: var(--radius); margin: 14px 0 22px; }
+.doc pre { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; overflow-x: auto; line-height: 1.5; }
+.doc blockquote { margin: 14px 0; padding: 10px 16px; border-left: 3px solid var(--accent); background: var(--accent-soft); border-radius: 0 10px 10px 0; color: var(--ink); }
+.doc blockquote p:last-child { margin: 0; }
+.doc .tbl { overflow-x: auto; }
+.doc td:first-child { width: 28%; }
+.doc li > p { margin: 0; }
+@media (max-width: 860px) { .doc table { min-width: 620px; } .doc td:first-child { width: 30%; } }

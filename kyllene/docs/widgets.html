@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Build your own Kyllene widget – Kyllene documentation</title>
+<meta name="description" content="A widget is a small card or window in Kyllene that shows whatever you need: your server&#x27;s health, a sales number, a feed, your team&#x27;s tickets, a home sensor. This guide shows how to make one.">
+<link rel="icon" type="image/svg+xml" href="../media/kyllene.svg">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="docs">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../"><img src="../media/kyllene.svg" alt="">Kyllene</a>
+    <nav>
+      <a href="./">Docs</a>
+      <a href="settings.html">Settings</a>
+      <a href="hermes.html">Manage Hermes</a>
+      <a href="../#install">Install</a>
+    </nav>
+    <a class="lang" href="https://github.com/cpoint-eu/kyllene-releases/blob/main/docs/widgets.md">Edit on GitHub</a>
+  </div>
+</header>
+
+<main class="wrap doc">
+<h1 id="build-your-own-kyllene-widget">Build your own Kyllene widget</h1>
+<p>A widget is a small card or window in Kyllene that shows whatever you need: your server's health, a sales number, a
+feed, your team's tickets, a home sensor. This guide shows how to make one.</p>
+<blockquote>
+<p><strong>The quickest way:</strong> let Hermes write it. In a Kyllene conversation, say something like</p>
+<p><em>Read https://github.com/cpoint-eu/kyllene-releases/blob/main/docs/widgets.md and build me a Kyllene widget that
+shows the status of my GitHub Actions runs. Put it in ~/.local/share/kyllene/widgets/.</em></p>
+<p>Hermes (or Claude Code) asks a few questions and writes the files. Then press <strong>Publish</strong> at the widget in
+<strong>Settings › Widgets</strong> and pick it in the <strong>Widgets</strong> menu.</p>
+</blockquote>
+<p><strong>Contents:</strong> <a href="#how-a-widget-works">How a widget works</a> · <a href="#your-first-widget-in-5-minutes">Your first widget in 5 minutes</a> ·
+<a href="#where-widgets-live">Where widgets live</a> · <a href="#publishing-a-widget">Publishing</a> · <a href="#widgetjson">widget.json</a> ·
+<a href="#the-data-script">The data script</a> · <a href="#widgetjs">widget.js</a> · <a href="#states-bar-and-folded-row">States, bar and folded row</a> ·
+<a href="#settings">Settings</a> · <a href="#actions-buttons-that-do-something">Actions</a> · <a href="#notices">Notices</a> ·
+<a href="#more-power-ai-hermes-coding-agents-a2a">More power</a> · <a href="#the-api-object">The api object</a> · <a href="#looks">Looks</a> ·
+<a href="#rules-and-safety">Rules and safety</a> · <a href="#troubleshooting">Troubleshooting</a></p>
+<h2 id="how-a-widget-works">How a widget works</h2>
+<p>A widget is a folder with a few files:</p>
+<pre><code>system-load/          ← the folder name is the widget id: a–z, 0–9, &quot;-&quot;, &quot;_&quot;
+  widget.json         ← the manifest: name, icon, where it lives, script, settings (required)
+  widget.js           ← the view: what the card draws (required)
+  widget.css          ← styles (optional)
+  fetch.py            ← a data script in any language (optional)
+</code></pre>
+<ul>
+<li>The <strong>data script</strong> gets the data (an API, a file, a command) and prints one JSON object. Kyllene runs it on a
+  timer while the widget is on screen. It is a plain program: no AI runs, no tokens are spent.</li>
+<li><strong>widget.js</strong> draws that data with small HTML templates (React under the hood, no build step).</li>
+<li>The <strong>manifest</strong> says where the widget lives, how often the script runs and what the user can set.</li>
+</ul>
+<p>The app does the rest: the card frame, folding, the bar item, the dot on the icon, notices, settings form,
+sync to your other computers.</p>
+<h2 id="your-first-widget-in-5-minutes">Your first widget in 5 minutes</h2>
+<p>The example <a href="https://github.com/cpoint-eu/kyllene-releases/blob/main/examples/widgets/system-load"><code>examples/widgets/system-load</code></a> shows memory, disk and CPU load of
+your computer. It uses a data script, states, a folded row, a bar item, a setting and a notice.</p>
+<ol>
+<li>Copy the folder into your widgets folder:</li>
+</ol>
+<p><code>bash
+   mkdir -p ~/.local/share/kyllene/widgets
+   cp -r examples/widgets/system-load ~/.local/share/kyllene/widgets/</code></p>
+<ol>
+<li>
+<p>Publish it (this tells Kyllene the folder is complete and may run): open <strong>Settings › Widgets</strong>. <em>System load</em>
+   is listed with „Not published yet“; press <strong>Publish</strong> next to it.</p>
+</li>
+<li>
+<p>In Kyllene open <strong>Widgets</strong> in the top bar. <em>System load</em> is in the <em>Personal</em> group; click it to put it on its
+   place (the right column).</p>
+</li>
+</ol>
+<p>Change something in <code>widget.js</code> and publish again (<strong>⋯ › Publish changes</strong> on the card, or <strong>Publish</strong> in Settings ›
+Widgets), and the card updates.</p>
+<h2 id="where-widgets-live">Where widgets live</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Setup</th>
+<th>Folder</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Without sync</td>
+<td><code>~/.local/share/kyllene/widgets/&lt;id&gt;/</code></td>
+</tr>
+<tr>
+<td>With sync on (Settings › Backup &amp; sync)</td>
+<td><code>&lt;your sync folder&gt;/widgets/&lt;id&gt;/</code>, and every computer gets the widget</td>
+</tr>
+</tbody>
+</table></div>
+<p>Every widget's ⋯ menu has <strong>Open widget folder</strong>. Built-in widgets (Weather, Calendar, …) cannot be edited, but
+<strong>⋯ › Create own copy</strong> puts a copy of their code into your widgets folder: a good start for your own.</p>
+<h2 id="publishing-a-widget">Publishing a widget</h2>
+<p>Kyllene runs only a <strong>published</strong> version of a widget. Saving a file is not enough, so a half-written widget (or one
+still being copied) never runs. When all files are done, press <strong>Publish</strong>:</p>
+<ul>
+<li><strong>Settings › Widgets</strong>: a widget with edits that do not run yet is marked „unpublished changes“ and has a
+  <strong>Publish</strong> button,</li>
+<li><strong>⋯ › Publish changes</strong> on the widget's card or window,</li>
+<li>the palette (Ctrl+K): <strong>Publish widget: …</strong>.</li>
+</ul>
+<p>Publishing writes a <code>.widget-published</code> file with a fingerprint of the folder. Each edit needs a new publish; until
+then the last published version keeps running.</p>
+<p>Scripts and agents can publish without the app: <a href="https://github.com/cpoint-eu/kyllene-releases/blob/main/tools/publish_widget.py"><code>tools/publish_widget.py</code></a> writes the
+same file and needs only Python 3 (Kyllene 0.0.1-beta has no Publish button yet, use this tool there). Without a clone
+of this repository, download it once:</p>
+<pre><code class="language-bash">curl -fsSL -o ~/.local/bin/kyllene-publish-widget https://raw.githubusercontent.com/cpoint-eu/kyllene-releases/main/tools/publish_widget.py
+chmod +x ~/.local/bin/kyllene-publish-widget
+kyllene-publish-widget ~/.local/share/kyllene/widgets/my-widget
+</code></pre>
+<h2 id="widgetjson">widget.json</h2>
+<pre><code class="language-json">{
+  &quot;id&quot;: &quot;system-load&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;author&quot;: &quot;you&quot;,
+  &quot;name&quot;: { &quot;en&quot;: &quot;System load&quot;, &quot;cs&quot;: &quot;Zátěž systému&quot; },
+  &quot;description&quot;: { &quot;en&quot;: &quot;CPU, memory and disk of this computer&quot; },
+  &quot;category&quot;: { &quot;en&quot;: &quot;Personal&quot; },
+  &quot;icon&quot;: &quot;cpu&quot;,
+  &quot;color&quot;: &quot;accent&quot;,
+  &quot;type&quot;: &quot;sidebar-right&quot;,
+  &quot;notify&quot;: true,
+  &quot;permissions&quot;: [&quot;files&quot;, &quot;run&quot;],
+  &quot;script&quot;: { &quot;run&quot;: [&quot;python3&quot;, &quot;fetch.py&quot;], &quot;every&quot;: 60, &quot;timeout&quot;: 10 },
+  &quot;settings&quot;: []
+}
+</code></pre>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>Same as the folder name.</td>
+</tr>
+<tr>
+<td><code>name</code>, <code>description</code>, <code>category</code></td>
+<td>A string, or <code>{ "en": …, "cs": … }</code> per language. The category groups widgets in the Widgets menu.</td>
+</tr>
+<tr>
+<td><code>version</code>, <code>author</code></td>
+<td>Shown in Settings › Widgets.</td>
+</tr>
+<tr>
+<td><code>icon</code></td>
+<td>One of: <code>bell kanban clip x alert plus chat bot search cal mail sun moon globe trash pencil shield key users brain logs chart hook webhook cpu zap pin star file folder download sync panel tasks check flag code link info tag external dots book clock play plug puzzle sliders list</code>.</td>
+</tr>
+<tr>
+<td><code>color</code></td>
+<td><code>#rgb</code>, <code>#rrggbb</code> or a theme colour <code>accent</code>, <code>ok</code>, <code>warn</code>, <code>err</code>.</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>Where the widget lives (table below).</td>
+</tr>
+<tr>
+<td><code>notify</code></td>
+<td><code>true</code> = a new warn/error state becomes a notice (see <a href="#notices">Notices</a>).</td>
+</tr>
+<tr>
+<td><code>permissions</code></td>
+<td><strong>Information only</strong>: what the widget does, shown to the user before they trust it. <code>network</code>, <code>files</code>, <code>hermes</code>, <code>secrets</code>, <code>accounts</code>, <code>write</code>, <code>ai</code>, <code>run</code>.</td>
+</tr>
+<tr>
+<td><code>script</code></td>
+<td>The data script (see below).</td>
+</tr>
+<tr>
+<td><code>settings</code></td>
+<td>What the user can set (see <a href="#settings">Settings</a>).</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong><code>type</code>: where the widget lives</strong></p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th><code>type</code></th>
+<th>Place</th>
+<th><code>ctx.place</code> in widget.js</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sidebar-right</code></td>
+<td>a card in the right column (also allowed on Overview › Today)</td>
+<td><code>rail</code></td>
+</tr>
+<tr>
+<td><code>card</code></td>
+<td>a card on the Overview dashboard</td>
+<td><code>ov</code></td>
+</tr>
+<tr>
+<td><code>sidebar-left</code></td>
+<td>a card in the left menu</td>
+<td><code>side</code></td>
+</tr>
+<tr>
+<td><code>main</code></td>
+<td>the main area, instead of the conversations</td>
+<td><code>main</code></td>
+</tr>
+<tr>
+<td><code>top-bar</code> / <code>bottom-bar</code></td>
+<td>an item in the top bar / status bar (needs a bar state)</td>
+<td><code>top</code> / <code>status</code></td>
+</tr>
+<tr>
+<td><code>window</code></td>
+<td>only its own window, opened from the Widgets menu or the palette</td>
+<td><code>modal</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>Every widget can also open in a window (<code>ctx.place</code> = <code>modal</code>) from its ⋯ menu, and get a link in the navigation.</p>
+<h2 id="the-data-script">The data script</h2>
+<pre><code class="language-json">&quot;script&quot;: { &quot;run&quot;: [&quot;python3&quot;, &quot;fetch.py&quot;], &quot;every&quot;: 900, &quot;timeout&quot;: 20 }
+</code></pre>
+<ul>
+<li><code>run</code>: the command. A bare name (<code>python3</code>, <code>node</code>, <code>bash</code>) is looked up in <code>PATH</code>, a path (<code>./fetch.sh</code>) is relative
+  to the widget folder. The script runs <strong>in</strong> the widget folder.</li>
+<li><code>every</code>: seconds between runs, 30 – 86400 (default 900). <code>timeout</code>: 1 – 120 s (default 20).</li>
+<li>It runs only while the widget is shown somewhere. Saving the settings and <strong>Run now</strong> run it at once.</li>
+</ul>
+<p><strong>Input</strong> (environment variables):</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>KYLLENE_WIDGET_SETTINGS</code></td>
+<td>the settings values as JSON</td>
+</tr>
+<tr>
+<td><code>KYLLENE_WIDGET_ID</code></td>
+<td>the widget id</td>
+</tr>
+<tr>
+<td><code>KYLLENE_LANG</code></td>
+<td>the app language (<code>en</code>, <code>cs</code>)</td>
+</tr>
+<tr>
+<td><code>KYLLENE_HERMES_HOME</code></td>
+<td>Hermes' home folder (its logins, e.g. Google tokens: read them there, never copy them into the widget folder)</td>
+</tr>
+<tr>
+<td><code>&lt;KEY NAME&gt;</code></td>
+<td>every <code>secret</code> setting, as an environment variable with the key's value from Hermes' <code>.env</code></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Output:</strong> ONE JSON object on stdout. Every part is optional:</p>
+<pre><code class="language-json">{
+  &quot;data&quot;: { &quot;anything&quot;: &quot;widget.js reads this&quot; },
+  &quot;status&quot;: [{ &quot;id&quot;: &quot;mem&quot;, &quot;level&quot;: &quot;ok&quot;, &quot;kind&quot;: &quot;progress&quot;, &quot;value&quot;: 49, &quot;label&quot;: &quot;RAM&quot; }],
+  &quot;bar&quot;: { &quot;value&quot;: &quot;RAM 49 %&quot;, &quot;level&quot;: &quot;ok&quot; },
+  &quot;collapsed&quot;: { &quot;text&quot;: &quot;Load&quot;, &quot;value&quot;: &quot;49 %&quot; },
+  &quot;notify&quot;: [{ &quot;id&quot;: &quot;disk&quot;, &quot;level&quot;: &quot;warn&quot;, &quot;title&quot;: &quot;Disk almost full&quot; }]
+}
+</code></pre>
+<ul>
+<li>A non-zero exit (the last stderr line is the reason), a timeout or output that is not a JSON object = an error
+  state; the last good data stay on screen.</li>
+<li><strong>Not connected yet</strong> (no key, no login, no address): do not fail. Print
+  <code>{ "connect": { "kind": "key", "text": "Add your API key.", "key": "MY_SERVICE_KEY" } }</code> and exit 0. The card then
+  shows a calm "Not connected" state with a <strong>Connect…</strong> button that opens the widget's settings. <code>kind</code> is one of
+  <code>key</code>, <code>url</code>, <code>place</code>, <code>google</code>, <code>cli</code>, <code>other</code>.</li>
+<li>Test it alone first: <code>KYLLENE_WIDGET_SETTINGS='{"warnAt":80}' python3 fetch.py</code></li>
+</ul>
+<h2 id="widgetjs">widget.js</h2>
+<p>An ES module. Its default export gets the <code>api</code> object and returns the widget's parts:</p>
+<pre><code class="language-js">export default function (api) {
+  const { html, ui, useText } = api;
+
+  function Body({ ctx }) {                       // ctx.place: where it is drawn (rail, ov, modal, main…)
+    const t = useText();
+    const { data, error, loading, refresh } = api.data.useScript();
+    if (!data) return html`&lt;${ui.Empty} text=${loading ? &quot;Loading…&quot; : error} /&gt;`;
+    return html`
+      &lt;div class=&quot;xw-hello&quot;&gt;
+        &lt;b&gt;${data.count}&lt;/b&gt; ${t({ en: &quot;open tickets&quot;, cs: &quot;otevřených tiketů&quot; })}
+        ${ctx.place === &quot;modal&quot; &amp;&amp; html`&lt;button class=&quot;btn sm&quot; onClick=${refresh}&gt;Refresh&lt;/button&gt;`}
+      &lt;/div&gt;`;
+  }
+
+  return { Body };   // optional too: useStatus, useBar, useCollapsed (see below)
+}
+</code></pre>
+<ul>
+<li><code>html</code> is <a href="https://github.com/developit/htm">htm</a> bound to React: JSX-like templates without a build step. <code>${}</code> for
+  values and handlers, <code>class</code> works, <code>style</code> must be an object (<code>style=${{ flex: 1 }}</code>), never a string.</li>
+<li><code>Body</code> is a React component: hooks (<code>api.useState</code>, <code>api.useEffect</code>, …) at its top level only, never conditionally.</li>
+<li>Draw more in the window (<code>ctx.place === "modal"</code> or <code>"main"</code>): history, a list, a chart.</li>
+<li>Keep widget.js self-contained: no imports from the network. Data files go next to it (<code>api.readFile(name)</code>).</li>
+</ul>
+<h2 id="states-bar-and-folded-row">States, bar and folded row</h2>
+<p>The app draws these the same way for every widget, from plain data. Return them from the script (<code>status</code>, <code>bar</code>,
+<code>collapsed</code>) or from hooks in widget.js (<code>useStatus(ctx)</code>, <code>useBar(ctx)</code>, <code>useCollapsed(ctx)</code>).</p>
+<p><strong>States</strong> (a list, the first one is the main state), used in the navigation link, the card, tooltips and notices:</p>
+<pre><code class="language-js">{ id: &quot;open&quot;, level: &quot;warn&quot;, kind: &quot;count&quot;, value: 3, label: &quot;open&quot;, tip: &quot;3 open tickets&quot; }
+</code></pre>
+<ul>
+<li><code>level</code>: <code>ok</code>, <code>info</code>, <code>warn</code>, <code>error</code>, <code>neutral</code>, <code>busy</code>. A <code>warn</code>/<code>error</code> state puts a dot on the widget's icon.</li>
+<li><code>kind</code>: <code>dot</code>, <code>text</code>, <code>count</code>, <code>progress</code> (value in %), <code>spark</code> (a mini chart of <code>series</code>, up to 60 numbers),
+  <code>off</code> (switched off or not signed in).</li>
+</ul>
+<p><strong>Bar item</strong> (top bar / status bar): <code>{ icon?, value?, level?, tip? }</code>, <code>value</code> max. 12 characters. Without it the
+widget cannot sit in a bar.</p>
+<p><strong>Folded row</strong> (a folded card in a side panel): <code>{ icon?, text, value?, progress?, level?, bars? }</code>, <code>text</code> max.
+40 characters; <code>bars</code> = up to 3 small labelled bars <code>{ label, progress, level? }</code>. Without it the card does not fold.</p>
+<h2 id="settings">Settings</h2>
+<p>Values the user sets in the widget's <strong>⋯ › Widget settings…</strong>. They sync to your other computers unless marked
+<code>device</code>.</p>
+<pre><code class="language-json">&quot;settings&quot;: [
+  { &quot;key&quot;: &quot;place&quot;, &quot;type&quot;: &quot;text&quot;, &quot;label&quot;: { &quot;en&quot;: &quot;Place&quot; }, &quot;help&quot;: &quot;A town&quot;, &quot;default&quot;: &quot;&quot; },
+  { &quot;key&quot;: &quot;days&quot;, &quot;type&quot;: &quot;number&quot;, &quot;label&quot;: &quot;Days&quot;, &quot;min&quot;: 1, &quot;max&quot;: 14, &quot;default&quot;: 7 },
+  { &quot;key&quot;: &quot;units&quot;, &quot;type&quot;: &quot;select&quot;, &quot;label&quot;: &quot;Units&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;c&quot;, &quot;label&quot;: &quot;°C&quot; }, { &quot;value&quot;: &quot;f&quot;, &quot;label&quot;: &quot;°F&quot; }] },
+  { &quot;key&quot;: &quot;alerts&quot;, &quot;type&quot;: &quot;toggle&quot;, &quot;label&quot;: &quot;Warn me&quot;, &quot;default&quot;: true },
+  { &quot;key&quot;: &quot;token&quot;, &quot;type&quot;: &quot;secret&quot;, &quot;label&quot;: &quot;API key&quot;, &quot;default&quot;: &quot;MY_SERVICE_KEY&quot; },
+  { &quot;key&quot;: &quot;repos&quot;, &quot;type&quot;: &quot;list&quot;, &quot;label&quot;: &quot;Repositories&quot; },
+  { &quot;key&quot;: &quot;folder&quot;, &quot;type&quot;: &quot;text&quot;, &quot;label&quot;: &quot;Local folder&quot;, &quot;device&quot;: true }
+]
+</code></pre>
+<ul>
+<li>Types: <code>text</code>, <code>number</code>, <code>select</code>, <code>toggle</code>, <code>secret</code>, <code>list</code> (one value per line), <code>data</code> (a JSON object the widget
+  saves from its own UI, not shown in the form).</li>
+<li><strong><code>secret</code> stores only the NAME of a key</strong> in Hermes' <code>.env</code> (<code>~/.hermes/.env</code>). The value never reaches widget.js
+  or the sync folder; only the data script gets it, as an environment variable of that name.</li>
+<li><code>device: true</code> keeps the value on this computer only (paths, ports, local accounts).</li>
+<li>In widget.js: <code>api.useSettings()</code> reads the values, <code>api.openSettings()</code> opens the form,
+  <code>api.saveSettings({ key: value })</code> saves from the widget's own UI (e.g. a place picked in the card).</li>
+</ul>
+<h2 id="actions-buttons-that-do-something">Actions: buttons that do something</h2>
+<p>A button in the widget can run the <strong>same data script</strong> again as an action (send, delete, load another range):</p>
+<pre><code class="language-js">const res = await api.action(&quot;close&quot;, { id: ticket.id });   // → the JSON object the script prints
+</code></pre>
+<pre><code class="language-python">action = os.environ.get(&quot;KYLLENE_WIDGET_ACTION&quot;)
+if action == &quot;close&quot;:
+    payload = json.loads(os.environ[&quot;KYLLENE_WIDGET_PAYLOAD&quot;])
+    ...  # call the API
+    print(json.dumps({&quot;ok&quot;: True, &quot;refresh&quot;: True}))   # refresh = run the data script right after
+elif not action:
+    print(json.dumps({&quot;data&quot;: fetch()}))               # the normal data run
+</code></pre>
+<p><strong>Anything that writes outside the widget runs only after the user confirmed it in the widget</strong>, with a sentence
+saying what will happen. Never from a timer, never by itself.</p>
+<h2 id="notices">Notices</h2>
+<p>A widget can put notices into Kyllene's bell (and a system notification while the window is in the background):</p>
+<ul>
+<li><code>"notify": true</code> in widget.json: every new <code>warn</code>/<code>error</code> state is announced once, and so is a failing script.</li>
+<li>From the script: <code>"notify": [{ "id": "disk", "key": "90", "level": "warn", "title": "Disk at 90 %", "body": "…" }]</code>.</li>
+<li>From widget.js: <code>api.notify({ id, key?, level, title, body? })</code>.</li>
+</ul>
+<p><code>id</code> is the topic (a new notice replaces the old one), <code>key</code> what counts as news (the same <code>id</code> + <code>key</code> is never
+announced twice). The user can switch notices off per widget.</p>
+<h2 id="more-power-ai-hermes-coding-agents-a2a">More power: AI, Hermes, coding agents, A2A</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>You want</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AI fills a form or drafts a text the user then confirms</td>
+<td><code>await api.ai.draft(instructions, input)</code> → the first JSON object of the answer from Hermes' main model</td>
+</tr>
+<tr>
+<td>A job that needs judgement, handed to Hermes</td>
+<td><code>await api.hermes.start({ prompt, title?, model?, provider?, skill? })</code> opens a new Hermes conversation working on it</td>
+</tr>
+<tr>
+<td>A coding job</td>
+<td><code>await api.code.start({ agent: "claude" \| "codex", dir, prompt })</code> opens Claude Code or Codex in that folder</td>
+</tr>
+<tr>
+<td>Data from one of your agents</td>
+<td>an A2A skill instead of a data script: <code>"a2a": { "skill": "&lt;id&gt;", "input": { … } }</code> in widget.json, <code>api.a2a.use()</code> in widget.js</td>
+</tr>
+<tr>
+<td>A chart</td>
+<td><code>api.ui.Chart({ type: "line" \| "bar" \| "doughnut", labels, series })</code> in the app's colours</td>
+</tr>
+</tbody>
+</table></div>
+<p>Start AI, Hermes and coding agents only from a user's click: they spend the user's model limits.</p>
+<h2 id="the-api-object">The api object</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Member</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>html</code>, <code>h</code>, <code>React</code>, <code>useState</code>, <code>useEffect</code>, <code>useMemo</code>, <code>useRef</code></td>
+<td>templates and React</td>
+</tr>
+<tr>
+<td><code>data.useScript()</code></td>
+<td>the script's output: <code>{ data, status, bar, collapsed, error, at, loading, refresh }</code></td>
+</tr>
+<tr>
+<td><code>data.useHermes()</code></td>
+<td>Hermes usage analytics, Kanban and cron data</td>
+</tr>
+<tr>
+<td><code>data.usePanes()</code></td>
+<td>open conversations <code>{ pid, title, state }</code></td>
+</tr>
+<tr>
+<td><code>useSettings()</code>, <code>openSettings()</code>, <code>saveSettings(patch)</code></td>
+<td>the widget's settings</td>
+</tr>
+<tr>
+<td><code>useStore(key, init)</code></td>
+<td>a value kept across restarts on this computer, like <code>useState</code></td>
+</tr>
+<tr>
+<td><code>action(name, payload)</code></td>
+<td>run the script as an action</td>
+</tr>
+<tr>
+<td><code>notify({ id, key?, level, title, body? })</code></td>
+<td>a notice in the bell</td>
+</tr>
+<tr>
+<td><code>openWindow()</code></td>
+<td>open this widget in its window</td>
+</tr>
+<tr>
+<td><code>openUrl(url)</code>, <code>pickFiles({ multiple? })</code>, <code>readFile(name)</code></td>
+<td>a link in the browser, the file picker, a file from the widget folder</td>
+</tr>
+<tr>
+<td><code>go.conversation(id)</code>, <code>go.kanban(projectId?)</code>, <code>go.widget(id)</code>, <code>go.file(path)</code></td>
+<td>open things in the app</td>
+</tr>
+<tr>
+<td><code>ai.draft</code>, <code>hermes.start</code>, <code>code.start</code>, <code>code.roots()</code>, <code>a2a.use</code>, <code>a2a.act</code></td>
+<td>see <a href="#more-power-ai-hermes-coding-agents-a2a">More power</a></td>
+</tr>
+<tr>
+<td><code>ui.Icon</code>, <code>ui.Empty</code>, <code>ui.Modal</code>, <code>ui.Menu</code>, <code>ui.Toggle</code>, <code>ui.Chart</code>, <code>ui.Delta</code></td>
+<td>the app's own components</td>
+</tr>
+<tr>
+<td><code>useLang()</code>, <code>useText()</code></td>
+<td>the language; <code>useText()({ en, cs })</code> picks the text</td>
+</tr>
+<tr>
+<td><code>fmt.num(n)</code>, <code>fmt.usd(n)</code></td>
+<td>number formatting like the app</td>
+</tr>
+<tr>
+<td><code>id</code>, <code>dir</code>, <code>version</code></td>
+<td>the widget id, its folder, the API version</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="looks">Looks</h2>
+<p>Use the app's CSS variables so the widget follows the colour scheme and light/dark mode: <code>--ink</code>, <code>--ink-2</code>,
+<code>--ink-3</code> (text, quieter, muted), <code>--accent</code>, <code>--ok</code>, <code>--warn</code>, <code>--err</code>, <code>--line</code>, <code>--hover</code>, <code>--r-sm</code> (corner
+radius). Buttons: <code>class="btn sm"</code>, muted text: <code>class="muted"</code>. <strong>Prefix every class</strong> with <code>xw-&lt;id&gt;-</code>: widget CSS
+is global.</p>
+<h2 id="rules-and-safety">Rules and safety</h2>
+<ul>
+<li><strong>Widgets run with the app's full rights</strong> (no sandbox). Install only widgets you trust.</li>
+<li>Code that arrives by sync from another computer runs only after you approve it on this one.</li>
+<li>Anything that writes outside the widget (send, delete, publish) asks the user first.</li>
+<li>Keys stay in Hermes' <code>.env</code>, referenced by a <code>secret</code> setting. Never put keys into the widget folder: it syncs.</li>
+<li>Ids of built-in widgets are taken: <code>calendar</code>, <code>mail</code>, <code>google-tasks</code>, <code>weather</code>, <code>gitlab</code>, <code>teamwork</code>,
+  <code>claude-code</code>, <code>codex</code>, <code>openrouter</code>, <code>kpi-tokens</code>, <code>kpi-cost</code>, <code>kpi-convs</code>, <code>kpi-done</code>, <code>tokens</code>, <code>models</code>, <code>work</code>,
+  <code>kanban</code>, <code>activity</code>.</li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The widget is not in the Widgets menu</td>
+<td>Settings › Widgets lists load errors (bad JSON, unknown <code>type</code>, missing widget.js).</td>
+</tr>
+<tr>
+<td>"Not published yet" / "Widget is not published"</td>
+<td>Press <strong>Publish</strong> at the widget in Settings › Widgets after the last edit.</td>
+</tr>
+<tr>
+<td>An edit does not show</td>
+<td>Publish again; until then the last published version runs.</td>
+</tr>
+<tr>
+<td>Error state in the card</td>
+<td>Run the script by hand with the same <code>KYLLENE_WIDGET_SETTINGS</code>; its last stderr line is the message.</td>
+</tr>
+<tr>
+<td>The card does not fold / is missing in the bar</td>
+<td>Add <code>collapsed</code> / <code>bar</code> (script) or <code>useCollapsed</code> / <code>useBar</code> (widget.js).</td>
+</tr>
+<tr>
+<td>The widget crashed</td>
+<td><code>style</code> must be an object, and hooks may not be called conditionally.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Questions or a widget you want to share? <a href="https://github.com/cpoint-eu/kyllene-releases/issues">Open an issue</a>.</p>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Kyllene is an independent project, not affiliated with Nous Research. Hermes Agent is a project of Nous Research.</span>
+    <span><a href="./">All guides</a> · <a href="https://github.com/cpoint-eu/kyllene-releases">GitHub</a></span>
+  </div>
+</footer>
+</body>
+</html>

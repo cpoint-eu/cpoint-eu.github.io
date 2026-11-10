@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kyllene documentation – Kyllene documentation</title>
+<meta name="description" content="New here? Start with Install and update, then Settings and Manage Hermes.">
+<link rel="icon" type="image/svg+xml" href="../media/kyllene.svg">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="docs">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../"><img src="../media/kyllene.svg" alt="">Kyllene</a>
+    <nav>
+      <a href="./">Docs</a>
+      <a href="settings.html">Settings</a>
+      <a href="hermes.html">Manage Hermes</a>
+      <a href="../#install">Install</a>
+    </nav>
+    <a class="lang" href="https://github.com/cpoint-eu/kyllene-releases/blob/main/docs/README.md">Edit on GitHub</a>
+  </div>
+</header>
+
+<main class="wrap doc">
+<h1 id="kyllene-documentation">Kyllene documentation</h1>
+<p>New here? Start with <a href="https://cpoint-eu.github.io/kyllene/#install">Install and update</a>, then <a href="settings.html">Settings</a>
+and <a href="hermes.html">Manage Hermes</a>.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Guide</th>
+<th>What it covers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://cpoint-eu.github.io/kyllene/#install">Install and update</a></td>
+<td>Requirements, the one-line installer, automatic updates, uninstall (also <a href="https://cpoint-eu.github.io/kyllene/cs/#install">in Czech</a>)</td>
+</tr>
+<tr>
+<td><a href="settings.html">Settings</a></td>
+<td>Every Settings tab: what each option does, its default, and when to change it</td>
+</tr>
+<tr>
+<td><a href="hermes.html">Manage Hermes</a></td>
+<td>The Hermes window: skills and the hub, MCP servers and tool selection, plugins, cron jobs, profiles, models and providers, keys, memory, logs, system, config, hooks, channels, webhooks, statistics</td>
+</tr>
+<tr>
+<td><a href="projects.html">Projects and tasklists</a></td>
+<td>Projects, instructions and memory, files and outputs, the Git panel, focus mode, tasklists with AI</td>
+</tr>
+<tr>
+<td><a href="kanban.html">Kanban</a></td>
+<td>Boards and the Inbox, columns, handing cards to agents, answers, runs and reviews</td>
+</tr>
+<tr>
+<td><a href="coding-agents.html">Coding agents</a></td>
+<td>Claude Code and Codex inside Kyllene: what they need, conversations, history, Kanban</td>
+</tr>
+<tr>
+<td><a href="sync.html">Sync between computers</a></td>
+<td>What travels between your computers and what stays, how to set it up</td>
+</tr>
+<tr>
+<td><a href="voice.html">Voice</a></td>
+<td>Dictation, reading answers aloud, voice modes, voice commands, transcribing recordings</td>
+</tr>
+<tr>
+<td><a href="quick-capture.html">Quick capture</a></td>
+<td>The small window from anywhere: ask, note, add a task, with a screenshot or selected text</td>
+</tr>
+<tr>
+<td><a href="shortcuts.html">Keyboard shortcuts</a></td>
+<td>Every shortcut in one list</td>
+</tr>
+<tr>
+<td><a href="widgets.html">Build your own widget</a></td>
+<td>Cards and windows with your own data: manifest, data script, view, settings, actions, notices, a ready-to-run example</td>
+</tr>
+<tr>
+<td><a href="#troubleshooting">Troubleshooting</a></td>
+<td>The most common problems on the first start</td>
+</tr>
+</tbody>
+</table></div>
+<p>Also on the website <a href="https://cpoint-eu.github.io/kyllene/">cpoint-eu.github.io/kyllene</a>. Missing something?
+<a href="https://github.com/cpoint-eu/kyllene-releases/issues/new?template=idea.yml">Suggest an improvement</a> and say what you
+were looking for.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The AppImage does not start: <em>"No suitable fusermount binary found on the $PATH"</em></td>
+<td>Install FUSE: <code>sudo pacman -S fuse3</code> (Manjaro, Arch), then start Kyllene again. The installer checks this for you.</td>
+</tr>
+<tr>
+<td>Kyllene is not in the app menu</td>
+<td>Run the <a href="https://github.com/cpoint-eu/kyllene-releases/blob/main/install.sh">installer</a> again; it adds the menu entry (<code>~/.local/share/applications/kyllene.desktop</code>).</td>
+</tr>
+<tr>
+<td>The window stays empty or white</td>
+<td>Start it once with <code>WEBKIT_DISABLE_DMABUF_RENDERER=1 ~/.local/bin/Kyllene.AppImage</code> (if still empty, <code>WEBKIT_DISABLE_COMPOSITING_MODE=1</code> instead) and <a href="https://github.com/cpoint-eu/kyllene-releases/issues/new?template=bug.yml">report your GPU and desktop</a>.</td>
+</tr>
+<tr>
+<td><em>"Hermes could not be started"</em></td>
+<td>Check that Hermes works in a terminal (<code>hermes</code>), then restart Kyllene.</td>
+</tr>
+<tr>
+<td>Conversations start but the model does not answer</td>
+<td>Hermes has no model yet: click <strong>Connect a model</strong> in the bar <em>Hermes has no model connected.</em> and sign in to a provider (the first one becomes the main model), or run <code>hermes setup</code> in a terminal.</td>
+</tr>
+<tr>
+<td>Dictation does nothing on the first try</td>
+<td>Dictation needs a speech model once: Kyllene offers to download it (the smaller one dictates faster); change it later in <a href="settings.html#speech-to-text">Settings › Speech to text</a>.</td>
+</tr>
+<tr>
+<td>Kanban cards stay in <em>Ready</em></td>
+<td>The Hermes gateway is not running; the board header says <em>tasks will not run</em>. Start it (<code>hermes gateway</code>) with Kanban dispatch enabled. See <a href="kanban.html#boards">Kanban</a>.</td>
+</tr>
+<tr>
+<td>A widget from another computer does not run</td>
+<td>Its code waits for your approval on this computer: <a href="sync.html#widgets-from-other-computers">Sync between computers</a>.</td>
+</tr>
+<tr>
+<td>Something broke after a Hermes update</td>
+<td>Kyllene checks itself after every Hermes update and tells you what does not work; until a new Kyllene is out you can go back to the Hermes version it was tested with (named in the release notes and in <a href="settings.html#about">Settings › About</a>).</td>
+</tr>
+</tbody>
+</table></div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Kyllene is an independent project, not affiliated with Nous Research. Hermes Agent is a project of Nous Research.</span>
+    <span><a href="./">All guides</a> · <a href="https://github.com/cpoint-eu/kyllene-releases">GitHub</a></span>
+  </div>
+</footer>
+</body>
+</html>

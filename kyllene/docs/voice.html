@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Voice – Kyllene documentation</title>
+<meta name="description" content="Talk to Hermes instead of typing, have answers read aloud, go fully hands-free, and turn recordings into text. Speech recognition runs locally with Whisper inside Hermes: your voice stays on your comp">
+<link rel="icon" type="image/svg+xml" href="../media/kyllene.svg">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="docs">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../"><img src="../media/kyllene.svg" alt="">Kyllene</a>
+    <nav>
+      <a href="./">Docs</a>
+      <a href="settings.html">Settings</a>
+      <a href="hermes.html">Manage Hermes</a>
+      <a href="../#install">Install</a>
+    </nav>
+    <a class="lang" href="https://github.com/cpoint-eu/kyllene-releases/blob/main/docs/voice.md">Edit on GitHub</a>
+  </div>
+</header>
+
+<main class="wrap doc">
+<h1 id="voice">Voice</h1>
+<p>Talk to Hermes instead of typing, have answers read aloud, go fully hands-free, and turn recordings into text.
+Speech recognition runs <strong>locally</strong> with Whisper inside Hermes: your voice stays on your computer.</p>
+<h2 id="dictation">Dictation</h2>
+<ul>
+<li>Click the <strong>microphone</strong> in the composer, or <strong>hold <code>Ctrl+Space</code></strong>, speak and release: the text goes into the
+  message field so you can check it and send it.</li>
+<li>The first time, Kyllene offers to download a speech model. The smaller one (<em>turbo</em>, ~1.5 GB) dictates faster,
+  <em>large-v3</em> (~2.9 GB) writes most accurately. Without an NVIDIA graphics card, <em>turbo</em> is the usual choice. Change
+  it later in <a href="settings.html#speech-to-text">Settings › Speech to text</a> (recordings) and <a href="settings.html#voice">Settings ›
+  Voice</a> (a separate, smaller model just for dictation).</li>
+<li>When the local engine cannot run at all (no model, no Whisper), dictation uses Hermes' own speech recognition
+  (<em>Automatic</em> engine).</li>
+<li><strong><code>Ctrl+Shift+E</code></strong> tidies up the message text: the selection, the last dictation or the whole draft.</li>
+<li>The dictation keys can be changed in <a href="settings.html#voice">Settings › Voice</a> or <a href="settings.html#shortcuts">Settings ›
+  Shortcuts</a>.</li>
+</ul>
+<h2 id="reading-answers-aloud">Reading answers aloud</h2>
+<ul>
+<li>The <strong>Read aloud</strong> speaker icon in the corner of an answer reads it with Hermes' text-to-speech voice. <code>Esc</code>
+  stops reading.</li>
+<li>The voice and the TTS provider are Hermes' settings (Hermes › Config › <em>Text to speech</em>). Edge voices are free and
+  pick a voice for the reading language.</li>
+</ul>
+<h2 id="voice-modes">Voice modes</h2>
+<p>Set in <a href="settings.html#voice">Settings › Voice</a> (<strong>Voice</strong> button), saved on this computer only:</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>How it works</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Manual</strong> (default)</td>
+<td>Use the microphone button or hold the shortcut to dictate. You send and read yourself.</td>
+</tr>
+<tr>
+<td><strong>Semi-automatic</strong></td>
+<td>Hold the shortcut, speak and release. <code>Enter</code> sends; finished answers are read automatically.</td>
+</tr>
+<tr>
+<td><strong>Automatic</strong></td>
+<td>Start listening once (or arm the wake word). A pause sends the message, the answer is read, then it listens again.</td>
+</tr>
+</tbody>
+</table></div>
+<p>The microphone is always off after a restart. In a noisy room raise <em>Speech volume threshold</em>; if it sends while
+you are still thinking, raise <em>Pause before sending</em>.</p>
+<p><strong>Voice commands</strong> while dictating: say <em>new conversation</em>, <em>send</em>, <em>clear</em>, <em>read again</em> or <em>stop</em> and Kyllene
+does it instead of typing the words.</p>
+<p><strong>Wake word</strong>: with Hermes' wake-word detector set up, Kyllene can listen for the wake phrase on this computer
+(Settings › Voice › <em>Wake word on this computer</em>, off by default).</p>
+<h2 id="transcribe-a-recording">Transcribe a recording</h2>
+<p>The <strong>Transcribe a recording</strong> widget turns an audio file (a meeting, an interview) into text with speakers marked
+(Speaker 1, 2…), locally with Whisper. It saves the transcript next to the recording, into a project, or into a
+conversation with a summary. Switch it on in the <strong>Widgets</strong> menu; speaker detection is set up in <a href="settings.html#speech-to-text">Settings › Speech
+to text</a>.</p>
+<h2 id="test-your-microphone">Test your microphone</h2>
+<p><a href="settings.html#voice">Settings › Voice</a> › <strong>Say something</strong> records five seconds and shows the transcript (never sent
+anywhere); <strong>Play sample</strong> plays the reading voice. If nothing is recorded, check the microphone access and the
+selected input device in your system settings.</p>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Kyllene is an independent project, not affiliated with Nous Research. Hermes Agent is a project of Nous Research.</span>
+    <span><a href="./">All guides</a> · <a href="https://github.com/cpoint-eu/kyllene-releases">GitHub</a></span>
+  </div>
+</footer>
+</body>
+</html>

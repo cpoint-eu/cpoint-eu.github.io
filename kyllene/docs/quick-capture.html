@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quick capture – Kyllene documentation</title>
+<meta name="description" content="A small window you open from anywhere, even when Kyllene is in the background: ask Hermes and read the answer right there, note something down or add a task, with the text you have selected or a scree">
+<link rel="icon" type="image/svg+xml" href="../media/kyllene.svg">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="docs">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../"><img src="../media/kyllene.svg" alt="">Kyllene</a>
+    <nav>
+      <a href="./">Docs</a>
+      <a href="settings.html">Settings</a>
+      <a href="hermes.html">Manage Hermes</a>
+      <a href="../#install">Install</a>
+    </nav>
+    <a class="lang" href="https://github.com/cpoint-eu/kyllene-releases/blob/main/docs/quick-capture.md">Edit on GitHub</a>
+  </div>
+</header>
+
+<main class="wrap doc">
+<h1 id="quick-capture">Quick capture</h1>
+<p>A small window you open from anywhere, even when Kyllene is in the background: ask Hermes and read the answer right
+there, note something down or add a task, with the text you have selected or a screenshot.</p>
+<h2 id="open-it">Open it</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Way</th>
+<th>How</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>System-wide shortcut</strong></td>
+<td>Switch it on in <a href="settings.html#quick-capture">Settings › Quick capture</a> (suggested <code>Ctrl+Alt+Space</code>). The desktop asks you once to confirm it; change the keys in your system settings (<em>Apps › Kyllene › Global shortcuts</em>).</td>
+</tr>
+<tr>
+<td><strong>Tray icon</strong></td>
+<td>Its menu has <em>Quick capture…</em> and <em>Screenshot → Hermes…</em>. On GNOME it needs the AppIndicator extension.</td>
+</tr>
+<tr>
+<td><strong>Palette</strong></td>
+<td><code>Ctrl+K</code> › <em>Quick capture…</em> or <em>Screenshot → Hermes…</em>.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="what-it-does">What it does</h2>
+<p>Pick one of three kinds at the top:</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Kind</th>
+<th>What happens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ask Hermes</strong></td>
+<td>A question in a new conversation. The answer appears in the small window; <strong>Continue in the main window</strong> (<code>Enter</code>) opens the conversation in Kyllene, <strong>New question</strong> starts again. A question you drop does not clutter your conversation list.</td>
+</tr>
+<tr>
+<td><strong>Note</strong></td>
+<td>Hermes gets "Make a note: …" and stores it its own way.</td>
+</tr>
+<tr>
+<td><strong>Task</strong></td>
+<td>Into a <strong>Tasklist</strong> of a project you choose (and its section), the Kanban <strong>Inbox</strong> (a parked card, nothing starts it on its own), or Hermes' own <strong>To-do</strong>.</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Selected text</strong>: text you selected in another app is attached by itself; <strong>From clipboard</strong> uses the clipboard
+  instead.</li>
+<li><strong>Screenshot</strong>: the system picker lets you take the whole screen, a window or an area. A tasklist stores only the
+  text, not the picture.</li>
+<li><strong>Answer in the main window</strong>: on = Kyllene comes up with the new conversation; off (default) = the answer shows
+  in the small window and the conversation runs in a background tab.</li>
+<li>When Hermes needs your approval or an answer, the small window says so: continue in the main window.</li>
+</ul>
+<h2 id="on-wayland">On Wayland</h2>
+<p>Wayland gives the selected text of another app only to the window with focus, so Kyllene reads it once the capture
+window is focused. The small window may fall behind another one after you click elsewhere; keep it on top through
+its window menu (<code>Alt+Space</code> › <em>Always on Top</em>).</p>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Kyllene is an independent project, not affiliated with Nous Research. Hermes Agent is a project of Nous Research.</span>
+    <span><a href="./">All guides</a> · <a href="https://github.com/cpoint-eu/kyllene-releases">GitHub</a></span>
+  </div>
+</footer>
+</body>
+</html>
