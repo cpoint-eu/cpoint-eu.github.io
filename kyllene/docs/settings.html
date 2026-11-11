@@ -33,7 +33,7 @@ tab you used last.</p>
 <strong>Hermes</strong> window: see <a href="hermes.html">Manage Hermes in Kyllene</a>.</p>
 <p>Some choices are kept <strong>only on this computer</strong> (folders, devices, microphone), others <strong>travel to your other
 computers</strong> when <a href="sync.html">sync</a> is on. Each section below says which.</p>
-<p><strong>Tabs:</strong> <a href="#projects">Projects</a> · <a href="#appearance">Appearance</a> · <a href="#models">Models</a> · <a href="#backup--sync">Backup &amp; sync</a> ·
+<p><strong>Tabs:</strong> <a href="#projects">Projects</a> · <a href="#appearance">Appearance</a> · <a href="#pet">Pet</a> · <a href="#models">Models</a> · <a href="#backup--sync">Backup &amp; sync</a> ·
 <a href="#notifications">Notifications</a> · <a href="#speech-to-text">Speech to text</a> · <a href="#voice">Voice</a> ·
 <a href="#automatic-deletion">Automatic deletion</a> · <a href="#widgets">Widgets</a> · <a href="#shortcuts">Shortcuts</a> · <a href="#servers">Servers</a> ·
 <a href="#coding-agents">Coding agents</a> · <a href="#prompt-templates">Prompt templates</a> · <a href="#quick-capture">Quick capture</a> ·
@@ -111,6 +111,50 @@ computers</strong> when <a href="sync.html">sync</a> is on. Each section below s
 </table></div>
 <p>Light/dark mode, the colour scheme, the surface style and the <strong>language</strong> (English / Czech) sit in the
 <a href="#the-status-bar">status bar</a> at the bottom, so you can switch them without opening Settings.</p>
+<h2 id="pet">Pet</h2>
+<p>The animated pet that shows what the agent is doing. Hermes keeps <strong>Show the pet</strong>, the chosen pet and <strong>Size</strong>, so
+the CLI and TUI show the same.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Option</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Show the pet</strong>, <strong>Size</strong></td>
+<td>Turn the pet on or off (also in the terminal) and set its size.</td>
+</tr>
+<tr>
+<td><strong>Hatch a new one…</strong></td>
+<td>AI draws a new pet from your description (paid image generation; the cost is shown first).</td>
+</tr>
+<tr>
+<td><strong>Let the pet wander the window</strong></td>
+<td>Off by default. The pet strolls along free spots while the agent is at rest.</td>
+</tr>
+<tr>
+<td><strong>Your pets</strong></td>
+<td>Your installed pets: <strong>Show</strong>, and <strong>⋯</strong> › <strong>Rename</strong>, <strong>Personality…</strong>, <strong>Repair animations…</strong> (hatched pets), <strong>Generate moods…</strong>, <strong>Remove</strong>. Under the shown pet: its current <strong>Mood</strong> and <strong>Animation length</strong> (1–8 s per animation, free).</td>
+</tr>
+<tr>
+<td><strong>Pet brain</strong></td>
+<td><strong>No memory</strong> (default), <strong>Memory</strong>, <strong>Agent</strong> or <strong>Combination</strong>: how much the pet remembers and can do; with Memory its memory note, <strong>What it knows about the user</strong> (off by default) and <strong>Skills</strong>.</td>
+</tr>
+<tr>
+<td><strong>Comments</strong></td>
+<td>The speech bubble: <strong>Mode</strong> (<strong>Off</strong> / <strong>Prepared lines</strong>, default / <strong>AI lines</strong>), <strong>Model of the lines</strong>, <strong>Longest silence</strong> (default 5 min), <strong>Language</strong>, <strong>Comment on my messages too</strong> (off by default).</td>
+</tr>
+<tr>
+<td><strong>Petdex</strong></td>
+<td>The public gallery: search and <strong>Adopt</strong>.</td>
+</tr>
+</tbody>
+</table></div>
+<p>The shown pet, its size, personality, brain, memory, skills, own moods and animation lengths and <strong>Let the pet wander
+the window</strong> travel to your other computers; whether the pet is shown, its spot on the screen and its mood stay on
+this computer. Everything in detail: <a href="pet.html">Pet</a> (<a href="pet.cs.html">česky</a>).</p>
 <h2 id="models">Models</h2>
 <p>Hermes' defaults for every <strong>new</strong> conversation. They are written to Hermes' <code>config.yaml</code>, so the Hermes terminal,
 cron jobs and messaging bots use them too. A conversation that is already open keeps its model; switch it in the
@@ -486,7 +530,8 @@ This tab manages them.</p>
 on). Files that cannot be used are listed with the reason.</p>
 <h2 id="shortcuts">Shortcuts</h2>
 <p>Every keyboard shortcut of the app, grouped by where it works. Most are fixed; the dictation keys can be changed
-here (<strong>Change</strong>), widget shortcuts in the widget's ⋯ › <em>Widget settings</em>, the system-wide quick-capture keys in your
+here (<strong>Change</strong>), the <a href="pet.html#palette-commands-and-shortcuts">pet</a> commands (choose, show / hide, its own window,
+hatch) get a key of your own here (<strong>Set</strong>), widget shortcuts in the widget's ⋯ › <em>Widget settings</em>, the system-wide quick-capture keys in your
 desktop's settings. The full list: <a href="shortcuts.html">Keyboard shortcuts</a>.</p>
 <h2 id="servers">Servers</h2>
 <p>Hermes on another machine (a VPS, a home server), reached <strong>over SSH</strong>. Conversations on a server are visible from

@@ -205,7 +205,9 @@ skill or MCP server needs.</p>
   <code>hermes doctor</code> (config, keys, dependencies, services).</li>
 <li><strong>Gateway</strong>: state, mode, running sessions, health. The gateway runs cron jobs, Kanban tasks and messaging bots.
   <strong>Restart gateway</strong> (<code>hermes gateway restart</code>) interrupts the cron jobs, Kanban tasks and bot conversations
-  that are running at that moment.</li>
+  that are running at that moment. When Hermes was updated but the gateway still runs the previous version, Kyllene
+  warns (<em>Hermes is running old code</em>) and offers <strong>Restart…</strong>; until you restart it, some actions such as switching
+  models can fail.</li>
 <li><strong>Computer</strong>: machine, CPU, memory, disk, uptime, Python.</li>
 </ul>
 <p>Kyllene checks itself after every Hermes update and tells you if something it uses changed. The Hermes versions a

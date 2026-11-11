@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maskot – Kyllene documentation</title>
+<meta name="description" content="Maskot je malá animovaná postavička, která sedí v rohu konverzace a ukazuje, co agent zrovna dělá: jestli pracuje, přemýšlí, čeká na tebe, nebo je hotovo. Nemusíš sledovat text, stačí koutkem oka mrkn">
+<link rel="icon" type="image/svg+xml" href="../media/kyllene.svg">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="docs">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../"><img src="../media/kyllene.svg" alt="">Kyllene</a>
+    <nav>
+      <a href="./">Docs</a>
+      <a href="features.html">Features</a>
+      <a href="settings.html">Settings</a>
+      <a href="hermes.html">Manage Hermes</a>
+      <a href="../#install">Install</a>
+    </nav>
+    <a class="lang" href="https://github.com/cpoint-eu/kyllene-releases/blob/main/docs/pet.cs.md">Edit on GitHub</a>
+  </div>
+</header>
+
+<main class="wrap doc">
+<h1 id="maskot">Maskot</h1>
+<p>Maskot je malá animovaná postavička, která sedí v rohu konverzace a ukazuje, co agent zrovna dělá: jestli pracuje,
+přemýšlí, čeká na tebe, nebo je hotovo. Nemusíš sledovat text, stačí koutkem oka mrknout na maskota. Umí mít i
+náladu, komentovat práci v bublině a odpovědět, když na něj promluvíš jménem.</p>
+<p>Maskota má na starosti Hermes, takže stejného maskota uvidíš i v terminálu (<code>hermes</code>, TUI). Kyllene ho zobrazuje a
+přidává k němu náladu, komentáře a osobnost. <em>English version: <a href="pet.html">Pet</a>.</em></p>
+<p><strong>Na této stránce:</strong> <a href="#zapnout-a-vypnout">Zapnout</a> · <a href="#nainstalovat-a-vybrat-maskota">Nainstalovat a vybrat</a> ·
+<a href="#vylíhnout-vlastního-maskota-s-ai">Vylíhnout vlastního</a> · <a href="#přesunout-maskota">Přesunout</a> ·
+<a href="#maskot-ve-vlastním-okně">Vlastní okno</a> · <a href="#co-znamenají-stavy">Stavy</a> · <a href="#nálada">Nálada</a> ·
+<a href="#komentáře-v-bublině">Komentáře</a> · <a href="#oslovit-maskota-jménem">Oslovit jménem</a> · <a href="#osobnost">Osobnost</a> ·
+<a href="#mozek-maskota">Mozek maskota</a> · <a href="#opravit-animace-a-délka-animací">Opravit animace</a> ·
+<a href="#dogenerovat-nálady">Vlastní nálady</a> · <a href="#na-tvých-dalších-počítačích">Jiné počítače</a> ·
+<a href="#příkazy-palety-a-zkratky">Paleta a zkratky</a> · <a href="#když-něco-nejde">Když něco nejde</a></p>
+<h2 id="zapnout-a-vypnout">Zapnout a vypnout</h2>
+<ol>
+<li>Otevři <strong>Nastavení</strong> (ozubené kolečko nahoře nebo <code>Ctrl+,</code>) a vlevo vyber záložku <strong>Maskot</strong>.</li>
+<li>Zapni přepínač <strong>Zobrazovat maskota</strong>. Vypnutím ho schováš, a to všude: v okně Kyllene i v terminálu.</li>
+<li>Posuvníkem <strong>Velikost</strong> nastavíš, jak je velký (<strong>Výchozí</strong> ho vrátí). Velikost změníš i přímo na maskotovi:
+   podrž <code>Alt</code> a točni kolečkem myši.</li>
+</ol>
+<p>Totéž umí paleta: <code>Ctrl+K</code> › <em>Maskot: zapnout</em> / <em>Maskot: vypnout</em>. Pokud v záložce vidíš <em>Tenhle Hermes maskoty
+ještě nemá</em>, aktualizuj Hermes (<code>hermes update</code>).</p>
+<h2 id="nainstalovat-a-vybrat-maskota">Nainstalovat a vybrat maskota</h2>
+<p><strong>V aplikaci:</strong> v Nastavení › Maskot najdeš dole <strong>Petdex</strong>, veřejnou galerii maskotů. Vyhledej si nějakého a klikni
+na <strong>Adoptovat</strong>. Objeví se mezi <strong>Tvoji maskoti</strong>; tlačítkem <strong>Zobrazit</strong> ho vybereš (vybraný má štítek
+<strong>Zobrazený</strong>). Nabídka <strong>⋯</strong> (<strong>Další akce</strong>) u maskota má <strong>Přejmenovat</strong>, <strong>Osobnost…</strong>, <strong>Opravit animace…</strong> (u
+vylíhnutých maskotů), <strong>Dogenerovat nálady…</strong> a <strong>Odebrat</strong>. Rychle přepneš přes <code>Ctrl+K</code> › <em>Maskot…</em>: seznam tvých
+maskotů s hledáním, <code>Enter</code> zobrazí vybraného.</p>
+<p><strong>V terminálu:</strong> jedním příkazem maskota stáhneš a rovnou vybereš, třeba Bobu:</p>
+<pre><code class="language-bash">hermes pets install boba --select
+</code></pre>
+<p>Další užitečné příkazy: <code>hermes pets list</code> (galerie), <code>hermes pets select &lt;jméno&gt;</code> (přepnout na jiného),
+<code>hermes pets off</code> (vypnout). Kyllene si změny všimne sama, není potřeba ji restartovat.</p>
+<h2 id="vylíhnout-vlastního-maskota-s-ai">Vylíhnout vlastního maskota s AI</h2>
+<p><strong>Vylíhnout nového…</strong> v Nastavení › Maskot (nebo <code>Ctrl+K</code> › <em>Maskot: vylíhnout nového…</em>) nechá AI nakreslit úplně
+nového maskota:</p>
+<ol>
+<li><strong>Poskytovatel</strong>: vyber <strong>Poskytovatele obrázků</strong> (ty, které má Hermes nastavené a které umí kreslit podle
+   referenčního obrázku, třeba <em>ChatGPT (předplatné)</em>, <em>OpenAI (API klíč)</em>, <em>OpenRouter</em>, <em>Nous Portal</em>) a kde to
+   poskytovatel dovolí, i <strong>Model obrázků</strong>. Dialog předem řekne, co to stojí: placené za obrázek, nebo v rámci
+   předplatného. Bez vhodného poskytovatele vypíše, co nastavit.</li>
+<li><strong>Popis</strong>: popiš maskota, třeba <em>malý zelený drak s brýlemi a hrnkem kávy</em>, a klikni na <strong>Vygenerovat návrhy</strong>.</li>
+<li><strong>Návrhy</strong> a <strong>Výběr</strong>: AI nakreslí čtyři návrhy. Vyber jeden, dej mu <strong>Jméno maskota</strong> a když chceš, i
+   <strong>Povahu</strong> pro jeho <a href="#osobnost">osobnost</a> (<strong>Vymyslet s AI</strong> navrhne obojí). Když se ti žádný nelíbí, <strong>Nové
+   návrhy</strong> nebo <strong>Upravit popis</strong>; pak <strong>Vylíhnout</strong>.</li>
+<li><strong>Líhnutí</strong>: nakreslí se a složí všechny animace. Pak <strong>Zobrazit jako maskota</strong>, <strong>Vylíhnout dalšího</strong> nebo
+   <strong>Zahodit</strong>.</li>
+</ol>
+<h2 id="přesunout-maskota">Přesunout maskota</h2>
+<ul>
+<li><strong>Přetáhni ho myší</strong> kamkoli. Pustíš-li ho přes text, sám si najde nejbližší volné místo, aby nepřekrýval odpověď
+  ani pole pro psaní. Místo si pamatuje i po restartu.</li>
+<li><strong>Dvojklik</strong> ho vrátí do výchozího rohu (vpravo dole nad polem pro psaní).</li>
+<li>Poloha se pamatuje na každém počítači zvlášť (každý má jinou obrazovku).</li>
+<li>Volba <strong>Maskot se toulá po okně</strong> v Nastavení › Maskot (výchozí vypnuto; v paletě <em>Maskot: toulat se po okně</em> /
+  <em>Maskot: přestat se toulat</em>) ho nechá procházet se po volných místech, když agent nic nedělá. Jakmile agent začne
+  pracovat, vrátí se na své místo.</li>
+</ul>
+<h2 id="maskot-ve-vlastním-okně">Maskot ve vlastním okně</h2>
+<p><strong>Shift+klik</strong> na maskota ho vysune do vlastního malého okna na ploše. Zůstává navrchu, i když je Kyllene schovaná
+nebo za jinými aplikacemi (v paletě <em>Maskot: do vlastního okna</em>). Okno můžeš přetáhnout jinam, jeho poloha se také
+pamatuje. Dalším <strong>Shift+klikem</strong> (nebo <em>Maskot: zpět do okna aplikace</em>) se maskot vrátí do Kyllene.</p>
+<p>Na ploše maskot umí víc:</p>
+<ul>
+<li><strong>Klik</strong> otevře malé pole pro zprávu (okno <a href="quick-capture.html">rychlého zachycení</a>), které píše do konverzace, ve
+  které jsi byl naposledy; odpověď se ukáže tamtéž.</li>
+<li><strong>Dvojklik</strong> schová hlavní okno Kyllene, nebo ho zase ukáže.</li>
+<li>Malá bublina vedle něj ukazuje <em>Pracuje…</em>, když agent pracuje, a <em>Jsi na řadě</em>, když na tebe nějaký čeká.</li>
+<li>Když agent dokončil odpověď, zatímco jsi byl v jiné aplikaci, objeví se vedle maskota <strong>dopis</strong>. Klikem na něj
+  otevřeš tu konverzaci (je-li jich víc, tu nejnovější).</li>
+</ul>
+<h2 id="co-znamenají-stavy">Co znamenají stavy</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Co maskot dělá</th>
+<th>Co to znamená</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stojí v klidu</td>
+<td>Agent nic nedělá, můžeš psát.</td>
+</tr>
+<tr>
+<td>Běží</td>
+<td>Agent pracuje, například používá nástroj (hledá, čte soubory, spouští příkaz).</td>
+</tr>
+<tr>
+<td>Přemýšlí</td>
+<td>Agent si rozmýšlí, co udělá dál.</td>
+</tr>
+<tr>
+<td>Čeká</td>
+<td>Agent potřebuje tebe: ptá se, chce schválení nebo heslo. Platí to i pro jinou otevřenou konverzaci, než na kterou se zrovna díváš.</td>
+</tr>
+<tr>
+<td>Je smutný / zklamaný</td>
+<td>Něco se nepovedlo (chyba nástroje nebo odpovědi). Podívej se do konverzace.</td>
+</tr>
+<tr>
+<td>Mává</td>
+<td>Hotovo, agent dokončil odpověď.</td>
+</tr>
+<tr>
+<td>Skáče radostí</td>
+<td>Agent splnil celý svůj seznam úkolů, nebo jsi mu poděkoval („díky“, ❤️); nad ním vyletí srdíčka.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Krátké stavy (mávání, skok, chyba) trvají jen chvilku, pak se maskot vrátí ke klidu nebo k práci.</p>
+<h2 id="nálada">Nálada</h2>
+<p>Kromě stavu má maskot i <strong>náladu</strong>, která sleduje, jak se na tomhle počítači daří práci: chyby za sebou ho
+rozmrzí, pak otráví, pak naštvou; úspěchy ho potěší a nadchnou; dlouhý klid ho uvolní a později uspí. Časem se vrátí
+do klidu. Nastavení › Maskot ukazuje pod zobrazeným maskotem jeho aktuální <strong>Náladu</strong>.</p>
+<p>Náladu poznáš podle toho, jak se maskot hýbe (tempo, třes, poskakování, lehký nádech barvy), a když nálada přijde,
+i podle krátké značky nad hlavou: ❓ ❗ ✨ 💢 💧 ♪. Značka po pár vteřinách zmizí; jen 💤 (ospalý) a ⏳ (netrpělivý)
+zůstávají, dokud nálada trvá. Nálada určuje i tón maskotových <a href="#komentáře-v-bublině">komentářů</a>. Každý maskot
+ukazuje nálady zdarma; <a href="#dogenerovat-nálady">Dogenerovat nálady</a> pro ně nakreslí vlastní animace.</p>
+<h2 id="komentáře-v-bublině">Komentáře v bublině</h2>
+<p>Občas maskot okomentuje práci agenta v bublině: selhaný nástroj nebo test, otázku pro tebe, dokončené kolo. Bublina
+zůstane, dokud na ni neklikneš nebo ji nenahradí další hláška; když na maskota najedeš myší, ukáže jeho poslední
+hlášky. Nastavuje se v Nastavení › Maskot › <strong>Komentáře</strong>:</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Volba</th>
+<th>Co dělá</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Režim</strong></td>
+<td><strong>Vypnuto</strong> (maskot mlčí), <strong>Předpřipravené hlášky</strong> (výchozí: hotové hlášky zdarma, které sedí na situaci a povahu maskota) nebo <strong>AI hlášky</strong> (každou hlášku napíše model z krátkého shrnutí situace, nikdy ne z celé konverzace; stojí tokeny, a když se nepovede, ukáže se předpřipravená).</td>
+</tr>
+<tr>
+<td><strong>Model hlášek</strong></td>
+<td>U AI hlášek: <strong>Podle konverzace</strong> (model konverzace, které se komentář týká) nebo jeden model, který vybereš. U drahého modelu vidíš, kolik stojí hláška.</td>
+</tr>
+<tr>
+<td><strong>Nejdelší odmlka</strong></td>
+<td>Když agent pracuje a maskot tak dlouho nic neřekl (2–30 min, výchozí 5), okomentuje, co se děje. Když nic neběží, mlčí.</td>
+</tr>
+<tr>
+<td><strong>Jazyk</strong></td>
+<td><strong>Podle aplikace</strong> (jazyk Kyllene na každém počítači), <em>Čeština</em> nebo <em>English</em>.</td>
+</tr>
+<tr>
+<td><strong>Komentovat i moje zprávy</strong></td>
+<td>Výchozí vypnuto. Maskot občas zareaguje na zprávu, kterou pošleš (ne na krátké odpovědi a příkazy, nejvýš jednou za 3 minuty). U AI hlášek jde tvoje zpráva modelu hlášek.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="oslovit-maskota-jménem">Oslovit maskota jménem</h2>
+<p>Napiš maskotovi v konverzaci jeho jménem, třeba <em>Bobo, co myslíš?</em> nebo <em>co na to říkáš, Bobo?</em> (rozumí i
+oslovení v 5. pádě). Maskot odpoví v bublině a agent tu odpověď nechá na něm. Funguje to vždy, když <strong>Komentáře</strong>
+nejsou <strong>Vypnuto</strong>. Mluvit <em>o</em> maskotovi (<em>Bobina animace je hezká</em>) se nepočítá. S mozkem
+<a href="#mozek-maskota">Paměť nebo Kombinace</a> si <em>Bobo, zapamatuj si …</em> uloží poznámku do jeho paměti.</p>
+<h2 id="osobnost">Osobnost</h2>
+<p>Každý maskot může mít <strong>Jméno</strong> a <strong>Povahu</strong> (<em>věčně zvědavý, mluví krátce a vtipně, nesnáší červené testy</em>); podle
+nich komentuje. Nastavíš je při líhnutí, nebo později v nabídce <strong>⋯</strong> › <strong>Osobnost…</strong> u maskota (i pravým tlačítkem
+na maskotovi); maskot bez osobnosti nabídne <strong>Doplnit osobnost</strong>. <strong>Vymyslet s AI</strong> navrhne obojí. Osobnost se
+ukládá v nastavení Kyllene a cestuje s maskotem na tvoje další počítače; Hermes se nemění.</p>
+<h2 id="mozek-maskota">Mozek maskota</h2>
+<p><strong>Mozek maskota</strong> v Nastavení › Maskot určuje, kolik zobrazený maskot ví a umí, když komentuje a odpovídá. Nastavuje
+se pro každého maskota zvlášť a cestuje s ním; u každé úrovně stojí, co stojí.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Úroveň</th>
+<th>Co maskot umí</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Bez paměti</strong></td>
+<td>Výchozí. Každá hláška stojí sama za sebe a maskot si nic nepamatuje; nic navíc nestojí.</td>
+</tr>
+<tr>
+<td><strong>Paměť</strong></td>
+<td>Pamatuje si tebe, svoje hlášky a co se dělo, má malé dovednosti a neopakuje se; asi 1 000 tokenů navíc za hlášku a jedno levné volání denně.</td>
+</tr>
+<tr>
+<td><strong>Agent</strong></td>
+<td>Celý agent Hermesu se jménem maskota: vlastní paměť, dovednosti a nástroje, umí si věci dohledat. Každá hláška je celé kolo agenta (asi 17 000 tokenů).</td>
+</tr>
+<tr>
+<td><strong>Kombinace</strong></td>
+<td>Běžné hlášky přes Paměť; když maskota oslovíš jménem, odpoví celý agent.</td>
+</tr>
+</tbody>
+</table></div>
+<p>U <strong>Paměti</strong> a <strong>Kombinace</strong> se ukážou ještě dvě části:</p>
+<ul>
+<li><strong>Paměť</strong>: poznámka, kterou maskot dostane ke každé AI hlášce (nejvýš 2 000 znaků). Uprav ji a <strong>Uložit</strong>, nebo to
+  maskotovi řekni v konverzaci (<em>Bobo, zapamatuj si …</em>). Jednou denně ji model hlášek uklidí. <strong>Co ví o uživateli</strong>
+  (výchozí vypnuto) dá maskotovi i prvních 1 000 znaků Hermesova <code>memories/USER.md</code>, jen ke čtení.</li>
+<li><strong>Dovednosti</strong>: malé balíčky toho, co maskot zná a o čem vtipkuje (třeba <em>PHP a Symfony</em> nebo <em>běhání</em>). <strong>Přidat
+  dovednost</strong> (<strong>Název</strong>, <strong>Kdy se hodí</strong>: události, pro které je, nepovinná klíčová slova, <strong>Obsah</strong>) nebo
+  <strong>Vymyslet s AI</strong>. AI hláška dostane nejvýš jednu dovednost, která sedí.</li>
+</ul>
+<p><strong>Agent</strong> a <strong>Kombinace</strong> potřebují pro maskota profil v Hermesu: Kyllene nabídne <strong>Založit profil</strong> (osobnost z
+povahy maskota, vlastní paměť, dovednosti a nástroje). Profil pak najdeš mezi agenty; smazat ho můžeš v Hermes ›
+Profily. Když agent neodpoví, maskot mluví přes Paměť (Kombinace), nebo jako Bez paměti (Agent).</p>
+<h2 id="opravit-animace-a-délka-animací">Opravit animace a délka animací</h2>
+<p><strong>Délka animací</strong> v Nastavení › Maskot (pod zobrazeným maskotem) určuje, jak dlouho se každá animace maskota
+přehrává, od 1 do 8 vteřin (<strong>Normální</strong> je 1,1 s); <strong>Vše na normální</strong> je vrátí. Je to zdarma a platí hned.</p>
+<p>U vylíhnutého maskota <strong>Opravit animace…</strong> (nabídka <strong>⋯</strong>, pravé tlačítko na maskotovi nebo <code>Ctrl+K</code> › <em>Maskot:
+opravit animace…</em>) znovu nakreslí jen animace, které vypadají špatně:</p>
+<ol>
+<li>Všechny animace hrají vedle sebe. Zaškrtni ty vadné. Pod každou můžeš napsat <strong>Co má vypadat jinak
+   (nepovinné)</strong>; posuvník délky tady určuje i počet snímků nové animace.</li>
+<li>Vyber <strong>Poskytovatele obrázků</strong> a <strong>Model obrázků</strong> jako při líhnutí (jeden obrázek na animaci, cena je vidět) a
+   klikni na <strong>Nakreslit znovu</strong>.</li>
+<li>Porovnej <strong>Teď</strong> a <strong>Nová</strong> a u každé zvol <strong>Použít</strong> nebo <strong>Zahodit</strong>; <strong>Použít a zavřít</strong> uloží všechny nové
+   animace, které jsi nezahodil. <strong>Vrátit předchozí podobu</strong> poslední opravu vrátí.</li>
+</ol>
+<h2 id="dogenerovat-nálady">Dogenerovat nálady</h2>
+<p>Každá nálada se zdarma přehrává úpravou běžné animace. <strong>Dogenerovat nálady…</strong> (nabídka <strong>⋯</strong>, pravé tlačítko na
+maskotovi nebo <code>Ctrl+K</code> › <em>Maskot: dogenerovat nálady…</em>) místo toho nakreslí vlastní animaci pro nálady, které
+vybereš; jde to u každého maskota, i u toho z Petdexu. U každé nálady vidíš <em>úprava zdarma</em> nebo <em>vlastní</em>;
+<strong>Vybrat chybějící</strong> zaškrtne všechny nálady bez vlastní animace. Kreslení je placené (jeden obrázek na náladu, cena
+je vidět). Každá hotová nálada se uloží hned a <strong>Zavřít (kreslit dál)</strong> nechá kreslení běžet. <strong>Odebrat</strong> u nálady ji
+vrátí k úpravě zdarma.</p>
+<h2 id="na-tvých-dalších-počítačích">Na tvých dalších počítačích</h2>
+<p>Se zapnutou <a href="sync.html">synchronizací</a> tě zobrazený maskot i jeho velikost následují: maskot z Petdexu se na druhém
+počítači nainstaluje sám, vylíhnutý přijde i se svými obrázky, takže ho nikdy nelíhneš (a neplatíš) dvakrát. S ním
+cestuje i jeho osobnost, mozek, paměť, dovednosti, vlastní nálady a délky animací. Jestli je maskot zobrazený, kde
+na obrazovce sedí a jeho aktuální nálada zůstávají na každém počítači zvlášť.</p>
+<h2 id="příkazy-palety-a-zkratky">Příkazy palety a zkratky</h2>
+<p><code>Ctrl+K</code> nabízí <em>Maskot…</em>, <em>Maskot: zapnout</em> / <em>Maskot: vypnout</em>, <em>Maskot: do vlastního okna</em> / <em>Maskot: zpět do
+okna aplikace</em>, <em>Maskot: toulat se po okně</em> / <em>Maskot: přestat se toulat</em>, <em>Maskot: vylíhnout nového…</em>, <em>Maskot:
+opravit animace…</em> (u vylíhnutých maskotů) a <em>Maskot: dogenerovat nálady…</em>. Nastavení › Klávesové zkratky má skupinu
+<strong>Maskot</strong>: výběru maskota, zapnutí / vypnutí, vlastnímu oknu a líhnutí dáš vlastní klávesu (<strong>Nastavit</strong>); jsou tam
+vypsané i akce myší (Shift+klik, klik, dvojklik, Alt + kolečko).</p>
+<h2 id="když-něco-nejde">Když něco nejde</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Problém</th>
+<th>Co udělat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Maskot není vidět</td>
+<td>Zkontroluj, že je v Nastavení › Maskot zapnuté <strong>Zobrazovat maskota</strong> a že máš nějakého maskota vybraného (<strong>Zobrazit</strong>).</td>
+</tr>
+<tr>
+<td>Maskot se nehýbe</td>
+<td>Máš v systému zapnuté omezení animací; maskot pak jen stojí a ukazuje stav jedním obrázkem.</td>
+</tr>
+<tr>
+<td>Maskot nic neříká</td>
+<td>V Nastavení › Maskot › <strong>Komentáře</strong> je <strong>Režim</strong> <strong>Vypnuto</strong>, nebo žádný agent nepracuje (když nic neběží, mlčí).</td>
+</tr>
+<tr>
+<td>AI hlášky zní jako předpřipravené</td>
+<td>Model hlášek není na tomhle počítači připojený, nebo volání selhalo; místo něj se ukáže předpřipravená hláška.</td>
+</tr>
+<tr>
+<td>Líhnutí nejde spustit</td>
+<td>V Hermesu není nastavený poskytovatel obrázků, který umí kreslit podle referenčního obrázku; dialog vypíše, co nastavit (třeba klíč OpenRouteru v Hermes › Klíče).</td>
+</tr>
+<tr>
+<td>Okno maskota na ploše si nepamatuje místo</td>
+<td>Na čistém Waylandu (bez XWaylandu) si okno polohu neumí nastavit samo.</td>
+</tr>
+</tbody>
+</table></div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Kyllene is an independent project, not affiliated with Nous Research. Hermes Agent is a project of Nous Research.</span>
+    <span><a href="./">All guides</a> · <a href="https://github.com/cpoint-eu/kyllene-releases">GitHub</a></span>
+  </div>
+</footer>
+</body>
+</html>

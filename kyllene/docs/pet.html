@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pet – Kyllene documentation</title>
+<meta name="description" content="The pet is a small animated character that sits in the corner of the conversation and shows what the agent is doing: working, thinking, waiting for you, or done. No need to follow the text, a glance a">
+<link rel="icon" type="image/svg+xml" href="../media/kyllene.svg">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="docs">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../"><img src="../media/kyllene.svg" alt="">Kyllene</a>
+    <nav>
+      <a href="./">Docs</a>
+      <a href="features.html">Features</a>
+      <a href="settings.html">Settings</a>
+      <a href="hermes.html">Manage Hermes</a>
+      <a href="../#install">Install</a>
+    </nav>
+    <a class="lang" href="https://github.com/cpoint-eu/kyllene-releases/blob/main/docs/pet.md">Edit on GitHub</a>
+  </div>
+</header>
+
+<main class="wrap doc">
+<h1 id="pet">Pet</h1>
+<p>The pet is a small animated character that sits in the corner of the conversation and shows what the agent is doing:
+working, thinking, waiting for you, or done. No need to follow the text, a glance at the pet is enough. It can also
+have a mood, comment on the work in a speech bubble and answer when you talk to it by name.</p>
+<p>The pet belongs to Hermes, so you see the same pet in the terminal (<code>hermes</code>, TUI) too. Kyllene shows it and adds the
+mood, the comments and the personality on top. <em>Česky: <a href="pet.cs.html">Maskot</a>.</em></p>
+<p><strong>On this page:</strong> <a href="#turn-it-on-and-off">Turn it on</a> · <a href="#install-and-pick-a-pet">Install and pick a pet</a> ·
+<a href="#hatch-your-own-pet-with-ai">Hatch your own</a> · <a href="#move-the-pet">Move it</a> · <a href="#the-pet-in-its-own-window">Its own window</a> ·
+<a href="#what-the-pets-states-mean">States</a> · <a href="#mood">Mood</a> · <a href="#comments-in-a-speech-bubble">Comments</a> ·
+<a href="#talk-to-the-pet-by-name">Talk to it</a> · <a href="#personality">Personality</a> · <a href="#pet-brain">Pet brain</a> ·
+<a href="#repair-animations-and-animation-length">Repair animations</a> · <a href="#generate-moods">Own moods</a> ·
+<a href="#on-your-other-computers">Other computers</a> · <a href="#palette-commands-and-shortcuts">Palette and shortcuts</a> ·
+<a href="#troubleshooting">Troubleshooting</a></p>
+<h2 id="turn-it-on-and-off">Turn it on and off</h2>
+<ol>
+<li>Open <strong>Settings</strong> (gear icon in the top bar or <code>Ctrl+,</code>) and pick the <strong>Pet</strong> tab on the left.</li>
+<li>Switch on <strong>Show the pet</strong>. Switching it off hides the pet everywhere: in Kyllene and in the terminal.</li>
+<li>The <strong>Size</strong> slider sets how big it is (<strong>Default</strong> resets it). You can also resize it on the pet itself: hold
+   <code>Alt</code> and turn the mouse wheel.</li>
+</ol>
+<p>The palette does the same: <code>Ctrl+K</code> › <em>Pet: show</em> / <em>Pet: hide</em>. If the tab says <em>This Hermes has no pets yet</em>,
+update Hermes (<code>hermes update</code>).</p>
+<h2 id="install-and-pick-a-pet">Install and pick a pet</h2>
+<p><strong>In the app:</strong> Settings › Pet has the <strong>Petdex</strong> at the bottom, a public gallery of pets. Search for one and click
+<strong>Adopt</strong>. It shows up under <strong>Your pets</strong>; <strong>Show</strong> makes it the one you see (it then says <strong>Shown</strong>). Its <strong>⋯</strong> menu
+(<strong>More</strong>) has <strong>Rename</strong>, <strong>Personality…</strong>, <strong>Repair animations…</strong> (pets you hatched), <strong>Generate moods…</strong> and
+<strong>Remove</strong>. To switch quickly, <code>Ctrl+K</code> › <em>Pet…</em> lists your pets with search; <code>Enter</code> shows the one you pick.</p>
+<p><strong>In a terminal:</strong> one command downloads a pet and picks it, for example Boba:</p>
+<pre><code class="language-bash">hermes pets install boba --select
+</code></pre>
+<p>More: <code>hermes pets list</code> (the gallery), <code>hermes pets select &lt;name&gt;</code> (switch to another), <code>hermes pets off</code> (turn it
+off). Kyllene notices the change by itself, no restart needed.</p>
+<h2 id="hatch-your-own-pet-with-ai">Hatch your own pet with AI</h2>
+<p><strong>Hatch a new one…</strong> in Settings › Pet (or <code>Ctrl+K</code> › <em>Pet: hatch a new one…</em>) lets AI draw a brand-new pet:</p>
+<ol>
+<li><strong>Provider</strong>: pick the <strong>Image provider</strong> (the ones Hermes has set up that can draw from a reference image, for
+   example <em>ChatGPT (subscription)</em>, <em>OpenAI (API key)</em>, <em>OpenRouter</em>, <em>Nous Portal</em>) and, where the provider lets you,
+   the <strong>Image model</strong>. The dialog says up front what it costs: paid per image, or counted against your
+   subscription. Without a suitable provider it lists what to set up first.</li>
+<li><strong>Description</strong>: describe the pet, for example <em>a small green dragon with glasses and a cup of coffee</em>, then
+   <strong>Generate drafts</strong>.</li>
+<li><strong>Drafts</strong> and <strong>Pick</strong>: AI draws four drafts. Pick one, give it a <strong>Pet name</strong> and, if you like, a <strong>Nature</strong>
+   for its <a href="#personality">personality</a> (<strong>Invent with AI</strong> suggests both). <strong>New drafts</strong> or <strong>Edit description</strong> when
+   none fits, then <strong>Hatch</strong>.</li>
+<li><strong>Hatching</strong>: every animation is drawn and put together. Then <strong>Show as my pet</strong>, <strong>Hatch another</strong> or
+   <strong>Throw away</strong>.</li>
+</ol>
+<h2 id="move-the-pet">Move the pet</h2>
+<ul>
+<li><strong>Drag it</strong> anywhere with the mouse. Dropped over text, it moves to the nearest free spot so it never covers an
+  answer or the box you type in. The spot is remembered across restarts.</li>
+<li><strong>Double-click</strong> puts it back in its corner (bottom right, above the box you type in).</li>
+<li>The spot is remembered per computer (each one has its own screen).</li>
+<li><strong>Let the pet wander the window</strong> in Settings › Pet (off by default; palette <em>Pet: wander the window</em> / <em>Pet: stop
+  wandering</em>) lets it stroll along free spots while the agent is at rest. As soon as the agent works, it goes back to
+  its spot.</li>
+</ul>
+<h2 id="the-pet-in-its-own-window">The pet in its own window</h2>
+<p><strong>Shift+click</strong> the pet to pop it out into its own small window on the desktop. It stays on top even when Kyllene is
+hidden or behind other apps (palette <em>Pet: into its own window</em>). Drag that window anywhere, its spot is remembered
+too. <strong>Shift+click</strong> again (or <em>Pet: back into the app window</em>) brings it back into Kyllene.</p>
+<p>On the desktop the pet does more:</p>
+<ul>
+<li><strong>Click</strong> opens a small message box (the <a href="quick-capture.html">quick capture</a> window) that writes into the
+  conversation you used last; the answer shows there.</li>
+<li><strong>Double-click</strong> hides the main Kyllene window, or brings it back.</li>
+<li>A small bubble beside it says <em>Working…</em> while an agent works and <em>Your turn</em> when one waits for you.</li>
+<li>When an answer finished while you were in another app, a <strong>letter</strong> appears next to the pet. Click it to open that
+  conversation (with several, the newest one).</li>
+</ul>
+<h2 id="what-the-pets-states-mean">What the pet's states mean</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>What the pet does</th>
+<th>What it means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stands at rest</td>
+<td>The agent is idle, you can type.</td>
+</tr>
+<tr>
+<td>Runs</td>
+<td>The agent is working, for example using a tool (searching, reading files, running a command).</td>
+</tr>
+<tr>
+<td>Thinks</td>
+<td>The agent is working out what to do next.</td>
+</tr>
+<tr>
+<td>Waits</td>
+<td>The agent needs you: a question, an approval or a password. Also when another open conversation needs you, not just the one you look at.</td>
+</tr>
+<tr>
+<td>Looks sad</td>
+<td>Something failed (a tool or the answer). Have a look at the conversation.</td>
+</tr>
+<tr>
+<td>Waves</td>
+<td>Done, the agent finished its answer.</td>
+</tr>
+<tr>
+<td>Jumps for joy</td>
+<td>The agent finished its whole to-do list, or you thanked it ("thanks", ❤️); hearts float up over it.</td>
+</tr>
+</tbody>
+</table></div>
+<p>The short ones (wave, jump, failure) last a moment; then the pet goes back to rest or to work.</p>
+<h2 id="mood">Mood</h2>
+<p>On top of its state the pet has a <strong>mood</strong> that follows how the work goes on this computer: failures in a row make
+it grumpy, then fed up, then angry; successes make it happy and excited; a long quiet spell makes it relaxed and
+later sleepy. Over time it returns to calm. Settings › Pet shows the current <strong>Mood</strong> under the shown pet.</p>
+<p>You see the mood in how the pet moves (pace, a shake, a bounce, a light tint) and, when a mood arrives, in a short
+mark over its head: ❓ ❗ ✨ 💢 💧 ♪. The mark goes after a few seconds; only 💤 (sleepy) and ⏳ (impatient) stay while
+the mood lasts. The mood also sets the tone of the pet's <a href="#comments-in-a-speech-bubble">comments</a>. Every pet shows
+its moods for free; <a href="#generate-moods">Generate moods</a> draws its own animations for them.</p>
+<h2 id="comments-in-a-speech-bubble">Comments in a speech bubble</h2>
+<p>Now and then the pet comments on the agent's work in a speech bubble: a failed tool or test, a question for you, a
+finished turn. The bubble stays until you click it or the next line replaces it; hover the pet to see its last lines.
+Set it up in Settings › Pet › <strong>Comments</strong>:</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Option</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Mode</strong></td>
+<td><strong>Off</strong> (the pet stays quiet), <strong>Prepared lines</strong> (default: free ready-made lines that fit the moment and the pet's nature) or <strong>AI lines</strong> (a model writes each line from a short summary of the moment, never the whole conversation; costs tokens, and when it fails a prepared line is shown).</td>
+</tr>
+<tr>
+<td><strong>Model of the lines</strong></td>
+<td>For AI lines: <strong>Like the conversation</strong> (the model of the conversation the comment is about) or one model you pick. A pricey model shows what a line costs.</td>
+</tr>
+<tr>
+<td><strong>Longest silence</strong></td>
+<td>While an agent works and the pet has said nothing for this long (2–30 min, default 5), it comments on what is going on. With nothing running it stays quiet.</td>
+</tr>
+<tr>
+<td><strong>Language</strong></td>
+<td><strong>Like the app</strong> (Kyllene's language on each computer), <em>Čeština</em> or <em>English</em>.</td>
+</tr>
+<tr>
+<td><strong>Comment on my messages too</strong></td>
+<td>Off by default. The pet now and then reacts to a message you send (not to short replies or commands, at most every 3 minutes). With AI lines your message goes to the comment model.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="talk-to-the-pet-by-name">Talk to the pet by name</h2>
+<p>Write to the pet by its name in a conversation, for example <em>Boba, what do you think?</em> or <em>what do you say, Boba?</em>.
+The pet answers in its bubble, and the agent leaves that reply to the pet. This works whenever <strong>Comments</strong> are not
+<strong>Off</strong>. Talking <em>about</em> the pet (<em>Boba's animation is cute</em>) does not count. With the brain
+<a href="#pet-brain">Memory or Combination</a>, <em>Boba, remember …</em> saves a note to its memory.</p>
+<h2 id="personality">Personality</h2>
+<p>Each pet can have a <strong>Name</strong> and a <strong>Nature</strong> (<em>endlessly curious, talks short and funny, hates red tests</em>); they
+shape its comments. Set them when hatching, or later in the pet's <strong>⋯</strong> › <strong>Personality…</strong> (also on a right-click on
+the pet); a pet without one offers <strong>Add a personality</strong>. <strong>Invent with AI</strong> suggests both. The personality is kept
+in Kyllene's settings and travels with the pet to your other computers; Hermes is not changed.</p>
+<h2 id="pet-brain">Pet brain</h2>
+<p><strong>Pet brain</strong> in Settings › Pet sets how much the shown pet knows and can do when it comments and answers. It is set
+per pet and travels with it; each level says what it costs.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Level</th>
+<th>What the pet can do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>No memory</strong></td>
+<td>Default. Every line stands alone and the pet remembers nothing; no extra cost.</td>
+</tr>
+<tr>
+<td><strong>Memory</strong></td>
+<td>Remembers you, its own lines and what happened, has small skills and does not repeat itself; about 1,000 extra tokens per line and one cheap call a day.</td>
+</tr>
+<tr>
+<td><strong>Agent</strong></td>
+<td>A whole Hermes agent with the pet's name: its own memory, skills and tools, it can look things up. Every line is a full agent turn (about 17,000 tokens).</td>
+</tr>
+<tr>
+<td><strong>Combination</strong></td>
+<td>Ordinary lines through Memory; when you talk to the pet by name, the whole agent answers.</td>
+</tr>
+</tbody>
+</table></div>
+<p>With <strong>Memory</strong> or <strong>Combination</strong> two more parts show:</p>
+<ul>
+<li><strong>Memory</strong>: a note the pet gets with every AI line (up to 2,000 characters). Edit it and <strong>Save</strong>, or tell the pet
+  in a conversation (<em>Boba, remember …</em>). Once a day the comment model tidies it. <strong>What it knows about the user</strong>
+  (off by default) also gives the pet the first 1,000 characters of Hermes' <code>memories/USER.md</code>, read only.</li>
+<li><strong>Skills</strong>: small packs of what the pet knows and jokes about (say <em>PHP and Symfony</em> or <em>running</em>). <strong>Add skill</strong>
+  (<strong>Name</strong>, <strong>When it fits</strong>: the events it is for, optional keywords, <strong>Content</strong>) or <strong>Think one up with AI</strong>. An
+  AI line gets at most one skill that fits.</li>
+</ul>
+<p><strong>Agent</strong> and <strong>Combination</strong> need a Hermes profile for the pet: Kyllene offers <strong>Create profile</strong> (a personality
+from the pet's nature, its own memory, skills and tools). The profile then shows among your agents; delete it in
+Hermes › Profiles. When the agent cannot answer, the pet speaks with Memory (Combination) or as with No memory (Agent).</p>
+<h2 id="repair-animations-and-animation-length">Repair animations and animation length</h2>
+<p><strong>Animation length</strong> in Settings › Pet (under the shown pet) sets how long each of the pet's animations plays, from
+1 to 8 seconds (<strong>Normal</strong> is 1.1 s); <strong>All back to normal</strong> resets them. It is free and applies at once.</p>
+<p>For a pet you hatched, <strong>Repair animations…</strong> (its <strong>⋯</strong> menu, a right-click on the pet, or <code>Ctrl+K</code> › <em>Pet: repair
+animations…</em>) redraws only the animations that look wrong:</p>
+<ol>
+<li>Every animation plays side by side. Tick the broken ones. Under each you can write <strong>What should look different
+   (optional)</strong>; its length slider here also sets how many frames the new animation gets.</li>
+<li>Pick the <strong>Image provider</strong> and <strong>Image model</strong> as when hatching (one image per animation, the cost is shown) and
+   click <strong>Draw again</strong>.</li>
+<li>Compare <strong>Now</strong> and <strong>New</strong>, then <strong>Use</strong> or <strong>Discard</strong> each one; <strong>Apply and close</strong> saves every new animation
+   you did not discard. <strong>Restore previous look</strong> undoes the last repair.</li>
+</ol>
+<h2 id="generate-moods">Generate moods</h2>
+<p>Every mood is played for free by adjusting a standard animation. <strong>Generate moods…</strong> (the pet's <strong>⋯</strong> menu, a
+right-click on the pet, or <code>Ctrl+K</code> › <em>Pet: generate moods…</em>) draws the pet's own animation for the moods you pick
+instead; it works for any pet, also one from the Petdex. Each mood shows <em>free adjustment</em> or <em>own</em>; <strong>Pick the
+missing ones</strong> ticks every mood without its own animation. Drawing is paid (one image per mood, the cost is shown).
+Each finished mood is saved at once, and <strong>Close (keep drawing)</strong> lets the drawing run on. <strong>Remove</strong> on a mood goes
+back to the free adjustment.</p>
+<h2 id="on-your-other-computers">On your other computers</h2>
+<p>With <a href="sync.html">sync</a> on, the shown pet and its size follow you: a Petdex pet installs itself on the other computer, a
+hatched one travels with its drawings, so you never hatch (and pay) twice. Its personality, brain, memory, skills,
+own moods and animation lengths travel with it. Whether the pet is shown, where it sits on the screen and its current
+mood stay on each computer.</p>
+<h2 id="palette-commands-and-shortcuts">Palette commands and shortcuts</h2>
+<p><code>Ctrl+K</code> offers <em>Pet…</em>, <em>Pet: show</em> / <em>Pet: hide</em>, <em>Pet: into its own window</em> / <em>Pet: back into the app window</em>,
+<em>Pet: wander the window</em> / <em>Pet: stop wandering</em>, <em>Pet: hatch a new one…</em>, <em>Pet: repair animations…</em> (hatched pets)
+and <em>Pet: generate moods…</em>. Settings › Shortcuts has a <strong>Pet</strong> group: give choosing the pet, show / hide, its own
+window and hatching a key of your own (<strong>Set</strong>); the mouse actions (Shift+click, click, double-click, Alt + wheel) are
+listed there too.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>No pet to be seen</td>
+<td>Check that <strong>Show the pet</strong> is on in Settings › Pet and that a pet is picked (<strong>Show</strong>).</td>
+</tr>
+<tr>
+<td>The pet does not move</td>
+<td>Reduced motion is on in your system; the pet then stands still and shows its state with one picture.</td>
+</tr>
+<tr>
+<td>The pet says nothing</td>
+<td>Settings › Pet › <strong>Comments</strong> › <strong>Mode</strong> is <strong>Off</strong>, or no agent is working (with nothing running it stays quiet).</td>
+</tr>
+<tr>
+<td>AI lines sound like prepared ones</td>
+<td>The model of the lines is not connected on this computer, or the call failed; a prepared line is shown instead.</td>
+</tr>
+<tr>
+<td>Hatching cannot start</td>
+<td>No image provider that can draw from a reference image is set up in Hermes; the dialog lists what to set up (for example an OpenRouter key in Hermes › Keys).</td>
+</tr>
+<tr>
+<td>The pet's desktop window forgets its spot</td>
+<td>On pure Wayland (no XWayland) a window cannot place itself.</td>
+</tr>
+</tbody>
+</table></div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Kyllene is an independent project, not affiliated with Nous Research. Hermes Agent is a project of Nous Research.</span>
+    <span><a href="./">All guides</a> · <a href="https://github.com/cpoint-eu/kyllene-releases">GitHub</a></span>
+  </div>
+</footer>
+</body>
+</html>

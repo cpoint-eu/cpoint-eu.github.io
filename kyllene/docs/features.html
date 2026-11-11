@@ -37,7 +37,7 @@ searches your conversations, tasklists, Kanban cards, project files and memory.<
 <a href="#left-menu-and-navigation">Left menu</a> · <a href="#top-menu">Top menu</a> · <a href="#palette-and-search">Palette and search</a> ·
 <a href="#overview-today-and-timeline">Overview</a> · <a href="#projects">Projects</a> · <a href="#kanban">Kanban</a> ·
 <a href="#agents-rooms-and-delegated-agents">Agents and rooms</a> · <a href="#coding-agents">Coding agents</a> · <a href="#widgets">Widgets</a> ·
-<a href="#voice">Voice</a> · <a href="#quick-capture">Quick capture</a> · <a href="#servers-and-gateway">Servers and Gateway</a> ·
+<a href="#voice">Voice</a> · <a href="#quick-capture">Quick capture</a> · <a href="#pet">Pet</a> · <a href="#servers-and-gateway">Servers and Gateway</a> ·
 <a href="#safety-and-approvals">Safety</a> · <a href="#notifications-and-the-bell">Notifications</a> · <a href="#achievements">Achievements</a> ·
 <a href="#appearance-and-themes">Look</a> · <a href="#sync-backups-and-clean-up">Sync and backups</a> · <a href="#managing-hermes">Hermes</a> ·
 <a href="#updates-help-and-first-start">Updates and help</a></p>
@@ -583,7 +583,7 @@ agent's browser show here too.</p>
 </tr>
 <tr>
 <td>Help</td>
-<td><em>Documentation</em>, <em>What's new</em>, <em>Check for updates</em>, <em>Report a bug</em>, <em>Suggest an improvement</em>, <em>About</em>, <em>Support development ☕</em>.</td>
+<td><em>Documentation</em>, <em>What's new</em>, <em>First-run guide</em>, <em>Check for updates</em>, <em>Report a bug</em>, <em>Suggest an improvement</em>, <em>About</em>, <em>Support development ☕</em>.</td>
 <td>Top bar › <em>Help</em>, palette <em>Menu: Help</em>; see <a href="#updates-help-and-first-start">Updates and help</a></td>
 </tr>
 <tr>
@@ -699,6 +699,11 @@ agent's browser show here too.</p>
 <td>Tasklists</td>
 <td>Markdown checklists the agent reads and ticks; edit like a document, <em>Ask AI…</em> on a task, <em>Send to Kanban</em>, <em>Tasklist by AI…</em>.</td>
 <td>Project menu › <em>Tasklists</em> (<a href="projects.html#tasklists">guide</a>)</td>
+</tr>
+<tr>
+<td>Export a tasklist</td>
+<td>Copy the tasks or save them as Markdown or PDF to hand them to someone: the whole tasklist or one section, all tasks or only unfinished, with or without notes.</td>
+<td>⋯ of a tasklist or section › <em>Export…</em> (<a href="projects.html#tasklists">guide</a>)</td>
 </tr>
 <tr>
 <td>Outputs</td>
@@ -984,6 +989,85 @@ screenshot or the selected text. Guide: <a href="quick-capture.html">Quick captu
 <td>Screenshot → Hermes</td>
 <td>Take a screenshot and ask about it.</td>
 <td>Tray menu, palette <em>Screenshot → Hermes…</em></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="pet">Pet</h2>
+<p>An animated pet in the corner of the conversation shows what the agent is doing; it can have a mood, comment in a
+speech bubble and answer when you talk to it by name. Guide: <a href="pet.html">Pet</a>.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>What it is for</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Show or hide the pet</td>
+<td>Turn the pet on or off (in the terminal too) and set its size.</td>
+<td><a href="settings.html#pet">Settings › Pet</a> › <em>Show the pet</em>, <code>Alt</code> + wheel over the pet, palette <em>Pet: show</em> / <em>Pet: hide</em> (<a href="pet.html#turn-it-on-and-off">guide</a>)</td>
+</tr>
+<tr>
+<td>Pick a pet</td>
+<td>Adopt one from the public Petdex gallery and switch between your pets.</td>
+<td>Settings › Pet › <em>Petdex</em> › <em>Adopt</em>, <em>Your pets</em> › <em>Show</em>; palette <em>Pet…</em> (<a href="pet.html#install-and-pick-a-pet">guide</a>)</td>
+</tr>
+<tr>
+<td>Hatch a new pet</td>
+<td>AI draws a pet from your description: pick the image provider and model, four drafts, pick one, hatch (paid image generation, the cost is shown first).</td>
+<td>Settings › Pet › <em>Hatch a new one…</em>, palette <em>Pet: hatch a new one…</em> (<a href="pet.html#hatch-your-own-pet-with-ai">guide</a>)</td>
+</tr>
+<tr>
+<td>Move and wander</td>
+<td>Drag it anywhere (it never covers text), double-click returns it to its corner; let it stroll the window while the agent rests.</td>
+<td>On the pet; Settings › Pet › <em>Let the pet wander the window</em>, palette <em>Pet: wander the window</em> / <em>Pet: stop wandering</em> (<a href="pet.html#move-the-pet">guide</a>)</td>
+</tr>
+<tr>
+<td>Pet in its own window</td>
+<td>The pet on the desktop, on top of other apps: click = a message to the last conversation, double-click hides / shows Kyllene, a bubble says <em>Working…</em> / <em>Your turn</em>, a letter shows answers that finished while you were away.</td>
+<td><code>Shift</code>+click on the pet, palette <em>Pet: into its own window</em> / <em>Pet: back into the app window</em> (<a href="pet.html#the-pet-in-its-own-window">guide</a>)</td>
+</tr>
+<tr>
+<td>Mood</td>
+<td>The pet's mood follows how the work goes (grumpy after failures, happy after successes, sleepy when quiet), with a short mark over its head; hearts when you say thanks.</td>
+<td>Settings › Pet shows the current <em>Mood</em> (<a href="pet.html#mood">guide</a>)</td>
+</tr>
+<tr>
+<td>Comments</td>
+<td>Short lines in a speech bubble about failures, questions and finished turns: prepared (free) or written by AI, in your language, optionally also on your own messages.</td>
+<td>Settings › Pet › <em>Comments</em> (<a href="pet.html#comments-in-a-speech-bubble">guide</a>)</td>
+</tr>
+<tr>
+<td>Talk to the pet</td>
+<td>Write to it by name (<em>Boba, what do you think?</em>) and it answers in its bubble.</td>
+<td>In any conversation (<a href="pet.html#talk-to-the-pet-by-name">guide</a>)</td>
+</tr>
+<tr>
+<td>Personality</td>
+<td>The pet's name and nature, written by you or suggested by AI; they shape its comments.</td>
+<td>The pet's ⋯ › <em>Personality…</em> in Settings › Pet, or right-click the pet (<a href="pet.html#personality">guide</a>)</td>
+</tr>
+<tr>
+<td>Pet brain</td>
+<td><em>No memory</em>, <em>Memory</em> (a memory note and small skills), <em>Agent</em> (its own Hermes profile with tools) or <em>Combination</em>.</td>
+<td>Settings › Pet › <em>Pet brain</em> (<a href="pet.html#pet-brain">guide</a>)</td>
+</tr>
+<tr>
+<td>Repair animations</td>
+<td>Redraw only the broken animations of a hatched pet, with an instruction per animation; set how long each animation plays (1–8 s, free).</td>
+<td>The pet's ⋯ › <em>Repair animations…</em>, right-click the pet, palette <em>Pet: repair animations…</em>; <em>Animation length</em> in Settings › Pet (<a href="pet.html#repair-animations-and-animation-length">guide</a>)</td>
+</tr>
+<tr>
+<td>Moods of its own</td>
+<td>Draw the pet's own animation for chosen moods (any pet; paid, one image per mood).</td>
+<td>The pet's ⋯ › <em>Generate moods…</em>, right-click the pet, palette <em>Pet: generate moods…</em> (<a href="pet.html#generate-moods">guide</a>)</td>
+</tr>
+<tr>
+<td>On other computers</td>
+<td>The shown pet, its personality, brain and own moods follow you with sync; a hatched pet is never hatched twice.</td>
+<td><a href="sync.html">Sync between computers</a> (<a href="pet.html#on-your-other-computers">guide</a>)</td>
 </tr>
 </tbody>
 </table></div>
@@ -1279,6 +1363,11 @@ it by hand. After every Hermes update Kyllene checks that everything it uses sti
 <td>Settings</td>
 <td>Everything Kyllene itself remembers.</td>
 <td>The gear in the top bar, <code>Ctrl+,</code>, palette <em>Settings</em> (<a href="settings.html">guide</a>)</td>
+</tr>
+<tr>
+<td>First-run guide</td>
+<td>A welcome window on the first start: checks Hermes, helps you connect a model and create a first project, then a short tour that highlights each part of the window. Every step can be skipped.</td>
+<td>Opens by itself on a fresh install; Top menu › Help › <em>First-run guide</em>, palette <em>Help › First-run guide</em></td>
 </tr>
 <tr>
 <td>First start</td>
