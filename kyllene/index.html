@@ -176,6 +176,19 @@
       <div class="cmd"><pre><code>curl -fsSL https://raw.githubusercontent.com/cpoint-eu/kyllene-releases/main/install.sh | bash -s -- --appimage ~/Downloads/Kyllene_0.0.1-beta_amd64.AppImage</code></pre></div>
     </details>
     <details>
+      <summary>As a system package: .deb (Ubuntu, Debian, Mint) or .rpm (Fedora)</summary>
+      <p>Releases newer than 0.0.3-beta also come as a <code>.deb</code> and an <code>.rpm</code>. They use your distro's own
+        WebKit and GStreamer and are smaller than the AppImage. Download the one for your system from the
+        <a href="https://github.com/cpoint-eu/kyllene-releases/releases/latest">latest release</a> and install it:</p>
+      <div class="cmd"><pre><code>sudo apt install ./Kyllene_*_amd64.deb</code>
+<code>sudo dnf install ./Kyllene-*.x86_64.rpm</code></pre></div>
+      <p>The <code>.rpm</code> is signed. So that Kyllene can update it, import the Kyllene key once:</p>
+      <div class="cmd"><pre><code>sudo rpm --import https://raw.githubusercontent.com/cpoint-eu/kyllene-releases/main/kyllene-rpm-key.asc</code></pre></div>
+      <p>Kyllene updates the package by itself too; the update asks for your password (administrator rights).
+        Uninstall with <code>sudo apt remove kyllene</code> or <code>sudo dnf remove kyllene</code> (your data stays).
+        Use either the package or the AppImage, not both.</p>
+    </details>
+    <details>
       <summary>A specific version</summary>
       <div class="cmd"><pre><code>curl -fsSL https://raw.githubusercontent.com/cpoint-eu/kyllene-releases/main/install.sh | bash -s -- --version v0.0.1-beta</code></pre></div>
       <p>All versions with their release notes: <a href="https://github.com/cpoint-eu/kyllene-releases/releases">releases</a>.</p>

@@ -178,6 +178,19 @@
       <p class="muted">Složka se stahováním se může jmenovat i <code>~/Downloads</code>.</p>
     </details>
     <details>
+      <summary>Jako systémový balíček: .deb (Ubuntu, Debian, Mint) nebo .rpm (Fedora)</summary>
+      <p>Vydání novější než 0.0.3-beta jsou i jako <code>.deb</code> a <code>.rpm</code>. Používají WebKit a GStreamer
+        z vašeho systému a jsou menší než AppImage. Stáhněte ten pro váš systém z
+        <a href="https://github.com/cpoint-eu/kyllene-releases/releases/latest">posledního vydání</a> a nainstalujte:</p>
+      <div class="cmd"><pre><code>sudo apt install ./Kyllene_*_amd64.deb</code>
+<code>sudo dnf install ./Kyllene-*.x86_64.rpm</code></pre></div>
+      <p><code>.rpm</code> je podepsaný. Aby ho Kyllene mohla aktualizovat, jednou naimportujte klíč Kyllene:</p>
+      <div class="cmd"><pre><code>sudo rpm --import https://raw.githubusercontent.com/cpoint-eu/kyllene-releases/main/kyllene-rpm-key.asc</code></pre></div>
+      <p>Kyllene balíček aktualizuje sama; aktualizace si řekne o vaše heslo (práva správce). Odinstalace
+        <code>sudo apt remove kyllene</code> nebo <code>sudo dnf remove kyllene</code> (data zůstanou).
+        Používejte buď balíček, nebo AppImage, ne obojí.</p>
+    </details>
+    <details>
       <summary>Konkrétní verze</summary>
       <div class="cmd"><pre><code>curl -fsSL https://raw.githubusercontent.com/cpoint-eu/kyllene-releases/main/install.sh | bash -s -- --version v0.0.1-beta</code></pre></div>
       <p>Všechny verze s popisem změn: <a href="https://github.com/cpoint-eu/kyllene-releases/releases">vydání</a>.</p>
