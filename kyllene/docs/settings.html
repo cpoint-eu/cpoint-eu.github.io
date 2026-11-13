@@ -31,6 +31,12 @@
 tab you used last.</p>
 <p>Settings that belong to <strong>Hermes</strong> (skills, MCP servers, keys, cron jobs, Hermes' own config) are not here but in the
 <strong>Hermes</strong> window: see <a href="hermes.html">Manage Hermes in Kyllene</a>.</p>
+<p><strong>Settings in its own window:</strong> <strong>Open in a new window</strong> in the dialog's header moves Settings into a window of its
+own. There the tabs <strong>Appearance</strong>, <strong>Notifications</strong>, <strong>Shortcuts</strong>, <strong>Prompt templates</strong>, <strong>Servers</strong> and <strong>About</strong>
+work as usual, and a change of the theme or the language shows in both windows at once. The other tabs use what runs
+in the main window (conversations, projects, tasks); in the window they say so and offer <strong>Open in the main window</strong>,
+which shows that tab there. ✕ closes only the window; <strong>Back to the main window</strong> returns Settings to the main window
+on the same tab. More: <a href="features.html#dialogs-in-their-own-window">dialogs in their own window</a>.</p>
 <p>Some choices are kept <strong>only on this computer</strong> (folders, devices, microphone), others <strong>travel to your other
 computers</strong> when <a href="sync.html">sync</a> is on. Each section below says which.</p>
 <p><strong>Tabs:</strong> <a href="#projects">Projects</a> · <a href="#appearance">Appearance</a> · <a href="#pet">Pet</a> · <a href="#models">Models</a> · <a href="#backup--sync">Backup &amp; sync</a> ·
@@ -93,6 +99,11 @@ computers</strong> when <a href="sync.html">sync</a> is on. Each section below s
 </thead>
 <tbody>
 <tr>
+<td><strong>App language</strong></td>
+<td>Czech on a Czech system, otherwise English</td>
+<td>English or Czech, the same choice as <code>EN</code> / <code>CS</code> in the <a href="#the-status-bar">status bar</a>; every open window of the app follows it.</td>
+</tr>
+<tr>
 <td><strong>Theme</strong></td>
 <td>built-in look (<em>Navy</em>)</td>
 <td>The list of looks. <strong>New theme</strong> starts the theme editor (from the current look or a preset; nothing is saved before <em>Create</em>). <strong>Import…</strong> loads a theme exported from Kyllene as <code>.json</code>. <strong>Restore default look</strong> switches back to the built-in look in both modes; your own themes stay.</td>
@@ -140,7 +151,7 @@ the CLI and TUI show the same.</p>
 </tr>
 <tr>
 <td><strong>Pet brain</strong></td>
-<td><strong>No memory</strong> (default), <strong>Memory</strong>, <strong>Agent</strong> or <strong>Combination</strong>: how much the pet remembers and can do; with Memory its memory note, <strong>What it knows about the user</strong> (off by default) and <strong>Skills</strong>.</td>
+<td><strong>No memory</strong> (default), <strong>Memory</strong>, <strong>Agent</strong> or <strong>Combination</strong>: how much the pet remembers and can do; with Memory its memory note, <strong>What it knows about the user</strong> (off by default) and <strong>Skills</strong>. With its own agent (Agent, Combination) <strong>Memory</strong> and <strong>What it knows about you</strong> are the agent's own notes and the skills are copied into the agent (<a href="pet.html#pet-brain">Pet › Pet brain</a>).</td>
 </tr>
 <tr>
 <td><strong>Comments</strong></td>
@@ -186,7 +197,7 @@ composer.</p>
 <tr>
 <td><strong>Thinking</strong></td>
 <td>Hermes' default (<em>Medium</em>)</td>
-<td>How hard the model thinks in every new conversation, and in helper tasks without their own level. One conversation can change it in the composer.</td>
+<td>How hard the model thinks in new conversations of the default agent, and in helper tasks without their own level. Other agents do <strong>not</strong> take this level over: without their own level they run on Hermes' default; give an agent its own in its detail › <strong>Basics</strong> › <strong>Thinking</strong> (<a href="hermes.html#profiles">Manage Hermes › Profiles</a>). One conversation can change it in the composer.</td>
 </tr>
 <tr>
 <td><strong>Provider per model maker</strong></td>
@@ -531,7 +542,8 @@ on). Files that cannot be used are listed with the reason.</p>
 <h2 id="shortcuts">Shortcuts</h2>
 <p>Every keyboard shortcut of the app, grouped by where it works. Most are fixed; the dictation keys can be changed
 here (<strong>Change</strong>), the <a href="pet.html#palette-commands-and-shortcuts">pet</a> commands (choose, show / hide, its own window,
-hatch) get a key of your own here (<strong>Set</strong>), widget shortcuts in the widget's ⋯ › <em>Widget settings</em>, the system-wide quick-capture keys in your
+hatch, line history) and the commands that open a dialog in its own window (Hermes › System, Loops › runs, Kanban,
+hatching a pet, transcribing a recording) get a key of your own here (<strong>Set</strong>), widget shortcuts in the widget's ⋯ › <em>Widget settings</em>, the system-wide quick-capture keys in your
 desktop's settings. The full list: <a href="shortcuts.html">Keyboard shortcuts</a>.</p>
 <h2 id="servers">Servers</h2>
 <p>Hermes on another machine (a VPS, a home server), reached <strong>over SSH</strong>. Conversations on a server are visible from

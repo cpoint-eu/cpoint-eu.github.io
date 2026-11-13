@@ -158,12 +158,16 @@ and delivers the answer where you choose. Jobs are run by the Hermes <strong>gat
 <li><strong>New profile</strong> is a short wizard: <em>Basics</em> (name, description, model, start from a fresh profile or a copy,
   take over the keys), then <em>MCP servers</em>, <em>Skills</em>, <em>Channels</em>, <em>Variables</em> and a <em>Summary</em>. The description
   matters: Hermes uses it to decide which profile gets a Kanban task.</li>
-<li>The detail: the model (changeable), whether its gateway runs, its folder, description, <strong>Personality</strong>
+<li>The detail: the model (changeable), its own <strong>Thinking</strong> level (how hard its model thinks in its new conversations;
+  <strong>Hermes default</strong> removes it, and the agent then runs on Hermes' default level, not on the one in
+  <a href="settings.html#models">Settings › Models</a>), whether its gateway runs, its folder, description, <strong>Personality</strong>
   (<code>SOUL.md</code>, who the agent is and how it talks), its skills and tool sets with switches, and its own variables
   (<code>.env</code>). Changes apply to the profile's new conversations.</li>
 <li><strong>Export</strong> saves a profile to an archive (choose settings, skills, memory, cron jobs, code); secret values are
   never put in. <strong>Import</strong> creates a profile from such an archive or from <code>hermes profile export</code>.</li>
-<li><strong>Agent detail</strong> opens the agent's own window (look, skills, memory, cron, groups).</li>
+<li><strong>Agent detail</strong> opens the agent's own window (look, skills, memory, cron, groups); its <strong>Basics</strong> tab has the same
+  model, <strong>Thinking</strong> and personality. <strong>Open in a new window</strong> in its header moves it into a window of its own;
+  there, changing the model and an AI picture are done in the main window.</li>
 </ul>
 <h2 id="models--providers">Models &amp; providers</h2>
 <p>Who Hermes can talk to, and which model does what.</p>
@@ -210,6 +214,13 @@ skill or MCP server needs.</p>
   models can fail.</li>
 <li><strong>Computer</strong>: machine, CPU, memory, disk, uptime, Python.</li>
 </ul>
+<p><strong>Update</strong>, <strong>Doctor</strong> and <strong>Restart gateway</strong> run one at a time, with a live log. When you close the window while one
+runs and open it again, it shows that action and its log; another one cannot start until it ends. The same holds for
+<strong>Update Hermes</strong> in Kyllene's update window: while Hermes management runs an action, it says so and points here.</p>
+<p><strong>Open in a new window</strong> in the header of the <em>System</em> tab (or <code>Ctrl+K</code> › <em>Hermes › System in a new window…</em>) moves
+the tab into a window of its own, for example to watch a long update. The <em>System</em> tab in the main window then only
+offers <strong>Show the window</strong>. ✕ closes only the window and the action goes on; when it ends, the bell says <em>Hermes ›
+System: done</em> (or <em>failed</em>). <strong>Back to the main window</strong> in the window's header returns it.</p>
 <p>Kyllene checks itself after every Hermes update and tells you if something it uses changed. The Hermes versions a
 Kyllene release was tested with are in <a href="settings.html#about">Settings › About</a>.</p>
 <h2 id="config">Config</h2>

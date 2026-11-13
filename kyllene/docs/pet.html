@@ -34,8 +34,9 @@ mood, the comments and the personality on top. <em>Česky: <a href="pet.cs.html"
 <p><strong>On this page:</strong> <a href="#turn-it-on-and-off">Turn it on</a> · <a href="#install-and-pick-a-pet">Install and pick a pet</a> ·
 <a href="#hatch-your-own-pet-with-ai">Hatch your own</a> · <a href="#move-the-pet">Move it</a> · <a href="#the-pet-in-its-own-window">Its own window</a> ·
 <a href="#what-the-pets-states-mean">States</a> · <a href="#mood">Mood</a> · <a href="#comments-in-a-speech-bubble">Comments</a> ·
-<a href="#talk-to-the-pet-by-name">Talk to it</a> · <a href="#personality">Personality</a> · <a href="#pet-brain">Pet brain</a> ·
-<a href="#repair-animations-and-animation-length">Repair animations</a> · <a href="#generate-moods">Own moods</a> ·
+<a href="#line-history">Line history</a> · <a href="#talk-to-the-pet-by-name">Talk to it</a> ·
+<a href="#personality">Personality</a> · <a href="#pet-brain">Pet brain</a> · <a href="#repair-animations-and-animation-length">Repair animations</a> ·
+<a href="#generate-moods">Own moods</a> · <a href="#pet-dialogs-in-their-own-window">Dialogs in a window</a> ·
 <a href="#on-your-other-computers">Other computers</a> · <a href="#palette-commands-and-shortcuts">Palette and shortcuts</a> ·
 <a href="#troubleshooting">Troubleshooting</a></p>
 <h2 id="turn-it-on-and-off">Turn it on and off</h2>
@@ -76,7 +77,8 @@ off). Kyllene notices the change by itself, no restart needed.</p>
 <ul>
 <li><strong>Drag it</strong> anywhere with the mouse. Dropped over text, it moves to the nearest free spot so it never covers an
   answer or the box you type in. The spot is remembered across restarts.</li>
-<li><strong>Double-click</strong> puts it back in its corner (bottom right, above the box you type in).</li>
+<li><strong>Double-click</strong> puts it back in its corner (bottom right, above the box you type in), and its speech bubble back
+  beside it.</li>
 <li>The spot is remembered per computer (each one has its own screen).</li>
 <li><strong>Let the pet wander the window</strong> in Settings › Pet (off by default; palette <em>Pet: wander the window</em> / <em>Pet: stop
   wandering</em>) lets it stroll along free spots while the agent is at rest. As soon as the agent works, it goes back to
@@ -145,8 +147,15 @@ the mood lasts. The mood also sets the tone of the pet's <a href="#comments-in-a
 its moods for free; <a href="#generate-moods">Generate moods</a> draws its own animations for them.</p>
 <h2 id="comments-in-a-speech-bubble">Comments in a speech bubble</h2>
 <p>Now and then the pet comments on the agent's work in a speech bubble: a failed tool or test, a question for you, a
-finished turn. The bubble stays until you click it or the next line replaces it; hover the pet to see its last lines.
-Set it up in Settings › Pet › <strong>Comments</strong>:</p>
+finished turn. The bubble stays until you click it or the next line replaces it.</p>
+<ul>
+<li>The bubble appears <strong>beside the pet</strong> and stays where it is, also when the pet walks on, so you can read it; thought
+  dots lead from the bubble to the pet.</li>
+<li><strong>Drag the bubble</strong> anywhere: later lines appear at the same spot (remembered on each computer). Double-click the pet
+  to put the bubble back beside it.</li>
+<li>Hover the pet for <strong>Line history (n)</strong>, which opens <a href="#line-history">all its lines</a>.</li>
+</ul>
+<p>Set it up in Settings › Pet › <strong>Comments</strong>:</p>
 <div class="tbl"><table>
 <thead>
 <tr>
@@ -177,6 +186,14 @@ Set it up in Settings › Pet › <strong>Comments</strong>:</p>
 </tr>
 </tbody>
 </table></div>
+<h2 id="line-history">Line history</h2>
+<p><strong>Line history</strong> shows every line the pet said since Kyllene started on this computer, newest first: when it said it,
+what it reacted to (<em>Tool … failed</em>, <em>The agent finished its work</em>, <em>Your message to the agent: …</em>) and in which
+conversation. The tabs at the top sort the lines into <strong>Talking to it</strong>, <strong>Your messages</strong>, <strong>Agent's run</strong> and
+<strong>Out of boredom</strong> (<strong>All</strong> shows everything); <strong>Newer</strong> and <strong>Older</strong> page through them.</p>
+<p>Open it by hovering the pet › <strong>Line history (n)</strong> (also on the popped-out pet), with a right-click on the pet ›
+<strong>Line history…</strong>, or with <code>Ctrl+K</code> › <em>Pet: line history…</em>. The history covers only this run of Kyllene on this
+computer.</p>
 <h2 id="talk-to-the-pet-by-name">Talk to the pet by name</h2>
 <p>Write to the pet by its name in a conversation, for example <em>Boba, what do you think?</em> or <em>what do you say, Boba?</em>.
 The pet answers in its bubble, and the agent leaves that reply to the pet. This works whenever <strong>Comments</strong> are not
@@ -187,6 +204,10 @@ The pet answers in its bubble, and the agent leaves that reply to the pet. This 
 shape its comments. Set them when hatching, or later in the pet's <strong>⋯</strong> › <strong>Personality…</strong> (also on a right-click on
 the pet); a pet without one offers <strong>Add a personality</strong>. <strong>Invent with AI</strong> suggests both. The personality is kept
 in Kyllene's settings and travels with the pet to your other computers; Hermes is not changed.</p>
+<p>A pet with its own agent (<a href="#pet-brain">Agent or Combination</a>) has one personality: saving <strong>Personality…</strong> rewrites
+the agent's personality (<code>SOUL.md</code>), and saving <strong>Personality (SOUL.md)</strong> in the agent's detail (<strong>Basics</strong>) changes
+the pet's nature too (a SOUL you wrote yourself becomes the whole nature, so none of your instructions is lost). Its
+next line already uses the new personality.</p>
 <h2 id="pet-brain">Pet brain</h2>
 <p><strong>Pet brain</strong> in Settings › Pet sets how much the shown pet knows and can do when it comments and answers. It is set
 per pet and travels with it; each level says what it costs.</p>
@@ -228,19 +249,40 @@ per pet and travels with it; each level says what it costs.</p>
 <p><strong>Agent</strong> and <strong>Combination</strong> need a Hermes profile for the pet: Kyllene offers <strong>Create profile</strong> (a personality
 from the pet's nature, its own memory, skills and tools). The profile then shows among your agents; delete it in
 Hermes › Profiles. When the agent cannot answer, the pet speaks with Memory (Combination) or as with No memory (Agent).</p>
+<p>With its own agent the pet has <strong>one memory, one set of skills and one personality</strong>, shared with that agent:</p>
+<ul>
+<li><strong>Memory</strong> in Settings › Pet is the agent's own memory, the same note as in the agent's detail › <strong>Memory</strong>. What
+  the pet remembers, rewrites or forgets shows there, and what you edit in either place, the other sees. With
+  <strong>Agent</strong> the pet looks after this memory itself (no daily tidy).</li>
+<li><strong>What it knows about you</strong> is a second note: what the agent remembers about you, the same as in the agent's detail
+  › Memory › <em>What it knows about you</em>. The pet writes there itself, and so does Hermes after a conversation.</li>
+<li><strong>Skills</strong> show with <strong>Agent</strong> too. Kyllene copies them into the agent's profile as Hermes skills; the agent's
+  detail › <strong>Skills</strong> lists them under <strong>Pet skills · Boba</strong>. Edit them in Settings › Pet › Skills: a change made to
+  the copies in the agent is replaced by the pet's version.</li>
+<li>Before each line the agent gets the pet's latest lines from all your computers, so it does not repeat itself.</li>
+</ul>
+<p>Both notes and the skills travel with the pet to your other computers.</p>
 <h2 id="repair-animations-and-animation-length">Repair animations and animation length</h2>
 <p><strong>Animation length</strong> in Settings › Pet (under the shown pet) sets how long each of the pet's animations plays, from
 1 to 8 seconds (<strong>Normal</strong> is 1.1 s); <strong>All back to normal</strong> resets them. It is free and applies at once.</p>
 <p>For a pet you hatched, <strong>Repair animations…</strong> (its <strong>⋯</strong> menu, a right-click on the pet, or <code>Ctrl+K</code> › <em>Pet: repair
-animations…</em>) redraws only the animations that look wrong:</p>
+animations…</em>) shows each animation on its own and redraws only the ones that look wrong:</p>
 <ol>
-<li>Every animation plays side by side. Tick the broken ones. Under each you can write <strong>What should look different
-   (optional)</strong>; its length slider here also sets how many frames the new animation gets.</li>
-<li>Pick the <strong>Image provider</strong> and <strong>Image model</strong> as when hatching (one image per animation, the cost is shown) and
-   click <strong>Draw again</strong>.</li>
-<li>Compare <strong>Now</strong> and <strong>New</strong>, then <strong>Use</strong> or <strong>Discard</strong> each one; <strong>Apply and close</strong> saves every new animation
-   you did not discard. <strong>Restore previous look</strong> undoes the last repair.</li>
+<li><strong>Pick an animation</strong> in the list on the left. The detail on the right plays <strong>Now</strong>, exactly what the pet plays
+   (with its frame count; <em>longer version</em> when it plays a longer one Kyllene drew), and says when the pet plays it,
+   for example <em>When the agent finishes an answer</em>.</li>
+<li><strong>Length</strong>: how long this animation plays. It applies at once and for free; a new version also gets its number of
+   frames from it.</li>
+<li><strong>Draw a new version</strong>: write <strong>What should look different (optional)</strong> and click <strong>Draw a new version</strong>. The
+   frame count and the cost are shown next to the button; <strong>Drawn by … · change</strong> picks the <strong>Image provider</strong> and
+   <strong>Image model</strong> as when hatching. One animation is drawn at a time; the others wait until it is done.</li>
+<li>Compare <strong>Now</strong> and <strong>New</strong>, then <strong>Use the new one</strong> (the pet plays it at once) or <strong>Discard</strong>. <strong>Draw again</strong>
+   tries once more. Animations with a new version are marked <em>new</em> in the list.</li>
+<li><strong>Apply and close</strong> saves every new version you did not discard; <strong>Close (keeps drawing)</strong> lets a running drawing
+   finish. <strong>Back to the original</strong> drops a longer version, and <strong>Restore previous look</strong> undoes the last repair.</li>
 </ol>
+<p>A longer animation gets enough frames for its length (about one per 0.3 s, up to 28) and is drawn in several images
+(about one per six frames), all at one size, so the pet does not grow or shrink while it plays.</p>
 <h2 id="generate-moods">Generate moods</h2>
 <p>Every mood is played for free by adjusting a standard animation. <strong>Generate moods…</strong> (the pet's <strong>⋯</strong> menu, a
 right-click on the pet, or <code>Ctrl+K</code> › <em>Pet: generate moods…</em>) draws the pet's own animation for the moods you pick
@@ -248,6 +290,19 @@ instead; it works for any pet, also one from the Petdex. Each mood shows <em>fre
 missing ones</strong> ticks every mood without its own animation. Drawing is paid (one image per mood, the cost is shown).
 Each finished mood is saved at once, and <strong>Close (keep drawing)</strong> lets the drawing run on. <strong>Remove</strong> on a mood goes
 back to the free adjustment.</p>
+<h2 id="pet-dialogs-in-their-own-window">Pet dialogs in their own window</h2>
+<p><strong>Hatch a pet</strong>, <strong>Repair animations</strong> and <strong>Generate moods</strong> take a while. Move one into a window of its own with
+<strong>Open in a new window</strong> (the window icon in its header) or the palette's <em>Pet: hatch a new one in a new window…</em>,
+<em>Pet: repair animations in a new window…</em> and <em>Pet: generate moods in a new window…</em>, and keep working in the main
+window. Nothing is lost on the way: drafts, notes and new animations you have not decided on yet stay.</p>
+<ul>
+<li>✕ closes only the window; the drawing goes on in the main window. When it ends, the bell says so (for example
+  <em>Repair animations: done</em>); a click shows the result.</li>
+<li><strong>Back to the main window</strong> (dock icon in the window's header) shows the dialog in the main window again.</li>
+<li>The <em>n in windows</em> chip in the main window shows what each window is doing (<em>Drawing drafts 2/4</em>, <em>New animations to
+  decide: 2</em>); a click brings it up.</li>
+</ul>
+<p>More about dialog windows: <a href="features.html#dialogs-in-their-own-window">Everything in Kyllene</a>.</p>
 <h2 id="on-your-other-computers">On your other computers</h2>
 <p>With <a href="sync.html">sync</a> on, the shown pet and its size follow you: a Petdex pet installs itself on the other computer, a
 hatched one travels with its drawings, so you never hatch (and pay) twice. Its personality, brain, memory, skills,
@@ -255,10 +310,11 @@ own moods and animation lengths travel with it. Whether the pet is shown, where 
 mood stay on each computer.</p>
 <h2 id="palette-commands-and-shortcuts">Palette commands and shortcuts</h2>
 <p><code>Ctrl+K</code> offers <em>Pet…</em>, <em>Pet: show</em> / <em>Pet: hide</em>, <em>Pet: into its own window</em> / <em>Pet: back into the app window</em>,
-<em>Pet: wander the window</em> / <em>Pet: stop wandering</em>, <em>Pet: hatch a new one…</em>, <em>Pet: repair animations…</em> (hatched pets)
-and <em>Pet: generate moods…</em>. Settings › Shortcuts has a <strong>Pet</strong> group: give choosing the pet, show / hide, its own
-window and hatching a key of your own (<strong>Set</strong>); the mouse actions (Shift+click, click, double-click, Alt + wheel) are
-listed there too.</p>
+<em>Pet: wander the window</em> / <em>Pet: stop wandering</em>, <em>Pet: line history…</em>, <em>Pet: hatch a new one…</em> / <em>Pet: hatch a new
+one in a new window…</em>, <em>Pet: repair animations…</em> / <em>Pet: repair animations in a new window…</em> (hatched pets) and
+<em>Pet: generate moods…</em> / <em>Pet: generate moods in a new window…</em>. Settings › Shortcuts has a <strong>Pet</strong> group: give
+choosing the pet, show / hide, its own window, hatching (also in its own window) and the line history a key of your
+own (<strong>Set</strong>); the mouse actions (Shift+click, click, double-click, Alt + wheel) are listed there too.</p>
 <h2 id="troubleshooting">Troubleshooting</h2>
 <div class="tbl"><table>
 <thead>

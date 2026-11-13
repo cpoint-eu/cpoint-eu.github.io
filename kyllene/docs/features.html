@@ -34,6 +34,7 @@ searches your conversations, tasklists, Kanban cards, project files and memory.<
 <a href="#the-message-box-and-commands">Writing a message</a> · <a href="#attachments">Attachments</a> ·
 <a href="#prompt-templates">Prompt templates</a> · <a href="#continue-later-later">Continue later</a> · <a href="#bookmarks-and-pins">Bookmarks</a> ·
 <a href="#compare-models">Compare models</a> · <a href="#choosing-a-model">Choosing a model</a> · <a href="#windows-and-layout">Windows and layout</a> ·
+<a href="#dialogs-in-their-own-window">Dialogs in their own window</a> ·
 <a href="#left-menu-and-navigation">Left menu</a> · <a href="#top-menu">Top menu</a> · <a href="#palette-and-search">Palette and search</a> ·
 <a href="#overview-today-and-timeline">Overview</a> · <a href="#projects">Projects</a> · <a href="#kanban">Kanban</a> ·
 <a href="#agents-rooms-and-delegated-agents">Agents and rooms</a> · <a href="#coding-agents">Coding agents</a> · <a href="#widgets">Widgets</a> ·
@@ -393,6 +394,11 @@ agent's browser show here too.</p>
 <td>Send one prompt to 2–4 models side by side (read-only: web and images only), then continue with the best answer.</td>
 <td><code>/compare</code>, palette <em>Compare models</em></td>
 </tr>
+<tr>
+<td>Comparison in its own window</td>
+<td>Once the comparison runs, move it into a window of its own and keep working in the main window; follow-up prompts, <em>Stop</em> and the winner work there too.</td>
+<td><em>Open in a new window</em> in the comparison's header (<a href="#dialogs-in-their-own-window">dialog windows</a>)</td>
+</tr>
 </tbody>
 </table></div>
 <h2 id="choosing-a-model">Choosing a model</h2>
@@ -471,6 +477,56 @@ agent's browser show here too.</p>
 <td>Edit layout</td>
 <td>Hide (eye) or drag (grip) any part: status bar parts, toolbar buttons, widgets, top-menu widgets.</td>
 <td>Palette <em>Edit layout</em>; <code>Esc</code> finishes</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="dialogs-in-their-own-window">Dialogs in their own window</h2>
+<p>Many dialogs can leave the main window and live in a window of their own, for example on a second monitor, while
+you keep working in the main window. The work itself (a hatch, a drawing, a Hermes update, a transcription) keeps
+running in the main window; the dialog window only shows it and sends your clicks there.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>What it is for</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Open a dialog in a new window</td>
+<td>Moves the open dialog into its own window with everything you typed or picked. Dialogs that can do this: <em>Hatch a pet</em>, <em>Repair animations</em>, <em>Generate moods</em>, <em>Transcribe a recording</em>, <em>Delegated agent's progress</em>, Hermes › <em>System</em>, the model comparison, Loops › <em>Runs</em>, the Kanban board with the card detail, <em>Agent detail</em>, <em>Settings</em> and <em>Kyllene help</em>.</td>
+<td><em>Open in a new window</em> (the window icon left of ✕ in the dialog's header); in Hermes only on the <em>System</em> tab, in Loops only on the <em>Runs</em> tab</td>
+</tr>
+<tr>
+<td>Palette commands</td>
+<td>Open a dialog straight in its own window (an existing one is only brought up). Each one has an editable row in <a href="settings.html#shortcuts">Settings › Shortcuts</a>, except the two repair commands, which act on the pet shown at that moment.</td>
+<td>Palette <em>Pet: hatch a new one in a new window…</em>, <em>Pet: repair animations in a new window…</em>, <em>Pet: generate moods in a new window…</em>, <em>Transcribe a recording in a new window…</em>, <em>Hermes › System in a new window…</em>, <em>Loops › runs in a new window…</em>, <em>Kanban in a new window…</em></td>
+</tr>
+<tr>
+<td>The <em>n in windows</em> chip</td>
+<td>Lists every conversation and dialog in its own window; a dialog row shows its title and what it is doing (<em>Drawing drafts 2/4</em>, <em>Updating Hermes…</em>, <em>Running: 1</em>); a click brings that window up.</td>
+<td>The <em>n in windows</em> chip in the main window › <em>Show the window</em></td>
+</tr>
+<tr>
+<td>Back to the main window</td>
+<td>Shows the dialog in the main window again, in the same state, and closes its window.</td>
+<td><em>Back to the main window</em> (dock icon) in the dialog window's header</td>
+</tr>
+<tr>
+<td>Closing a dialog window</td>
+<td>✕ closes only the window: a running job goes on in the main window. When it ends, one notice in the bell (and a desktop notification when Kyllene is not focused) says so, for example <em>Repair animations: done</em>; a click shows the result. <code>Esc</code> and a click beside the dialog do not close a dialog window.</td>
+<td>✕ of the window; the dialog's own <em>Cancel</em> stops the job</td>
+</tr>
+<tr>
+<td>Opening it again</td>
+<td>Opening a dialog that already has a window (from a menu, the bell or the palette) only brings that window up; there is never a second copy in the main window.</td>
+<td>Automatic</td>
+</tr>
+<tr>
+<td>Size</td>
+<td>Each kind of dialog window remembers its size on this computer. Dialog windows do not reopen after an app restart; a job that still runs shows in its dialog and can be moved into a window again.</td>
+<td>Automatic</td>
 </tr>
 </tbody>
 </table></div>
@@ -778,6 +834,11 @@ agent's browser show here too.</p>
 <td>Delete archived cards older than a set age.</td>
 <td><em>Archived</em> column header, palette <em>Kanban: clean up the archive</em> (<a href="kanban.html#old-cards">guide</a>)</td>
 </tr>
+<tr>
+<td>Board in its own window</td>
+<td>The board and the card detail in a window of their own; starting agents and moving a card to another board stay in the main window (<em>Open the card in the main window</em>).</td>
+<td><em>Open in a new window</em> in the board's header, palette <em>Kanban in a new window…</em> (<a href="kanban.html#the-board-in-its-own-window">guide</a>)</td>
+</tr>
 </tbody>
 </table></div>
 <h2 id="agents-rooms-and-delegated-agents">Agents, rooms and delegated agents</h2>
@@ -802,8 +863,13 @@ agent's browser show here too.</p>
 </tr>
 <tr>
 <td>Agent window</td>
-<td><em>Basics</em>, <em>Skills</em>, <em>Memory</em>, <em>Cron</em>, <em>Groups</em>, <em>Project</em>, <em>Look</em>, <em>Calls</em>.</td>
+<td><em>Basics</em> (model and its own <em>Thinking</em> level), <em>Skills</em>, <em>Memory</em>, <em>Cron</em>, <em>Groups</em>, <em>Project</em>, <em>Look</em>, <em>Calls</em>. Can move into its own window (<a href="#dialogs-in-their-own-window">dialog windows</a>).</td>
 <td><em>Agent settings</em> next to an agent in the left menu, Top menu › Agents › <em>Manage agents</em></td>
+</tr>
+<tr>
+<td>Thinking per agent</td>
+<td>How hard this agent's model thinks in its new conversations; <em>Hermes default</em> removes its own level. Agents without their own level do not take over the level from Settings › Models.</td>
+<td>Agent window › <em>Basics</em> › <em>Thinking</em>; also Hermes › <em>Profiles</em> (<a href="hermes.html#profiles">guide</a>)</td>
 </tr>
 <tr>
 <td>Categories</td>
@@ -827,8 +893,8 @@ agent's browser show here too.</p>
 </tr>
 <tr>
 <td>Delegated agents</td>
-<td>When Hermes delegates work to sub-agents, each shows as a card in the thread with its state, tools and result; send it a message while it runs.</td>
-<td>In the thread</td>
+<td>When Hermes delegates work to sub-agents, each shows as a card in the thread with its state, tools and result; send it a message while it runs. Its progress can move into its own window and keeps updating there.</td>
+<td>In the thread; <em>Open in a new window</em> in the agent's progress dialog</td>
 </tr>
 </tbody>
 </table></div>
@@ -873,6 +939,11 @@ agent's browser show here too.</p>
 <td>Loops</td>
 <td>Unattended workflows that run in rounds (even with the app closed): steps with Claude Code, Codex, a Hermes agent or a shell command, conditions, safety limits.</td>
 <td>Project menu › <em>Loops</em>, palette <em>Loops: workflow editor</em> / <em>Loops: running loops</em> (<a href="coding-agents.html#loops">guide</a>)</td>
+</tr>
+<tr>
+<td>Loop runs in their own window</td>
+<td>The <em>Runs</em> tab (running and finished loops with their log) in a window of its own; pause, continue, answer and stop work there too.</td>
+<td><em>Open in a new window</em> on the <em>Runs</em> tab, palette <em>Loops › runs in a new window…</em></td>
 </tr>
 </tbody>
 </table></div>
@@ -958,8 +1029,8 @@ your own: <a href="widgets.html">Build your own widget</a>.</p>
 </tr>
 <tr>
 <td>Transcribe a recording</td>
-<td>A meeting recording to text with speakers.</td>
-<td>Top menu › Widgets › <em>Transcribe a recording</em> (<a href="voice.html#transcribe-a-recording">guide</a>)</td>
+<td>A meeting recording to text with speakers; the window can move out of the main window while it transcribes.</td>
+<td>Top menu › Widgets › <em>Transcribe a recording</em>, palette <em>Transcribe a recording in a new window…</em> (<a href="voice.html#transcribe-a-recording">guide</a>)</td>
 </tr>
 <tr>
 <td>Settings and test</td>
@@ -1017,7 +1088,7 @@ speech bubble and answer when you talk to it by name. Guide: <a href="pet.html">
 <tr>
 <td>Hatch a new pet</td>
 <td>AI draws a pet from your description: pick the image provider and model, four drafts, pick one, hatch (paid image generation, the cost is shown first).</td>
-<td>Settings › Pet › <em>Hatch a new one…</em>, palette <em>Pet: hatch a new one…</em> (<a href="pet.html#hatch-your-own-pet-with-ai">guide</a>)</td>
+<td>Settings › Pet › <em>Hatch a new one…</em>, palette <em>Pet: hatch a new one…</em> / <em>Pet: hatch a new one in a new window…</em> (<a href="pet.html#hatch-your-own-pet-with-ai">guide</a>)</td>
 </tr>
 <tr>
 <td>Move and wander</td>
@@ -1036,8 +1107,13 @@ speech bubble and answer when you talk to it by name. Guide: <a href="pet.html">
 </tr>
 <tr>
 <td>Comments</td>
-<td>Short lines in a speech bubble about failures, questions and finished turns: prepared (free) or written by AI, in your language, optionally also on your own messages.</td>
+<td>Short lines in a speech bubble about failures, questions and finished turns: prepared (free) or written by AI, in your language, optionally also on your own messages. The bubble appears beside the pet and stays put; drag it anywhere.</td>
 <td>Settings › Pet › <em>Comments</em> (<a href="pet.html#comments-in-a-speech-bubble">guide</a>)</td>
+</tr>
+<tr>
+<td>Line history</td>
+<td>Every line the pet said in this run of the app, with what it reacted to, by group (<em>Talking to it</em>, <em>Your messages</em>, <em>Agent's run</em>, <em>Out of boredom</em>).</td>
+<td>Hover the pet › <em>Line history (n)</em>, right-click the pet › <em>Line history…</em>, palette <em>Pet: line history…</em> (<a href="pet.html#line-history">guide</a>)</td>
 </tr>
 <tr>
 <td>Talk to the pet</td>
@@ -1051,18 +1127,18 @@ speech bubble and answer when you talk to it by name. Guide: <a href="pet.html">
 </tr>
 <tr>
 <td>Pet brain</td>
-<td><em>No memory</em>, <em>Memory</em> (a memory note and small skills), <em>Agent</em> (its own Hermes profile with tools) or <em>Combination</em>.</td>
+<td><em>No memory</em>, <em>Memory</em> (a memory note and small skills), <em>Agent</em> (its own Hermes profile with tools) or <em>Combination</em>. With its own agent, the pet's memory, skills and personality are the agent's.</td>
 <td>Settings › Pet › <em>Pet brain</em> (<a href="pet.html#pet-brain">guide</a>)</td>
 </tr>
 <tr>
 <td>Repair animations</td>
-<td>Redraw only the broken animations of a hatched pet, with an instruction per animation; set how long each animation plays (1–8 s, free).</td>
-<td>The pet's ⋯ › <em>Repair animations…</em>, right-click the pet, palette <em>Pet: repair animations…</em>; <em>Animation length</em> in Settings › Pet (<a href="pet.html#repair-animations-and-animation-length">guide</a>)</td>
+<td>For a hatched pet: each animation with what the pet plays now, when it plays and how long; set its length (free) or draw a new version with an instruction, then <em>Use the new one</em> or <em>Discard</em>.</td>
+<td>The pet's ⋯ › <em>Repair animations…</em>, right-click the pet, palette <em>Pet: repair animations…</em> / <em>Pet: repair animations in a new window…</em>; <em>Animation length</em> in Settings › Pet (<a href="pet.html#repair-animations-and-animation-length">guide</a>)</td>
 </tr>
 <tr>
 <td>Moods of its own</td>
 <td>Draw the pet's own animation for chosen moods (any pet; paid, one image per mood).</td>
-<td>The pet's ⋯ › <em>Generate moods…</em>, right-click the pet, palette <em>Pet: generate moods…</em> (<a href="pet.html#generate-moods">guide</a>)</td>
+<td>The pet's ⋯ › <em>Generate moods…</em>, right-click the pet, palette <em>Pet: generate moods…</em> / <em>Pet: generate moods in a new window…</em> (<a href="pet.html#generate-moods">guide</a>)</td>
 </tr>
 <tr>
 <td>On other computers</td>
@@ -1301,7 +1377,7 @@ speech bubble and answer when you talk to it by name. Guide: <a href="pet.html">
 </tr>
 <tr>
 <td>Keys, Memory, Logs, System, Config</td>
-<td><em>Hermes › Keys</em>, <em>Hermes › Memory</em>, <em>Hermes › Logs</em>, <em>Hermes › System</em>, <em>Hermes › Config</em></td>
+<td><em>Hermes › Keys</em>, <em>Hermes › Memory</em>, <em>Hermes › Logs</em>, <em>Hermes › System</em>, <em>Hermes › System in a new window…</em>, <em>Hermes › Config</em></td>
 <td><a href="hermes.html#keys">Keys</a> · <a href="hermes.html#memory">Memory</a> · <a href="hermes.html#logs">Logs</a> · <a href="hermes.html#system">System</a> · <a href="hermes.html#config">Config</a></td>
 </tr>
 <tr>
@@ -1323,7 +1399,9 @@ speech bubble and answer when you talk to it by name. Guide: <a href="pet.html">
 </table></div>
 <p>Open the window with <code>Ctrl+Shift+H</code>, Top menu › Hermes › <em>Open management</em>, or palette <em>Hermes management</em>. When the
 Hermes engine stops, Kyllene restarts it by itself and reconnects the conversations; palette <em>Start again</em> restarts
-it by hand. After every Hermes update Kyllene checks that everything it uses still works and tells you if not.</p>
+it by hand. After every Hermes update Kyllene checks that everything it uses still works and tells you if not.
+Update, doctor and gateway restart run one at a time: reopening the window shows the action that is running, with
+its log.</p>
 <h2 id="updates-help-and-first-start">Updates, help and first start</h2>
 <div class="tbl"><table>
 <thead>
@@ -1341,7 +1419,7 @@ it by hand. After every Hermes update Kyllene checks that everything it uses sti
 </tr>
 <tr>
 <td>Documentation and What's new</td>
-<td>These guides and the release notes of every version.</td>
+<td>These guides and the release notes of every version; the help can move into its own window.</td>
 <td>Top menu › Help, palette <em>Help › Documentation</em> / <em>Help › What's new</em></td>
 </tr>
 <tr>
@@ -1361,7 +1439,7 @@ it by hand. After every Hermes update Kyllene checks that everything it uses sti
 </tr>
 <tr>
 <td>Settings</td>
-<td>Everything Kyllene itself remembers.</td>
+<td>Everything Kyllene itself remembers; can move into its own window (some tabs then point back to the main window).</td>
 <td>The gear in the top bar, <code>Ctrl+,</code>, palette <em>Settings</em> (<a href="settings.html">guide</a>)</td>
 </tr>
 <tr>
@@ -1371,7 +1449,7 @@ it by hand. After every Hermes update Kyllene checks that everything it uses sti
 </tr>
 <tr>
 <td>First start</td>
-<td>Without Hermes, Kyllene offers <em>Install Hermes Agent</em>; without a model, <em>Connect a model</em>.</td>
+<td>Without Hermes, Kyllene offers <em>Install Hermes Agent</em>; without a model, <em>Connect a model</em>. When Hermes is installed but does not come up, Kyllene tries twice more and then shows <em>Hermes could not be started</em> with the details.</td>
 <td>Shown by itself (<a href="index.html#troubleshooting">troubleshooting</a>)</td>
 </tr>
 </tbody>

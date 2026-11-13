@@ -43,7 +43,7 @@ and <a href="hermes.html">Manage Hermes</a>. Wondering what something is for, or
 </tr>
 <tr>
 <td><a href="features.html">Everything in Kyllene</a></td>
-<td>A catalog of every feature by area: what it is for, where you find it (menu, shortcut, palette command) and the guide that explains it</td>
+<td>A catalog of every feature by area: what it is for, where you find it (menu, shortcut, palette command) and the guide that explains it; also <a href="features.html#dialogs-in-their-own-window">dialogs in their own window</a></td>
 </tr>
 <tr>
 <td><a href="settings.html">Settings</a></td>
@@ -79,7 +79,7 @@ and <a href="hermes.html">Manage Hermes</a>. Wondering what something is for, or
 </tr>
 <tr>
 <td><a href="pet.html">Pet</a></td>
-<td>The animated pet that shows what the agent is doing: pick or hatch one, move it or pop it out onto the desktop, what its states and moods mean, comments, talking to it by name, personality, pet brain, repairing animations (also <a href="pet.cs.html">in Czech</a>)</td>
+<td>The animated pet that shows what the agent is doing: pick or hatch one, move it or pop it out onto the desktop, what its states and moods mean, comments and their history, talking to it by name, personality, pet brain, repairing animations, its dialogs in their own window (also <a href="pet.cs.html">in Czech</a>)</td>
 </tr>
 <tr>
 <td><a href="shortcuts.html">Keyboard shortcuts</a></td>
@@ -121,11 +121,23 @@ were looking for.</p>
 </tr>
 <tr>
 <td><em>"Hermes could not be started"</em></td>
-<td>Check that Hermes works in a terminal (<code>hermes</code>), then restart Kyllene.</td>
+<td>The first start of Hermes after installing it can take up to a minute; Kyllene tries twice more before it shows this screen with the details. Check that Hermes works in a terminal (<code>hermes</code>), then restart Kyllene.</td>
+</tr>
+<tr>
+<td>Colour emoji are missing, or the AppImage crashes at start (Fedora)</td>
+<td>Update to Kyllene 0.0.3-beta or newer: the AppImage brings its own colour emoji font.</td>
+</tr>
+<tr>
+<td><em>Hermes management is already running an action</em></td>
+<td>An update, doctor or gateway restart is still running; only one runs at a time. Its live log is in Hermes › <em>System</em>; try again when it has finished.</td>
+</tr>
+<tr>
+<td>A dialog window does not close with <code>Esc</code></td>
+<td>On purpose: a dialog moved into <a href="features.html#dialogs-in-their-own-window">its own window</a> closes with the window's ✕ (a running job goes on in the main window).</td>
 </tr>
 <tr>
 <td>Conversations start but the model does not answer</td>
-<td>Hermes has no model yet: click <strong>Connect a model</strong> in the bar <em>Hermes has no model connected.</em> and sign in to a provider (the first one becomes the main model), or run <code>hermes setup</code> in a terminal.</td>
+<td>Hermes has no model yet: click <strong>Connect a model</strong> in the bar <em>Hermes has no model connected.</em> and sign in to a provider (the first one becomes the main model), or run <code>hermes setup</code> in a terminal. An empty conversation you opened before that uses the new main model too.</td>
 </tr>
 <tr>
 <td>Dictation does nothing on the first try</td>

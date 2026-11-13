@@ -34,9 +34,10 @@ přidává k němu náladu, komentáře a osobnost. <em>English version: <a href
 <p><strong>Na této stránce:</strong> <a href="#zapnout-a-vypnout">Zapnout</a> · <a href="#nainstalovat-a-vybrat-maskota">Nainstalovat a vybrat</a> ·
 <a href="#vylíhnout-vlastního-maskota-s-ai">Vylíhnout vlastního</a> · <a href="#přesunout-maskota">Přesunout</a> ·
 <a href="#maskot-ve-vlastním-okně">Vlastní okno</a> · <a href="#co-znamenají-stavy">Stavy</a> · <a href="#nálada">Nálada</a> ·
-<a href="#komentáře-v-bublině">Komentáře</a> · <a href="#oslovit-maskota-jménem">Oslovit jménem</a> · <a href="#osobnost">Osobnost</a> ·
-<a href="#mozek-maskota">Mozek maskota</a> · <a href="#opravit-animace-a-délka-animací">Opravit animace</a> ·
-<a href="#dogenerovat-nálady">Vlastní nálady</a> · <a href="#na-tvých-dalších-počítačích">Jiné počítače</a> ·
+<a href="#komentáře-v-bublině">Komentáře</a> · <a href="#historie-hlášek">Historie hlášek</a> · <a href="#oslovit-maskota-jménem">Oslovit jménem</a> ·
+<a href="#osobnost">Osobnost</a> · <a href="#mozek-maskota">Mozek maskota</a> · <a href="#opravit-animace-a-délka-animací">Opravit animace</a> ·
+<a href="#dogenerovat-nálady">Vlastní nálady</a> · <a href="#dialogy-maskota-ve-vlastním-okně">Dialogy v okně</a> ·
+<a href="#na-tvých-dalších-počítačích">Jiné počítače</a> ·
 <a href="#příkazy-palety-a-zkratky">Paleta a zkratky</a> · <a href="#když-něco-nejde">Když něco nejde</a></p>
 <h2 id="zapnout-a-vypnout">Zapnout a vypnout</h2>
 <ol>
@@ -77,7 +78,7 @@ nového maskota:</p>
 <ul>
 <li><strong>Přetáhni ho myší</strong> kamkoli. Pustíš-li ho přes text, sám si najde nejbližší volné místo, aby nepřekrýval odpověď
   ani pole pro psaní. Místo si pamatuje i po restartu.</li>
-<li><strong>Dvojklik</strong> ho vrátí do výchozího rohu (vpravo dole nad polem pro psaní).</li>
+<li><strong>Dvojklik</strong> ho vrátí do výchozího rohu (vpravo dole nad polem pro psaní) a jeho bublinu zase vedle něj.</li>
 <li>Poloha se pamatuje na každém počítači zvlášť (každý má jinou obrazovku).</li>
 <li>Volba <strong>Maskot se toulá po okně</strong> v Nastavení › Maskot (výchozí vypnuto; v paletě <em>Maskot: toulat se po okně</em> /
   <em>Maskot: přestat se toulat</em>) ho nechá procházet se po volných místech, když agent nic nedělá. Jakmile agent začne
@@ -146,8 +147,16 @@ zůstávají, dokud nálada trvá. Nálada určuje i tón maskotových <a href="
 ukazuje nálady zdarma; <a href="#dogenerovat-nálady">Dogenerovat nálady</a> pro ně nakreslí vlastní animace.</p>
 <h2 id="komentáře-v-bublině">Komentáře v bublině</h2>
 <p>Občas maskot okomentuje práci agenta v bublině: selhaný nástroj nebo test, otázku pro tebe, dokončené kolo. Bublina
-zůstane, dokud na ni neklikneš nebo ji nenahradí další hláška; když na maskota najedeš myší, ukáže jeho poslední
-hlášky. Nastavuje se v Nastavení › Maskot › <strong>Komentáře</strong>:</p>
+zůstane, dokud na ni neklikneš nebo ji nenahradí další hláška.</p>
+<ul>
+<li>Bublina se objeví <strong>vedle maskota</strong> a zůstane na místě, i když maskot jde dál, takže se dá přečíst; od bubliny
+  k maskotovi vedou myšlenkové tečky.</li>
+<li><strong>Bublinu můžeš přetáhnout</strong> kamkoli: další hlášky se objeví na stejném místě (pamatuje se na každém počítači
+  zvlášť). Dvojklik na maskota vrátí bublinu zase vedle něj.</li>
+<li>Když na maskota najedeš myší, ukáže tlačítko <strong>Historie hlášek (n)</strong>, které otevře <a href="#historie-hlášek">všechny jeho
+  hlášky</a>.</li>
+</ul>
+<p>Nastavuje se v Nastavení › Maskot › <strong>Komentáře</strong>:</p>
 <div class="tbl"><table>
 <thead>
 <tr>
@@ -178,6 +187,14 @@ hlášky. Nastavuje se v Nastavení › Maskot › <strong>Komentáře</strong>:
 </tr>
 </tbody>
 </table></div>
+<h2 id="historie-hlášek">Historie hlášek</h2>
+<p><strong>Historie hlášek</strong> ukáže všechny hlášky, které maskot řekl od spuštění Kyllene na tomhle počítači, od nejnovější:
+kdy ji řekl, na co reagoval (<em>Selhal nástroj …</em>, <em>Agent dokončil práci</em>, <em>Tvoje zpráva agentovi: …</em>) a ve které
+konverzaci. Záložky nahoře je třídí na <strong>Rozhovor s ním</strong>, <strong>Na tvé zprávy</strong>, <strong>Běh agenta</strong> a <strong>Z nudy</strong> (<strong>Vše</strong>
+ukáže všechno); <strong>Novější</strong> a <strong>Starší</strong> listují stránkami.</p>
+<p>Otevřeš ji tak, že najedeš myší na maskota › <strong>Historie hlášek (n)</strong> (i u maskota na ploše), pravým tlačítkem na
+maskotovi › <strong>Historie hlášek…</strong>, nebo přes <code>Ctrl+K</code> › <em>Maskot: historie hlášek…</em>. Historie platí jen pro toto
+spuštění Kyllene na tomhle počítači.</p>
 <h2 id="oslovit-maskota-jménem">Oslovit maskota jménem</h2>
 <p>Napiš maskotovi v konverzaci jeho jménem, třeba <em>Bobo, co myslíš?</em> nebo <em>co na to říkáš, Bobo?</em> (rozumí i
 oslovení v 5. pádě). Maskot odpoví v bublině a agent tu odpověď nechá na něm. Funguje to vždy, když <strong>Komentáře</strong>
@@ -188,6 +205,10 @@ nejsou <strong>Vypnuto</strong>. Mluvit <em>o</em> maskotovi (<em>Bobina animace
 nich komentuje. Nastavíš je při líhnutí, nebo později v nabídce <strong>⋯</strong> › <strong>Osobnost…</strong> u maskota (i pravým tlačítkem
 na maskotovi); maskot bez osobnosti nabídne <strong>Doplnit osobnost</strong>. <strong>Vymyslet s AI</strong> navrhne obojí. Osobnost se
 ukládá v nastavení Kyllene a cestuje s maskotem na tvoje další počítače; Hermes se nemění.</p>
+<p>Maskot s vlastním agentem (<a href="#mozek-maskota">Agent nebo Kombinace</a>) má jednu osobnost: uložení <strong>Osobnost…</strong> přepíše
+osobnost agenta (<code>SOUL.md</code>) a uložení <strong>Osobnost (SOUL.md)</strong> v detailu agenta (<strong>Základ</strong>) změní i povahu maskota
+(SOUL, který jsi napsal sám, se převezme celý, takže se žádný tvůj pokyn neztratí). Už další hláška mluví s novou
+osobností.</p>
 <h2 id="mozek-maskota">Mozek maskota</h2>
 <p><strong>Mozek maskota</strong> v Nastavení › Maskot určuje, kolik zobrazený maskot ví a umí, když komentuje a odpovídá. Nastavuje
 se pro každého maskota zvlášť a cestuje s ním; u každé úrovně stojí, co stojí.</p>
@@ -229,19 +250,39 @@ se pro každého maskota zvlášť a cestuje s ním; u každé úrovně stojí, 
 <p><strong>Agent</strong> a <strong>Kombinace</strong> potřebují pro maskota profil v Hermesu: Kyllene nabídne <strong>Založit profil</strong> (osobnost z
 povahy maskota, vlastní paměť, dovednosti a nástroje). Profil pak najdeš mezi agenty; smazat ho můžeš v Hermes ›
 Profily. Když agent neodpoví, maskot mluví přes Paměť (Kombinace), nebo jako Bez paměti (Agent).</p>
+<p>S vlastním agentem má maskot <strong>jednu paměť, jedny dovednosti a jednu osobnost</strong>, společné s tím agentem:</p>
+<ul>
+<li><strong>Paměť</strong> v Nastavení › Maskot je vlastní paměť agenta, stejná poznámka jako v detailu agenta › <strong>Paměť</strong>. Co si
+  maskot zapamatuje, přepíše nebo zapomene, uvidíš tam, a co upravíš na jednom místě, uvidí i to druhé. U <strong>Agenta</strong>
+  se o paměť maskot stará sám (bez denního úklidu).</li>
+<li><strong>Co ví o tobě</strong> je druhá poznámka: co si agent pamatuje o tobě, totéž jako v detailu agenta › Paměť › <em>Co ví o
+  tobě</em>. Píše tam sám maskot a po konverzaci i Hermes.</li>
+<li><strong>Dovednosti</strong> se ukážou i u <strong>Agenta</strong>. Kyllene je zkopíruje do profilu agenta jako dovednosti Hermesu; detail
+  agenta › <strong>Skilly</strong> je ukáže pod nadpisem <strong>Dovednosti maskota Boba</strong>. Upravuj je v Nastavení › Maskot ›
+  Dovednosti: změnu kopií přímo v agentovi přepíše verze maskota.</li>
+<li>Před každou hláškou dostane agent poslední hlášky maskota ze všech tvých počítačů, aby se neopakoval.</li>
+</ul>
+<p>Obě poznámky i dovednosti cestují s maskotem na tvoje další počítače.</p>
 <h2 id="opravit-animace-a-délka-animací">Opravit animace a délka animací</h2>
 <p><strong>Délka animací</strong> v Nastavení › Maskot (pod zobrazeným maskotem) určuje, jak dlouho se každá animace maskota
 přehrává, od 1 do 8 vteřin (<strong>Normální</strong> je 1,1 s); <strong>Vše na normální</strong> je vrátí. Je to zdarma a platí hned.</p>
 <p>U vylíhnutého maskota <strong>Opravit animace…</strong> (nabídka <strong>⋯</strong>, pravé tlačítko na maskotovi nebo <code>Ctrl+K</code> › <em>Maskot:
-opravit animace…</em>) znovu nakreslí jen animace, které vypadají špatně:</p>
+opravit animace…</em>) ukáže každou animaci zvlášť a znovu nakreslí jen ty, které vypadají špatně:</p>
 <ol>
-<li>Všechny animace hrají vedle sebe. Zaškrtni ty vadné. Pod každou můžeš napsat <strong>Co má vypadat jinak
-   (nepovinné)</strong>; posuvník délky tady určuje i počet snímků nové animace.</li>
-<li>Vyber <strong>Poskytovatele obrázků</strong> a <strong>Model obrázků</strong> jako při líhnutí (jeden obrázek na animaci, cena je vidět) a
-   klikni na <strong>Nakreslit znovu</strong>.</li>
-<li>Porovnej <strong>Teď</strong> a <strong>Nová</strong> a u každé zvol <strong>Použít</strong> nebo <strong>Zahodit</strong>; <strong>Použít a zavřít</strong> uloží všechny nové
-   animace, které jsi nezahodil. <strong>Vrátit předchozí podobu</strong> poslední opravu vrátí.</li>
+<li><strong>Vyber animaci</strong> v seznamu vlevo. Detail vpravo přehrává <strong>Teď</strong>, tedy přesně to, co maskot hraje (s počtem
+   snímků; <em>delší verze</em>, když hraje delší verzi, kterou nakreslila Kyllene), a říká, kdy ji maskot hraje, třeba
+   <em>Když agent dokončí odpověď</em>.</li>
+<li><strong>Délka</strong>: jak dlouho se tahle animace přehrává. Platí hned a zdarma; nová verze podle ní dostane i počet snímků.</li>
+<li><strong>Nakreslit novou verzi</strong>: napiš <strong>Co má vypadat jinak (nepovinné)</strong> a klikni na <strong>Nakreslit novou verzi</strong>. Počet
+   snímků a cena jsou vidět vedle tlačítka; <strong>Kreslí … · změnit</strong> vybere <strong>Poskytovatele obrázků</strong> a <strong>Model
+   obrázků</strong> jako při líhnutí. Kreslí se vždy jedna animace; ostatní počkají, až bude hotová.</li>
+<li>Porovnej <strong>Teď</strong> a <strong>Nová</strong> a zvol <strong>Použít novou</strong> (maskot ji začne hned hrát) nebo <strong>Zahodit</strong>. <strong>Nakreslit
+   znovu</strong> zkusí ještě jednou. Animace s novou verzí mají v seznamu štítek <em>nová</em>.</li>
+<li><strong>Použít a zavřít</strong> uloží všechny nové verze, které jsi nezahodil; <strong>Zavřít (kreslí se dál)</strong> nechá rozjeté kreslení
+   doběhnout. <strong>Vrátit původní</strong> zahodí delší verzi a <strong>Vrátit předchozí podobu</strong> vrátí poslední opravu.</li>
 </ol>
+<p>Delší animace dostane dost snímků na svou délku (zhruba jeden na 0,3 s, nejvýš 28) a kreslí se na několik obrázků
+(zhruba jeden na šest snímků), všechny v jedné velikosti, takže maskot během ní neroste ani se nezmenšuje.</p>
 <h2 id="dogenerovat-nálady">Dogenerovat nálady</h2>
 <p>Každá nálada se zdarma přehrává úpravou běžné animace. <strong>Dogenerovat nálady…</strong> (nabídka <strong>⋯</strong>, pravé tlačítko na
 maskotovi nebo <code>Ctrl+K</code> › <em>Maskot: dogenerovat nálady…</em>) místo toho nakreslí vlastní animaci pro nálady, které
@@ -249,6 +290,19 @@ vybereš; jde to u každého maskota, i u toho z Petdexu. U každé nálady vid�
 <strong>Vybrat chybějící</strong> zaškrtne všechny nálady bez vlastní animace. Kreslení je placené (jeden obrázek na náladu, cena
 je vidět). Každá hotová nálada se uloží hned a <strong>Zavřít (kreslit dál)</strong> nechá kreslení běžet. <strong>Odebrat</strong> u nálady ji
 vrátí k úpravě zdarma.</p>
+<h2 id="dialogy-maskota-ve-vlastním-okně">Dialogy maskota ve vlastním okně</h2>
+<p><strong>Vylíhnout maskota</strong>, <strong>Opravit animace</strong> a <strong>Dogenerovat nálady</strong> chvíli trvají. Přesuň je do vlastního okna
+tlačítkem <strong>Otevřít v novém okně</strong> (ikona okna v záhlaví) nebo z palety přes <em>Maskot: vylíhnout nového v novém okně…</em>,
+<em>Maskot: opravit animace v novém okně…</em> a <em>Maskot: dogenerovat nálady v novém okně…</em> a pracuj v hlavním okně dál.
+Cestou se nic neztratí: návrhy, poznámky i nové animace, o kterých jsi ještě nerozhodl, zůstanou.</p>
+<ul>
+<li>✕ zavře jen okno; kreslení běží dál v hlavním okně. Až doběhne, ozve se zvoneček (třeba <em>Opravit animace: hotovo</em>);
+  kliknutím uvidíš výsledek.</li>
+<li><strong>Vrátit do hlavního okna</strong> (ikona doku v záhlaví okna) ukáže dialog zase v hlavním okně.</li>
+<li>Čip <em>n v oknech</em> v hlavním okně ukazuje, co které okno dělá (<em>Kreslí návrhy 2/4</em>, <em>Nové animace k rozhodnutí: 2</em>);
+  kliknutím ho vyvoláš.</li>
+</ul>
+<p>Víc o dialozích v okně: <a href="features.html#dialogs-in-their-own-window">Everything in Kyllene</a> (anglicky).</p>
 <h2 id="na-tvých-dalších-počítačích">Na tvých dalších počítačích</h2>
 <p>Se zapnutou <a href="sync.html">synchronizací</a> tě zobrazený maskot i jeho velikost následují: maskot z Petdexu se na druhém
 počítači nainstaluje sám, vylíhnutý přijde i se svými obrázky, takže ho nikdy nelíhneš (a neplatíš) dvakrát. S ním
@@ -256,10 +310,12 @@ cestuje i jeho osobnost, mozek, paměť, dovednosti, vlastní nálady a délky a
 na obrazovce sedí a jeho aktuální nálada zůstávají na každém počítači zvlášť.</p>
 <h2 id="příkazy-palety-a-zkratky">Příkazy palety a zkratky</h2>
 <p><code>Ctrl+K</code> nabízí <em>Maskot…</em>, <em>Maskot: zapnout</em> / <em>Maskot: vypnout</em>, <em>Maskot: do vlastního okna</em> / <em>Maskot: zpět do
-okna aplikace</em>, <em>Maskot: toulat se po okně</em> / <em>Maskot: přestat se toulat</em>, <em>Maskot: vylíhnout nového…</em>, <em>Maskot:
-opravit animace…</em> (u vylíhnutých maskotů) a <em>Maskot: dogenerovat nálady…</em>. Nastavení › Klávesové zkratky má skupinu
-<strong>Maskot</strong>: výběru maskota, zapnutí / vypnutí, vlastnímu oknu a líhnutí dáš vlastní klávesu (<strong>Nastavit</strong>); jsou tam
-vypsané i akce myší (Shift+klik, klik, dvojklik, Alt + kolečko).</p>
+okna aplikace</em>, <em>Maskot: toulat se po okně</em> / <em>Maskot: přestat se toulat</em>, <em>Maskot: historie hlášek…</em>, <em>Maskot:
+vylíhnout nového…</em> / <em>Maskot: vylíhnout nového v novém okně…</em>, <em>Maskot: opravit animace…</em> / <em>Maskot: opravit animace
+v novém okně…</em> (u vylíhnutých maskotů) a <em>Maskot: dogenerovat nálady…</em> / <em>Maskot: dogenerovat nálady v novém okně…</em>.
+Nastavení › Klávesové zkratky má skupinu <strong>Maskot</strong>: výběru maskota, zapnutí / vypnutí, vlastnímu oknu, líhnutí (i ve
+vlastním okně) a historii hlášek dáš vlastní klávesu (<strong>Nastavit</strong>); jsou tam vypsané i akce myší (Shift+klik, klik,
+dvojklik, Alt + kolečko).</p>
 <h2 id="když-něco-nejde">Když něco nejde</h2>
 <div class="tbl"><table>
 <thead>
