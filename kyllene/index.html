@@ -38,7 +38,7 @@
     It is the same Hermes underneath: no account, no cloud, no telemetry.</p>
   <div class="badges">
     <span class="badge beta">Beta</span>
-    <span class="badge">Linux x86_64 · tested on Manjaro</span>
+    <span class="badge">Linux x86_64 · Manjaro, Ubuntu, Fedora</span>
     <span class="badge">Free</span>
     <span class="badge">English · Czech</span>
   </div>
@@ -134,15 +134,15 @@
   <div class="wrap">
     <h2>What you need</h2>
     <ul>
-      <li><b>Linux x86_64.</b> This beta is tested on <b>Manjaro</b> (GNOME, Wayland). The same AppImage is expected to
-        run on other modern distros, but it is not tested there yet; the installer only warns. Windows and macOS are planned.</li>
-      <li><b>FUSE</b> to run AppImages (<code>fusermount3</code> or <code>fusermount</code>). Manjaro ships it; the installer checks it.</li>
+      <li><b>Linux x86_64.</b> Tested on <b>Manjaro</b>, <b>Ubuntu 22.04 and 24.04</b> and <b>Fedora</b> (GNOME, Wayland).
+        The same AppImage runs on other modern distros too. Windows and macOS are planned.</li>
+      <li><b>FUSE</b> to run AppImages (<code>fusermount3</code> or <code>fusermount</code>). Desktop installs ship it; the installer checks it and tells you the install command for your distro when it is missing.</li>
       <li><b>About 100 MB</b> for Kyllene, <b>about 2.7 GB</b> more if Hermes is not installed yet.</li>
       <li><b>An account or API key for a model</b> (for example Claude, ChatGPT, OpenRouter). Kyllene has no account of its own and uses whatever your Hermes has.</li>
     </ul>
     <div class="note"><b>Hermes Agent is not needed beforehand.</b> When it is missing, Kyllene shows
       <span class="ui">Hermes Agent is missing</span> on the first start and installs it with one button
-      (the official installer, no <code>sudo</code>, into <code>~/.hermes</code>, a few minutes; it needs <code>git</code> and <code>curl</code>, which Manjaro has).
+      (the official installer, no <code>sudo</code>, into <code>~/.hermes</code>, a few minutes; it needs <code>git</code> and <code>curl</code>; if your distro lacks them, install them first, e.g. <code>sudo apt install git curl</code>).
       Already have Hermes? Kyllene uses your existing install.</div>
   </div>
 </section>
@@ -233,7 +233,11 @@
       <thead><tr><th>Problem</th><th>What to do</th></tr></thead>
       <tbody>
         <tr><td>The installer stops with <i>FUSE is missing.</i>, or the AppImage says <i>No suitable fusermount binary found on the $PATH</i></td>
-          <td>Install FUSE and run the installer again: <code>sudo pacman -S fuse3</code> (Manjaro, Arch).</td></tr>
+          <td>Install FUSE and run the installer again: <code>sudo apt install fuse3</code> (Debian, Ubuntu),
+            <code>sudo dnf install fuse3</code> (Fedora) or <code>sudo pacman -S fuse3</code> (Manjaro, Arch).</td></tr>
+        <tr><td>The installer warns <i>libGLESv2.so.2 (OpenGL ES) was not found</i>, or Kyllene closes right at start with <i>Couldn't open libGLESv2.so.2</i></td>
+          <td>Install OpenGL ES: <code>sudo apt install libgles2</code> (Debian, Ubuntu), <code>sudo dnf install libglvnd-gles</code>
+            (Fedora) or <code>sudo pacman -S libglvnd</code> (Manjaro, Arch). Desktop installs already have it.</td></tr>
         <tr><td><i>/dev/fuse is missing</i> (in a container or a VM without FUSE)</td>
           <td>Start Kyllene as <code>~/.local/bin/Kyllene.AppImage --appimage-extract-and-run</code>.</td></tr>
         <tr><td>The window stays <b>empty, white or black</b> (often with an NVIDIA graphics card)</td>

@@ -38,7 +38,7 @@
     Pod tím je pořád tentýž Hermes: žádný účet, žádný cloud, žádná telemetrie.</p>
   <div class="badges">
     <span class="badge beta">Beta</span>
-    <span class="badge">Linux x86_64 · otestováno na Manjaru</span>
+    <span class="badge">Linux x86_64 · Manjaro, Ubuntu, Fedora</span>
     <span class="badge">Zdarma</span>
     <span class="badge">Čeština · angličtina</span>
   </div>
@@ -134,15 +134,15 @@
   <div class="wrap">
     <h2>Co je potřeba</h2>
     <ul>
-      <li><b>Linux x86_64.</b> Tahle beta je otestovaná na <b>Manjaru</b> (GNOME, Wayland). Stejný AppImage by měl běžet
-        i na jiných současných distribucích, jen tam zatím není otestovaný; instalátor jen upozorní. Windows a macOS jsou v plánu.</li>
-      <li><b>FUSE</b> pro spouštění AppImage (<code>fusermount3</code> nebo <code>fusermount</code>). Manjaro ho má; instalátor to zkontroluje.</li>
+      <li><b>Linux x86_64.</b> Otestováno na <b>Manjaru</b>, <b>Ubuntu 22.04 a 24.04</b> a <b>Fedoře</b> (GNOME, Wayland).
+        Stejný AppImage běží i na jiných současných distribucích. Windows a macOS jsou v plánu.</li>
+      <li><b>FUSE</b> pro spouštění AppImage (<code>fusermount3</code> nebo <code>fusermount</code>). Desktopové instalace ho mají; instalátor to zkontroluje, a když chybí, napíše příkaz k instalaci pro vaši distribuci.</li>
       <li><b>Asi 100 MB</b> pro Kyllene a dalších <b>asi 2,7 GB</b>, pokud ještě nemáte Hermes.</li>
       <li><b>Účet nebo API klíč k modelu</b> (třeba Claude, ChatGPT, OpenRouter). Kyllene vlastní účet nemá a používá to, co má váš Hermes.</li>
     </ul>
     <div class="note"><b>Hermes Agent předem instalovat nemusíte.</b> Když chybí, Kyllene při prvním spuštění ukáže
       <span class="ui">Chybí Hermes Agent</span> a nainstaluje ho jedním tlačítkem (oficiální instalátor, bez
-      <code>sudo</code>, do <code>~/.hermes</code>, pár minut; potřebuje <code>git</code> a <code>curl</code>, které Manjaro má).
+      <code>sudo</code>, do <code>~/.hermes</code>, pár minut; potřebuje <code>git</code> a <code>curl</code>; když je distribuce nemá, nainstalujte je předem, např. <code>sudo apt install git curl</code>).
       Hermes už máte? Kyllene použije ten váš.</div>
   </div>
 </section>
@@ -236,7 +236,11 @@
       <thead><tr><th>Potíž</th><th>Co udělat</th></tr></thead>
       <tbody>
         <tr><td>Instalátor skončí hláškou <i>FUSE is missing.</i>, nebo AppImage hlásí <i>No suitable fusermount binary found on the $PATH</i></td>
-          <td>Nainstalujte FUSE a pusťte instalátor znovu: <code>sudo pacman -S fuse3</code> (Manjaro, Arch).</td></tr>
+          <td>Nainstalujte FUSE a pusťte instalátor znovu: <code>sudo apt install fuse3</code> (Debian, Ubuntu),
+            <code>sudo dnf install fuse3</code> (Fedora) nebo <code>sudo pacman -S fuse3</code> (Manjaro, Arch).</td></tr>
+        <tr><td>Instalátor upozorní <i>libGLESv2.so.2 (OpenGL ES) was not found</i>, nebo se Kyllene hned po spuštění zavře s hláškou <i>Couldn't open libGLESv2.so.2</i></td>
+          <td>Nainstalujte OpenGL ES: <code>sudo apt install libgles2</code> (Debian, Ubuntu), <code>sudo dnf install libglvnd-gles</code>
+            (Fedora) nebo <code>sudo pacman -S libglvnd</code> (Manjaro, Arch). Desktopové instalace ho už mají.</td></tr>
         <tr><td><i>/dev/fuse is missing</i> (v kontejneru nebo ve virtuálu bez FUSE)</td>
           <td>Spouštějte Kyllene jako <code>~/.local/bin/Kyllene.AppImage --appimage-extract-and-run</code>.</td></tr>
         <tr><td>Okno zůstane <b>prázdné, bílé nebo černé</b> (často s grafikou NVIDIA)</td>

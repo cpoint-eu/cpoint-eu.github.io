@@ -109,7 +109,11 @@ were looking for.</p>
 <tbody>
 <tr>
 <td>The AppImage does not start: <em>"No suitable fusermount binary found on the $PATH"</em></td>
-<td>Install FUSE: <code>sudo pacman -S fuse3</code> (Manjaro, Arch), then start Kyllene again. The installer checks this for you.</td>
+<td>Install FUSE: <code>sudo apt install fuse3</code> (Debian, Ubuntu), <code>sudo dnf install fuse3</code> (Fedora) or <code>sudo pacman -S fuse3</code> (Manjaro, Arch), then start Kyllene again. The installer checks this for you.</td>
+</tr>
+<tr>
+<td>The AppImage closes right at start: <em>"Couldn't open libGLESv2.so.2"</em></td>
+<td>Install OpenGL ES: <code>sudo apt install libgles2</code> (Debian, Ubuntu), <code>sudo dnf install libglvnd-gles</code> (Fedora) or <code>sudo pacman -S libglvnd</code> (Manjaro, Arch). Desktop installs have it; the installer warns when it is missing.</td>
 </tr>
 <tr>
 <td>Kyllene is not in the app menu</td>
