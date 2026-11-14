@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kyllene – the desktop workspace for Hermes Agent</title>
-<meta name="description" content="Kyllene is a desktop app for Hermes Agent: projects, tasklists, Kanban, coding agents and many conversations at once in one native window. Install on Linux with one line.">
+<meta name="description" content="Kyllene is a desktop app for Hermes Agent: projects, tasklists, Kanban, coding agents and many conversations at once in one native window. Install on Linux with one line, or on Windows (beta) from an .msi.">
 <link rel="alternate" hreflang="en" href="https://cpoint-eu.github.io/kyllene/">
 <link rel="alternate" hreflang="cs" href="https://cpoint-eu.github.io/kyllene/cs/">
 <link rel="icon" type="image/svg+xml" href="media/kyllene.svg">
@@ -21,6 +21,7 @@
     <nav>
       <a href="#features">Features</a>
       <a href="#install">Install</a>
+      <a href="#windows">Windows</a>
       <a href="#updates">Updates</a>
       <a href="#uninstall">Uninstall</a>
       <a href="#troubleshooting">Troubleshooting</a>
@@ -39,6 +40,7 @@
   <div class="badges">
     <span class="badge beta">Beta</span>
     <span class="badge">Linux x86_64 · Manjaro, Ubuntu, Fedora</span>
+    <span class="badge">Windows 10/11 x64 (beta)</span>
     <span class="badge">Free</span>
     <span class="badge">English · Czech</span>
   </div>
@@ -49,6 +51,9 @@
     <a class="btn" data-download href="https://github.com/cpoint-eu/kyllene-releases/releases/latest">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
       Download AppImage</a>
+    <a class="btn" href="#windows">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+      Windows (beta)</a>
   </div>
   <div class="release-info" data-release-info></div>
   <div class="shot-hero"><img src="media/hero.gif" width="1200" height="675" alt="Kyllene: an answer streams in with a table and a diagram"></div>
@@ -135,7 +140,8 @@
     <h2>What you need</h2>
     <ul>
       <li><b>Linux x86_64.</b> Tested on <b>Manjaro</b>, <b>Ubuntu 22.04 and 24.04</b> and <b>Fedora</b> (GNOME, Wayland).
-        The same AppImage runs on other modern distros too. Windows and macOS are planned.</li>
+        The same AppImage runs on other modern distros too.</li>
+      <li><b>Or Windows 10/11 x64</b> (beta): see <a href="#windows">Windows</a>. macOS is planned.</li>
       <li><b>FUSE</b> to run AppImages (<code>fusermount3</code> or <code>fusermount</code>). Desktop installs ship it; the installer checks it and tells you the install command for your distro when it is missing.</li>
       <li><b>About 100 MB</b> for Kyllene, <b>about 2.7 GB</b> more if Hermes is not installed yet.</li>
       <li><b>An account or API key for a model</b> (for example Claude, ChatGPT, OpenRouter). Kyllene has no account of its own and uses whatever your Hermes has.</li>
@@ -199,6 +205,37 @@
       <div class="cmd"><pre><code>Install Kyllene for me by following the "Install guide for AI agents" in</code>
 <code>https://github.com/cpoint-eu/kyllene-releases/blob/main/README.md</code></pre></div>
     </details>
+  </div>
+</section>
+
+<section id="windows">
+  <div class="wrap">
+    <h2>Windows (beta)</h2>
+    <p class="sub">Kyllene for Windows 10 and 11 (x64) is new: the same app, as an <code>.msi</code> installer.</p>
+    <p><a class="btn primary" data-download="msi" href="https://github.com/cpoint-eu/kyllene-releases/releases/latest/download/Kyllene_0.0.4-beta_x64_en-US.msi">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+      Download for Windows (.msi)</a></p>
+    <ol class="steps">
+      <li><b>Download</b> <code>Kyllene_&lt;version&gt;_x64_en-US.msi</code> with the button above (or from the
+        <a href="https://github.com/cpoint-eu/kyllene-releases/releases/latest">latest release</a>).</li>
+      <li><b>Double-click it.</b> Kyllene installs for all users of the PC, so Windows asks for the administrator's OK.</li>
+      <li><b>Windows protected your PC?</b> The installer is not code-signed yet, so SmartScreen may warn. Click
+        <b>More info</b> → <b>Run anyway</b>.</li>
+      <li><b>Start Kyllene</b> from the Start menu. No Hermes yet? Click <span class="ui">Install Hermes Agent</span>: the
+        official Hermes installer puts everything into <code>%LOCALAPPDATA%\hermes</code> without administrator rights
+        and brings its own Git and Python (up to about 15 minutes).</li>
+      <li><b>Connect a model</b> and start a conversation, as on Linux.</li>
+    </ol>
+    <ul>
+      <li><b>Updates</b> come from the app (Help › <span class="ui">Check for updates</span>): Windows asks for the
+        administrator's OK, then Kyllene closes, updates and starts again by itself.</li>
+      <li><b>Uninstall</b> in Windows <b>Settings › Apps › Kyllene</b>. Hermes in <code>%LOCALAPPDATA%\hermes</code> and your
+        data in <code>%APPDATA%\kyllene</code> stay; delete those folders yourself only if you want everything gone.</li>
+    </ul>
+    <div class="note warn"><b>Known limits of the beta.</b> The automatic check after a Hermes update (does everything
+      still work?) runs on Linux only for now. Dictation, coding agents, sync, the pet and Kanban are less tested on
+      Windows. If something does not work, <a href="https://github.com/cpoint-eu/kyllene-releases/issues/new?template=bug.yml">report it</a>
+      with your Windows version and the logs from <code>%APPDATA%\kyllene\logs</code>.</div>
   </div>
 </section>
 
@@ -275,6 +312,12 @@
           <td>Kyllene tells you what does not work. Until a new Kyllene is out, you can go back to the Hermes version named in the <a href="https://github.com/cpoint-eu/kyllene-releases/releases">release notes</a> (“Tested with Hermes Agent …”).</td></tr>
         <tr><td>The window shows only the top bar on a dark background</td>
           <td>Part of the app crashed. Please <a href="https://github.com/cpoint-eu/kyllene-releases/issues">report it</a> and attach <code>~/.local/share/kyllene/crash-log.json</code>.</td></tr>
+        <tr><td>Windows: <i>Windows protected your PC</i> when you open the <code>.msi</code></td>
+          <td>SmartScreen warns because the installer is not code-signed yet. Click <b>More info</b> → <b>Run anyway</b>. Download it only from the <a href="https://github.com/cpoint-eu/kyllene-releases/releases/latest">latest release</a>.</td></tr>
+        <tr><td>Windows: the install or an update asks for the administrator's OK</td>
+          <td>On purpose: Kyllene installs for all users of the PC. Refusing the prompt cancels the update; the installed version stays.</td></tr>
+        <tr><td>Where are my data?</td>
+          <td>Linux: Kyllene in <code>~/.local/share/kyllene</code>, Hermes in <code>~/.hermes</code>. Windows: Kyllene in <code>%APPDATA%\kyllene</code> (logs in <code>%APPDATA%\kyllene\logs</code>), Hermes in <code>%LOCALAPPDATA%\hermes</code>. Uninstalling never deletes them.</td></tr>
       </tbody>
     </table>
     <p>Still stuck? <a href="https://github.com/cpoint-eu/kyllene-releases/issues/new">Open an issue</a> with your distro,

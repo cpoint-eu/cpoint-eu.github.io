@@ -39,7 +39,7 @@ and <a href="hermes.html">Manage Hermes</a>. Wondering what something is for, or
 <tbody>
 <tr>
 <td><a href="https://cpoint-eu.github.io/kyllene/#install">Install and update</a></td>
-<td>Requirements, the one-line installer, automatic updates, uninstall (also <a href="https://cpoint-eu.github.io/kyllene/cs/#install">in Czech</a>)</td>
+<td>Requirements, the one-line installer, <code>.deb</code> / <code>.rpm</code> packages, the Windows beta (<code>.msi</code>), automatic updates, uninstall (also <a href="https://cpoint-eu.github.io/kyllene/cs/#install">in Czech</a>)</td>
 </tr>
 <tr>
 <td><a href="features.html">Everything in Kyllene</a></td>
@@ -91,7 +91,11 @@ and <a href="hermes.html">Manage Hermes</a>. Wondering what something is for, or
 </tr>
 <tr>
 <td><a href="#troubleshooting">Troubleshooting</a></td>
-<td>The most common problems on the first start</td>
+<td>The most common problems on the first start, also <a href="#windows-beta">on Windows</a></td>
+</tr>
+<tr>
+<td><a href="#where-your-data-lives">Where your data lives</a></td>
+<td>Kyllene's and Hermes' folders on Linux and Windows</td>
 </tr>
 </tbody>
 </table></div>
@@ -132,6 +136,10 @@ were looking for.</p>
 <td>Update to Kyllene 0.0.3-beta or newer: the AppImage brings its own colour emoji font.</td>
 </tr>
 <tr>
+<td>The update of a <code>.deb</code> / <code>.rpm</code> install fails</td>
+<td>Kyllene installed as a system package updates itself through <code>pkexec</code> and asks for your password; cancelling the password prompt cancels the update. On Fedora the <code>.rpm</code> update needs the Kyllene signing key, imported once: <code>sudo rpm --import https://raw.githubusercontent.com/cpoint-eu/kyllene-releases/main/kyllene-rpm-key.asc</code>. You can also download the new package from the <a href="https://github.com/cpoint-eu/kyllene-releases/releases/latest">latest release</a> and install it with <code>sudo apt install ./Kyllene_&lt;version&gt;_amd64.deb</code> or <code>sudo dnf install ./Kyllene-*.x86_64.rpm</code>.</td>
+</tr>
+<tr>
 <td><em>Hermes management is already running an action</em></td>
 <td>An update, doctor or gateway restart is still running; only one runs at a time. Its live log is in Hermes › <em>System</em>; try again when it has finished.</td>
 </tr>
@@ -161,6 +169,74 @@ were looking for.</p>
 </tr>
 </tbody>
 </table></div>
+<h3 id="windows-beta">Windows (beta)</h3>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>Windows protected your PC</em> when you open the <code>.msi</code></td>
+<td>SmartScreen warns because the installer is not code-signed yet. Click <strong>More info</strong> → <strong>Run anyway</strong>. Download the <code>.msi</code> only from the <a href="https://github.com/cpoint-eu/kyllene-releases/releases/latest">latest release</a>.</td>
+</tr>
+<tr>
+<td>The install or an update asks for the administrator's OK</td>
+<td>On purpose: Kyllene installs for all users of the PC. An update from the app closes Kyllene, updates it and starts it again by itself; refusing the prompt cancels the update.</td>
+</tr>
+<tr>
+<td><em>Hermes Agent is missing</em></td>
+<td>Click <strong>Install Hermes Agent</strong>: the official installer puts Hermes into <code>%LOCALAPPDATA%\hermes</code> without administrator rights and brings its own Git and Python; it can take up to about 15 minutes.</td>
+</tr>
+<tr>
+<td>Something broke after a Hermes update</td>
+<td>On Windows Kyllene does not check itself after a Hermes update yet (on Linux it does). Go back to the Hermes version named in the <a href="https://github.com/cpoint-eu/kyllene-releases/releases">release notes</a> and <a href="https://github.com/cpoint-eu/kyllene-releases/issues/new?template=bug.yml">report it</a>.</td>
+</tr>
+<tr>
+<td>Dictation, coding agents, sync, the pet or Kanban behave oddly</td>
+<td>These are less tested on Windows. Please <a href="https://github.com/cpoint-eu/kyllene-releases/issues/new?template=bug.yml">report it</a> with your Windows version and the logs from <code>%APPDATA%\kyllene\logs</code>.</td>
+</tr>
+<tr>
+<td>Uninstall</td>
+<td>Settings › Apps › Kyllene. Hermes in <code>%LOCALAPPDATA%\hermes</code> and your data in <code>%APPDATA%\kyllene</code> stay; delete those folders yourself only if you want everything gone.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="where-your-data-lives">Where your data lives</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>What</th>
+<th>Linux</th>
+<th>Windows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kyllene's settings, layout, logs</td>
+<td><code>~/.local/share/kyllene</code></td>
+<td><code>%APPDATA%\kyllene</code></td>
+</tr>
+<tr>
+<td>Kyllene's cache</td>
+<td><code>~/.cache/kyllene</code></td>
+<td><code>%LOCALAPPDATA%\kyllene</code></td>
+</tr>
+<tr>
+<td>Hermes Agent (conversations, memory, skills, keys)</td>
+<td><code>~/.hermes</code></td>
+<td><code>%LOCALAPPDATA%\hermes</code></td>
+</tr>
+<tr>
+<td>The app itself</td>
+<td><code>~/.local/bin/Kyllene.AppImage</code> (or the <code>.deb</code> / <code>.rpm</code> package)</td>
+<td><code>C:\Program Files\Kyllene</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>Uninstalling Kyllene never deletes your data or Hermes; your project folders are never touched.</p>
 </main>
 
 <footer>

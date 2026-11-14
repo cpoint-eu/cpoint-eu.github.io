@@ -192,8 +192,10 @@ what it reacted to (<em>Tool … failed</em>, <em>The agent finished its work</e
 conversation. The tabs at the top sort the lines into <strong>Talking to it</strong>, <strong>Your messages</strong>, <strong>Agent's run</strong> and
 <strong>Out of boredom</strong> (<strong>All</strong> shows everything); <strong>Newer</strong> and <strong>Older</strong> page through them.</p>
 <p>Open it by hovering the pet › <strong>Line history (n)</strong> (also on the popped-out pet), with a right-click on the pet ›
-<strong>Line history…</strong>, or with <code>Ctrl+K</code> › <em>Pet: line history…</em>. The history covers only this run of Kyllene on this
-computer.</p>
+<strong>Line history…</strong>, or with <code>Ctrl+K</code> › <em>Pet: line history…</em>. This computer's lines cover only this run of Kyllene.
+With <a href="sync.html">sync</a> on, a pet with a memory or its own agent also shows the last 10 lines from each of your other
+computers (only their text, time and <em>On …</em> the computer): they join <strong>All</strong> by time and have their own tab
+<strong>Other devices</strong>.</p>
 <h2 id="talk-to-the-pet-by-name">Talk to the pet by name</h2>
 <p>Write to the pet by its name in a conversation, for example <em>Boba, what do you think?</em> or <em>what do you say, Boba?</em>.
 The pet answers in its bubble, and the agent leaves that reply to the pet. This works whenever <strong>Comments</strong> are not
@@ -285,11 +287,24 @@ animations…</em>) shows each animation on its own and redraws only the ones th
 (about one per six frames), all at one size, so the pet does not grow or shrink while it plays.</p>
 <h2 id="generate-moods">Generate moods</h2>
 <p>Every mood is played for free by adjusting a standard animation. <strong>Generate moods…</strong> (the pet's <strong>⋯</strong> menu, a
-right-click on the pet, or <code>Ctrl+K</code> › <em>Pet: generate moods…</em>) draws the pet's own animation for the moods you pick
-instead; it works for any pet, also one from the Petdex. Each mood shows <em>free adjustment</em> or <em>own</em>; <strong>Pick the
-missing ones</strong> ticks every mood without its own animation. Drawing is paid (one image per mood, the cost is shown).
-Each finished mood is saved at once, and <strong>Close (keep drawing)</strong> lets the drawing run on. <strong>Remove</strong> on a mood goes
-back to the free adjustment.</p>
+right-click on the pet, or <code>Ctrl+K</code> › <em>Pet: generate moods…</em>) draws the pet's own animation for a mood instead; it
+works for any pet, also one from the Petdex. The dialog works like <a href="#repair-animations-and-animation-length">Repair animations</a>:</p>
+<ol>
+<li><strong>Pick a mood</strong> in the list on the left; each one shows <em>free adjustment</em> or <em>own</em>, and the top says how many
+   moods have their own animation (<em>Own moods: 2 / 21</em>, for example). The detail on the right plays <strong>Now</strong>, exactly
+   what the pet plays in that mood (<em>free adjustment of the idle animation</em> or <em>own animation</em>).</li>
+<li><strong>Length</strong>: how long the mood's animation plays. For an own animation it applies at once and for free; a new
+   version gets its number of frames from it.</li>
+<li><strong>Draw a new version</strong>: write <strong>What should look different (optional)</strong> (up to 500 characters, the counter shows the length) and click
+   <strong>Draw a new version</strong>. The frame count and the cost are shown next to the button (paid, one image per mood);
+   <strong>Drawn by … · change</strong> picks the image provider and model. One mood is drawn at a time; the others wait.</li>
+<li>Compare <strong>Now</strong> and <strong>New</strong>, then <strong>Use the new one</strong> (the pet plays it at once) or <strong>Discard</strong>. <strong>Draw again</strong>
+   tries once more. Nothing changes on the pet before you pick <strong>Use the new one</strong>.</li>
+<li><strong>Apply and close</strong> saves every new version you did not discard. Closing the dialog with undecided new versions
+   asks <em>Discard 2 new moods?</em>: <strong>Use</strong> saves them, <strong>Discard</strong> drops them, <strong>Back</strong> returns to the dialog.</li>
+<li><strong>Back to the original</strong> on a mood with its own animation drops it: the mood goes back to the free adjustment
+   (free).</li>
+</ol>
 <h2 id="pet-dialogs-in-their-own-window">Pet dialogs in their own window</h2>
 <p><strong>Hatch a pet</strong>, <strong>Repair animations</strong> and <strong>Generate moods</strong> take a while. Move one into a window of its own with
 <strong>Open in a new window</strong> (the window icon in its header) or the palette's <em>Pet: hatch a new one in a new window…</em>,

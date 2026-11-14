@@ -193,8 +193,10 @@ kdy ji řekl, na co reagoval (<em>Selhal nástroj …</em>, <em>Agent dokončil 
 konverzaci. Záložky nahoře je třídí na <strong>Rozhovor s ním</strong>, <strong>Na tvé zprávy</strong>, <strong>Běh agenta</strong> a <strong>Z nudy</strong> (<strong>Vše</strong>
 ukáže všechno); <strong>Novější</strong> a <strong>Starší</strong> listují stránkami.</p>
 <p>Otevřeš ji tak, že najedeš myší na maskota › <strong>Historie hlášek (n)</strong> (i u maskota na ploše), pravým tlačítkem na
-maskotovi › <strong>Historie hlášek…</strong>, nebo přes <code>Ctrl+K</code> › <em>Maskot: historie hlášek…</em>. Historie platí jen pro toto
-spuštění Kyllene na tomhle počítači.</p>
+maskotovi › <strong>Historie hlášek…</strong>, nebo přes <code>Ctrl+K</code> › <em>Maskot: historie hlášek…</em>. Hlášky z tohoto počítače
+pokrývají jen toto spuštění Kyllene. Se zapnutou <a href="sync.html">synchronizací</a> ukáže maskot s pamětí nebo vlastním
+agentem i posledních 10 hlášek z každého tvého dalšího počítače (jen text, čas a <em>Na počítači …</em>): zařadí se časově
+do <strong>Vše</strong> a mají vlastní záložku <strong>Jiné počítače</strong>.</p>
 <h2 id="oslovit-maskota-jménem">Oslovit maskota jménem</h2>
 <p>Napiš maskotovi v konverzaci jeho jménem, třeba <em>Bobo, co myslíš?</em> nebo <em>co na to říkáš, Bobo?</em> (rozumí i
 oslovení v 5. pádě). Maskot odpoví v bublině a agent tu odpověď nechá na něm. Funguje to vždy, když <strong>Komentáře</strong>
@@ -285,11 +287,23 @@ opravit animace…</em>) ukáže každou animaci zvlášť a znovu nakreslí jen
 (zhruba jeden na šest snímků), všechny v jedné velikosti, takže maskot během ní neroste ani se nezmenšuje.</p>
 <h2 id="dogenerovat-nálady">Dogenerovat nálady</h2>
 <p>Každá nálada se zdarma přehrává úpravou běžné animace. <strong>Dogenerovat nálady…</strong> (nabídka <strong>⋯</strong>, pravé tlačítko na
-maskotovi nebo <code>Ctrl+K</code> › <em>Maskot: dogenerovat nálady…</em>) místo toho nakreslí vlastní animaci pro nálady, které
-vybereš; jde to u každého maskota, i u toho z Petdexu. U každé nálady vidíš <em>úprava zdarma</em> nebo <em>vlastní</em>;
-<strong>Vybrat chybějící</strong> zaškrtne všechny nálady bez vlastní animace. Kreslení je placené (jeden obrázek na náladu, cena
-je vidět). Každá hotová nálada se uloží hned a <strong>Zavřít (kreslit dál)</strong> nechá kreslení běžet. <strong>Odebrat</strong> u nálady ji
-vrátí k úpravě zdarma.</p>
+maskotovi nebo <code>Ctrl+K</code> › <em>Maskot: dogenerovat nálady…</em>) místo toho nakreslí pro náladu vlastní animaci; jde to u
+každého maskota, i u toho z Petdexu. Dialog funguje stejně jako <a href="#opravit-animace-a-délka-animací">Opravit animace</a>:</p>
+<ol>
+<li><strong>Vyber náladu</strong> v seznamu vlevo; u každé vidíš <em>úprava zdarma</em> nebo <em>vlastní</em> a nahoře, kolik nálad má vlastní
+   animaci (třeba <em>Vlastních nálad: 2 / 21</em>). Detail vpravo přehrává <strong>Teď</strong>, tedy přesně to, co maskot v té náladě
+   hraje (<em>úprava klidové animace zdarma</em> nebo <em>vlastní animace</em>).</li>
+<li><strong>Délka</strong>: jak dlouho se animace nálady přehrává. U vlastní animace platí hned a zdarma; nová verze podle ní
+   dostane počet snímků.</li>
+<li><strong>Nakreslit novou verzi</strong>: napiš <strong>Co má vypadat jinak (nepovinné)</strong> (nejvýš 500 znaků, počítadlo ukazuje délku) a klikni
+   na <strong>Nakreslit novou verzi</strong>. Počet snímků a cena jsou vidět vedle tlačítka (placené, jeden obrázek na náladu);
+   <strong>Kreslí … · změnit</strong> vybere poskytovatele a model obrázků. Kreslí se vždy jedna nálada; ostatní počkají.</li>
+<li>Porovnej <strong>Teď</strong> a <strong>Nová</strong> a zvol <strong>Použít novou</strong> (maskot ji začne hned hrát) nebo <strong>Zahodit</strong>. <strong>Nakreslit
+   znovu</strong> zkusí ještě jednou. Dokud nezvolíš <strong>Použít novou</strong>, na maskotovi se nic nezmění.</li>
+<li><strong>Použít a zavřít</strong> uloží všechny nové verze, které jsi nezahodil. Když dialog zavíráš s nerozhodnutými novými
+   verzemi, zeptá se <em>Zahodit 2 nové nálady?</em>: <strong>Použít</strong> je uloží, <strong>Zahodit</strong> je zahodí, <strong>Zpět</strong> vrátí do dialogu.</li>
+<li><strong>Vrátit původní</strong> u nálady s vlastní animací ji zahodí: nálada se vrátí k úpravě zdarma (zdarma).</li>
+</ol>
 <h2 id="dialogy-maskota-ve-vlastním-okně">Dialogy maskota ve vlastním okně</h2>
 <p><strong>Vylíhnout maskota</strong>, <strong>Opravit animace</strong> a <strong>Dogenerovat nálady</strong> chvíli trvají. Přesuň je do vlastního okna
 tlačítkem <strong>Otevřít v novém okně</strong> (ikona okna v záhlaví) nebo z palety přes <em>Maskot: vylíhnout nového v novém okně…</em>,

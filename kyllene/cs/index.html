@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kyllene – pracovní plocha pro Hermes Agent</title>
-<meta name="description" content="Kyllene je desktopová aplikace pro Hermes Agent: projekty, tasklisty, Kanban, kódovací agenti a víc konverzací najednou v jednom rychlém okně. Na Linux jedním řádkem.">
+<meta name="description" content="Kyllene je desktopová aplikace pro Hermes Agent: projekty, tasklisty, Kanban, kódovací agenti a víc konverzací najednou v jednom rychlém okně. Na Linux jedním řádkem, na Windows (beta) z .msi.">
 <link rel="alternate" hreflang="en" href="https://cpoint-eu.github.io/kyllene/">
 <link rel="alternate" hreflang="cs" href="https://cpoint-eu.github.io/kyllene/cs/">
 <link rel="icon" type="image/svg+xml" href="../media/kyllene.svg">
@@ -21,6 +21,7 @@
     <nav>
       <a href="#features">Funkce</a>
       <a href="#install">Instalace</a>
+      <a href="#windows">Windows</a>
       <a href="#updates">Aktualizace</a>
       <a href="#uninstall">Odinstalace</a>
       <a href="#troubleshooting">Řešení potíží</a>
@@ -39,6 +40,7 @@
   <div class="badges">
     <span class="badge beta">Beta</span>
     <span class="badge">Linux x86_64 · Manjaro, Ubuntu, Fedora</span>
+    <span class="badge">Windows 10/11 x64 (beta)</span>
     <span class="badge">Zdarma</span>
     <span class="badge">Čeština · angličtina</span>
   </div>
@@ -49,6 +51,9 @@
     <a class="btn" data-download href="https://github.com/cpoint-eu/kyllene-releases/releases/latest">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
       Stáhnout AppImage</a>
+    <a class="btn" href="#windows">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+      Windows (beta)</a>
   </div>
   <div class="release-info" data-release-info></div>
   <div class="shot-hero"><img src="../media/hero.gif" width="1200" height="675" alt="Kyllene: odpověď s tabulkou a diagramem"></div>
@@ -135,7 +140,8 @@
     <h2>Co je potřeba</h2>
     <ul>
       <li><b>Linux x86_64.</b> Otestováno na <b>Manjaru</b>, <b>Ubuntu 22.04 a 24.04</b> a <b>Fedoře</b> (GNOME, Wayland).
-        Stejný AppImage běží i na jiných současných distribucích. Windows a macOS jsou v plánu.</li>
+        Stejný AppImage běží i na jiných současných distribucích.</li>
+      <li><b>Nebo Windows 10/11 x64</b> (beta): viz <a href="#windows">Windows</a>. macOS je v plánu.</li>
       <li><b>FUSE</b> pro spouštění AppImage (<code>fusermount3</code> nebo <code>fusermount</code>). Desktopové instalace ho mají; instalátor to zkontroluje, a když chybí, napíše příkaz k instalaci pro vaši distribuci.</li>
       <li><b>Asi 100 MB</b> pro Kyllene a dalších <b>asi 2,7 GB</b>, pokud ještě nemáte Hermes.</li>
       <li><b>Účet nebo API klíč k modelu</b> (třeba Claude, ChatGPT, OpenRouter). Kyllene vlastní účet nemá a používá to, co má váš Hermes.</li>
@@ -201,6 +207,38 @@
       <div class="cmd"><pre><code>Install Kyllene for me by following the "Install guide for AI agents" in</code>
 <code>https://github.com/cpoint-eu/kyllene-releases/blob/main/README.md</code></pre></div>
     </details>
+  </div>
+</section>
+
+<section id="windows">
+  <div class="wrap">
+    <h2>Windows (beta)</h2>
+    <p class="sub">Kyllene pro Windows 10 a 11 (x64) je novinka: stejná aplikace, jako instalátor <code>.msi</code>.</p>
+    <p><a class="btn primary" data-download="msi" href="https://github.com/cpoint-eu/kyllene-releases/releases/latest/download/Kyllene_0.0.4-beta_x64_en-US.msi">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+      Stáhnout pro Windows (.msi)</a></p>
+    <ol class="steps">
+      <li><b>Stáhněte</b> <code>Kyllene_&lt;verze&gt;_x64_en-US.msi</code> tlačítkem výš (nebo z
+        <a href="https://github.com/cpoint-eu/kyllene-releases/releases/latest">posledního vydání</a>).</li>
+      <li><b>Dvakrát na něj klikněte.</b> Kyllene se instaluje pro všechny uživatele počítače, proto si Windows řeknou o
+        souhlas správce.</li>
+      <li><b>Systém Windows ochránil váš počítač?</b> Instalátor zatím není podepsaný, takže SmartScreen může varovat.
+        Klikněte na <b>Další informace</b> → <b>Přesto spustit</b> (v anglických Windows <i>More info</i> → <i>Run anyway</i>).</li>
+      <li><b>Spusťte Kyllene</b> z nabídky Start. Ještě nemáte Hermes? Klikněte na <span class="ui">Instalovat Hermes Agent</span>:
+        oficiální instalátor Hermesu dá všechno do <code>%LOCALAPPDATA%\hermes</code> bez práv správce a přinese si
+        vlastní Git i Python (nejvýš asi 15 minut).</li>
+      <li><b>Připojte model</b> a začněte konverzaci, stejně jako na Linuxu.</li>
+    </ol>
+    <ul>
+      <li><b>Aktualizace</b> přicházejí z aplikace (Nápověda › <span class="ui">Zkontrolovat aktualizace</span>): Windows si
+        řeknou o souhlas správce, pak se Kyllene zavře, aktualizuje a sama znovu spustí.</li>
+      <li><b>Odinstalace</b> ve Windows v <b>Nastavení › Aplikace › Kyllene</b>. Hermes v <code>%LOCALAPPDATA%\hermes</code>
+        a vaše data v <code>%APPDATA%\kyllene</code> zůstanou; tyto složky smažte sami, jen když chcete pryč úplně všechno.</li>
+    </ul>
+    <div class="note warn"><b>Omezení bety.</b> Automatická kontrola po aktualizaci Hermesu (funguje pořád všechno?)
+      zatím běží jen na Linuxu. Diktování, kódovací agenti, synchronizace, maskot a Kanban jsou na Windows méně
+      otestované. Když něco nefunguje, <a href="https://github.com/cpoint-eu/kyllene-releases/issues/new?template=bug.yml">nahlaste to</a>
+      i s verzí Windows a logy ze složky <code>%APPDATA%\kyllene\logs</code>.</div>
   </div>
 </section>
 
@@ -278,6 +316,12 @@
           <td>Kyllene vám řekne, co nefunguje. Než vyjde nová Kyllene, můžete Hermes vrátit na verzi uvedenou v <a href="https://github.com/cpoint-eu/kyllene-releases/releases">popisu vydání</a> („Tested with Hermes Agent …“).</td></tr>
         <tr><td>Okno ukazuje jen horní lištu na tmavém pozadí</td>
           <td>Část appky spadla. Prosím <a href="https://github.com/cpoint-eu/kyllene-releases/issues">nahlaste to</a> a přiložte <code>~/.local/share/kyllene/crash-log.json</code>.</td></tr>
+        <tr><td>Windows: <i>Systém Windows ochránil váš počítač</i> při otevření <code>.msi</code></td>
+          <td>SmartScreen varuje, protože instalátor zatím není podepsaný. Klikněte na <b>Další informace</b> → <b>Přesto spustit</b>. Stahujte ho jen z <a href="https://github.com/cpoint-eu/kyllene-releases/releases/latest">posledního vydání</a>.</td></tr>
+        <tr><td>Windows: instalace nebo aktualizace chce souhlas správce</td>
+          <td>Schválně: Kyllene se instaluje pro všechny uživatele počítače. Když souhlas odmítnete, aktualizace se zruší a zůstane nainstalovaná dosavadní verze.</td></tr>
+        <tr><td>Kde jsou moje data?</td>
+          <td>Linux: Kyllene v <code>~/.local/share/kyllene</code>, Hermes v <code>~/.hermes</code>. Windows: Kyllene v <code>%APPDATA%\kyllene</code> (logy v <code>%APPDATA%\kyllene\logs</code>), Hermes v <code>%LOCALAPPDATA%\hermes</code>. Odinstalace je nikdy nesmaže.</td></tr>
       </tbody>
     </table>
     <p>Pořád to nejde? <a href="https://github.com/cpoint-eu/kyllene-releases/issues/new">Založte issue</a> s distribucí,

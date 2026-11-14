@@ -28,7 +28,7 @@
     box.appendChild(btn);
   });
 
-  // Newest release: direct AppImage link + version line.
+  // Newest release: direct AppImage / .msi links + version line.
   var info = document.querySelector("[data-release-info]");
   var links = document.querySelectorAll("[data-download]");
   if (!links.length && !info) return;
@@ -36,9 +36,15 @@
     .then(function (r) { return r.ok ? r.json() : null; })
     .then(function (rel) {
       if (!rel || !rel.assets) return;
-      var asset = rel.assets.filter(function (a) { return /_amd64\.AppImage$/.test(a.name); })[0];
+      var pick = function (re) { return rel.assets.filter(function (a) { return re.test(a.name); })[0]; };
+      var asset = pick(/_amd64\.AppImage$/);
+      var msi = pick(/_x64_en-US\.msi$/);
+      // data-download="msi" = the Windows installer, a bare data-download = the AppImage
+      links.forEach(function (a) {
+        var hit = a.getAttribute("data-download") === "msi" ? msi : asset;
+        if (hit) a.href = hit.browser_download_url;
+      });
       if (!asset) return;
-      links.forEach(function (a) { a.href = asset.browser_download_url; });
       if (info) {
         var d = new Date(rel.published_at).toLocaleDateString(lang === "cs" ? "cs-CZ" : "en-GB", { day: "numeric", month: "long", year: "numeric" });
         info.textContent = T.latest
