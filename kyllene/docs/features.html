@@ -177,6 +177,11 @@ live and render tables, Mermaid diagrams, charts and syntax-highlighted code.</p
 <td>In the thread</td>
 </tr>
 <tr>
+<td>Reading while it answers</td>
+<td>The thread follows a streaming answer to its end; scroll up, even just above the end, and it keeps your place instead of pulling you back down. Back at the end, it follows again.</td>
+<td>Automatic</td>
+</tr>
+<tr>
 <td>Keeps running</td>
 <td>A conversation keeps running when you close the app; on the next start it reconnects and shows what happened. Drafts and unsent attachments survive restarts.</td>
 <td>Automatic</td>
@@ -1087,7 +1092,7 @@ speech bubble and answer when you talk to it by name. Guide: <a href="pet.html">
 </tr>
 <tr>
 <td>Hatch a new pet</td>
-<td>AI draws a pet from your description: pick the image provider and model, four drafts, pick one, hatch (paid image generation, the cost is shown first).</td>
+<td>AI draws a pet from your description, or from your own picture of it: pick the image provider and model, four drafts, pick one, hatch (paid image generation, the cost is shown first). <em>Hatch from my picture…</em> skips the drafts and makes your picture the pet's look as it is.</td>
 <td>Settings › Pet › <em>Hatch a new one…</em>, palette <em>Pet: hatch a new one…</em> / <em>Pet: hatch a new one in a new window…</em> (<a href="pet.html#hatch-your-own-pet-with-ai">guide</a>)</td>
 </tr>
 <tr>
@@ -1132,7 +1137,7 @@ speech bubble and answer when you talk to it by name. Guide: <a href="pet.html">
 </tr>
 <tr>
 <td>Repair animations</td>
-<td>For a hatched pet: each animation with what the pet plays now, when it plays and how long; set its length (free) or draw a new version with an instruction, then <em>Use the new one</em> or <em>Discard</em>.</td>
+<td>For a hatched pet: each animation with what the pet plays now, when it plays and how long; set its length (free) or draw a new version with an instruction (with images, or with video), then <em>Use the new one</em> or <em>Discard</em>. The pet keeps its current animations until the new ones are ready.</td>
 <td>The pet's ⋯ › <em>Repair animations…</em>, right-click the pet, palette <em>Pet: repair animations…</em> / <em>Pet: repair animations in a new window…</em>; <em>Animation length</em> in Settings › Pet (<a href="pet.html#repair-animations-and-animation-length">guide</a>)</td>
 </tr>
 <tr>
@@ -1141,8 +1146,23 @@ speech bubble and answer when you talk to it by name. Guide: <a href="pet.html">
 <td>The pet's ⋯ › <em>Generate moods…</em>, right-click the pet, palette <em>Pet: generate moods…</em> / <em>Pet: generate moods in a new window…</em> (<a href="pet.html#generate-moods">guide</a>)</td>
 </tr>
 <tr>
+<td>Draw with video</td>
+<td><em>Draw with</em> › <em>Images</em> / <em>Video</em> in both dialogs: Hermes' video generator animates the pet's look into one clip, cut into smooth frames (12 per second of the length, up to 96); costs more than images, the estimate is shown first. <em>Again from the saved video</em> re-cuts the last clip for free. Needs a video generator in Hermes and <code>ffmpeg</code>.</td>
+<td><em>Repair animations</em> / <em>Generate moods</em> › <em>Draw with</em> (<a href="pet.html#draw-with-video">guide</a>)</td>
+</tr>
+<tr>
+<td>Animations and moods made elsewhere</td>
+<td>Free: save the pet's look and copy the exact prompt (also for a video tool), draw it in any tool, then upload a strip, frames, a GIF or a video (by file name for all at once); it shows as <em>New</em> to use or discard.</td>
+<td><em>Make elsewhere</em> in <em>Repair animations</em> / <em>Generate moods</em>, <em>Make elsewhere – all animations</em> / <em>– all moods</em>; palette <em>Pet: animations made elsewhere (export / import)…</em> / <em>Pet: moods made elsewhere (export / import)…</em> (<a href="pet.html#animations-and-moods-made-elsewhere">guide</a>)</td>
+</tr>
+<tr>
+<td>Change look</td>
+<td>Give a hatched pet a new look from a picture (background removed, free); new animations are drawn from it.</td>
+<td>The pet's ⋯ › <em>Change look…</em>, right-click the pet, palette <em>Pet: change look…</em> (<a href="pet.html#change-the-look">guide</a>)</td>
+</tr>
+<tr>
 <td>On other computers</td>
-<td>The shown pet, its personality, brain and own moods follow you with sync; a hatched pet is never hatched twice.</td>
+<td>The shown pet, its personality, brain, look and own moods follow you with sync; a hatched pet is never hatched twice.</td>
 <td><a href="sync.html">Sync between computers</a> (<a href="pet.html#on-your-other-computers">guide</a>)</td>
 </tr>
 </tbody>

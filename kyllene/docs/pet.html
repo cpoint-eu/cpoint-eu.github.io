@@ -36,7 +36,9 @@ mood, the comments and the personality on top. <em>Česky: <a href="pet.cs.html"
 <a href="#what-the-pets-states-mean">States</a> · <a href="#mood">Mood</a> · <a href="#comments-in-a-speech-bubble">Comments</a> ·
 <a href="#line-history">Line history</a> · <a href="#talk-to-the-pet-by-name">Talk to it</a> ·
 <a href="#personality">Personality</a> · <a href="#pet-brain">Pet brain</a> · <a href="#repair-animations-and-animation-length">Repair animations</a> ·
-<a href="#generate-moods">Own moods</a> · <a href="#pet-dialogs-in-their-own-window">Dialogs in a window</a> ·
+<a href="#generate-moods">Own moods</a> · <a href="#draw-with-video">Draw with video</a> ·
+<a href="#animations-and-moods-made-elsewhere">Made elsewhere</a> · <a href="#change-the-look">Change look</a> ·
+<a href="#pet-dialogs-in-their-own-window">Dialogs in a window</a> ·
 <a href="#on-your-other-computers">Other computers</a> · <a href="#palette-commands-and-shortcuts">Palette and shortcuts</a> ·
 <a href="#troubleshooting">Troubleshooting</a></p>
 <h2 id="turn-it-on-and-off">Turn it on and off</h2>
@@ -51,22 +53,27 @@ update Hermes (<code>hermes update</code>).</p>
 <h2 id="install-and-pick-a-pet">Install and pick a pet</h2>
 <p><strong>In the app:</strong> Settings › Pet has the <strong>Petdex</strong> at the bottom, a public gallery of pets. Search for one and click
 <strong>Adopt</strong>. It shows up under <strong>Your pets</strong>; <strong>Show</strong> makes it the one you see (it then says <strong>Shown</strong>). Its <strong>⋯</strong> menu
-(<strong>More</strong>) has <strong>Rename</strong>, <strong>Personality…</strong>, <strong>Repair animations…</strong> (pets you hatched), <strong>Generate moods…</strong> and
-<strong>Remove</strong>. To switch quickly, <code>Ctrl+K</code> › <em>Pet…</em> lists your pets with search; <code>Enter</code> shows the one you pick.</p>
+(<strong>More</strong>) has <strong>Rename</strong>, <strong>Personality…</strong>, <strong>Repair animations…</strong> and <strong>Change look…</strong> (pets you hatched),
+<strong>Generate moods…</strong> and <strong>Remove</strong>. To switch quickly, <code>Ctrl+K</code> › <em>Pet…</em> lists your pets with search; <code>Enter</code> shows the one you pick.</p>
 <p><strong>In a terminal:</strong> one command downloads a pet and picks it, for example Boba:</p>
 <pre><code class="language-bash">hermes pets install boba --select
 </code></pre>
 <p>More: <code>hermes pets list</code> (the gallery), <code>hermes pets select &lt;name&gt;</code> (switch to another), <code>hermes pets off</code> (turn it
 off). Kyllene notices the change by itself, no restart needed.</p>
 <h2 id="hatch-your-own-pet-with-ai">Hatch your own pet with AI</h2>
-<p><strong>Hatch a new one…</strong> in Settings › Pet (or <code>Ctrl+K</code> › <em>Pet: hatch a new one…</em>) lets AI draw a brand-new pet:</p>
+<p><strong>Hatch a new one…</strong> in Settings › Pet (or <code>Ctrl+K</code> › <em>Pet: hatch a new one…</em>) lets AI draw a brand-new pet, or hatches one from your own picture:</p>
 <ol>
 <li><strong>Provider</strong>: pick the <strong>Image provider</strong> (the ones Hermes has set up that can draw from a reference image, for
    example <em>ChatGPT (subscription)</em>, <em>OpenAI (API key)</em>, <em>OpenRouter</em>, <em>Nous Portal</em>) and, where the provider lets you,
    the <strong>Image model</strong>. The dialog says up front what it costs: paid per image, or counted against your
    subscription. Without a suitable provider it lists what to set up first.</li>
 <li><strong>Description</strong>: describe the pet, for example <em>a small green dragon with glasses and a cup of coffee</em>, then
-   <strong>Generate drafts</strong>.</li>
+   <strong>Generate drafts</strong>. Have a picture of it? Under <strong>Picture (optional)</strong> pick it (<strong>Choose a picture…</strong>), drop it
+   there or paste it (<code>Ctrl+V</code>): the drafts then redraw that exact character, the first draft is your picture as it
+   is (free), and <strong>Notes for the picture (optional)</strong> says what to change.
+   <strong>Hatch from my picture…</strong> (<strong>Hatch from this picture</strong> once one is chosen) skips the drafts: your picture, its
+   background removed, becomes the pet's look as it is, and only the animations are drawn. It needs one character
+   on a transparent or one-colour background (green, magenta or white), at most 16 MB.</li>
 <li><strong>Drafts</strong> and <strong>Pick</strong>: AI draws four drafts. Pick one, give it a <strong>Pet name</strong> and, if you like, a <strong>Nature</strong>
    for its <a href="#personality">personality</a> (<strong>Invent with AI</strong> suggests both). <strong>New drafts</strong> or <strong>Edit description</strong> when
    none fits, then <strong>Hatch</strong>.</li>
@@ -136,7 +143,9 @@ too. <strong>Shift+click</strong> again (or <em>Pet: back into the app window</e
 </tr>
 </tbody>
 </table></div>
-<p>The short ones (wave, jump, failure) last a moment; then the pet goes back to rest or to work.</p>
+<p>The short ones (wave, jump, failure) play their whole animation once, as long as its
+<a href="#repair-animations-and-animation-length">length</a> is set; then the pet goes back to rest or to work. The sad one plays
+when a tool or the answer really failed.</p>
 <h2 id="mood">Mood</h2>
 <p>On top of its state the pet has a <strong>mood</strong> that follows how the work goes on this computer: failures in a row make
 it grumpy, then fed up, then angry; successes make it happy and excited; a long quiet spell makes it relaxed and
@@ -277,14 +286,18 @@ animations…</em>) shows each animation on its own and redraws only the ones th
    frames from it.</li>
 <li><strong>Draw a new version</strong>: write <strong>What should look different (optional)</strong> and click <strong>Draw a new version</strong>. The
    frame count and the cost are shown next to the button; <strong>Drawn by … · change</strong> picks the <strong>Image provider</strong> and
-   <strong>Image model</strong> as when hatching. One animation is drawn at a time; the others wait until it is done.</li>
+   <strong>Image model</strong> as when hatching; <strong>Draw with</strong> › <strong>Video</strong> draws it <a href="#draw-with-video">with video</a> instead. One
+   animation is drawn at a time; the others wait until it is done. <strong>Make elsewhere</strong> below it lets you
+   <a href="#animations-and-moods-made-elsewhere">draw it in another tool</a> for free.</li>
 <li>Compare <strong>Now</strong> and <strong>New</strong>, then <strong>Use the new one</strong> (the pet plays it at once) or <strong>Discard</strong>. <strong>Draw again</strong>
    tries once more. Animations with a new version are marked <em>new</em> in the list.</li>
 <li><strong>Apply and close</strong> saves every new version you did not discard; <strong>Close (keeps drawing)</strong> lets a running drawing
-   finish. <strong>Back to the original</strong> drops a longer version, and <strong>Restore previous look</strong> undoes the last repair.</li>
+   finish. <strong>Back to the original</strong> drops a longer version, and <strong>Restore previous look</strong> undoes the last repair.
+   While the new animations are being saved, the pet keeps playing its current ones.</li>
 </ol>
-<p>A longer animation gets enough frames for its length (about one per 0.3 s, up to 28) and is drawn in several images
-(about one per six frames), all at one size, so the pet does not grow or shrink while it plays.</p>
+<p>Drawn with images, a longer animation gets enough frames for its length (about one per 0.3 s, up to 28) and is drawn
+in several images (about one per six frames), all at one size, so the pet does not grow or shrink while it plays. Drawn
+with video or made elsewhere, it plays smooth at 12 frames per second of its length (up to 96 frames).</p>
 <h2 id="generate-moods">Generate moods</h2>
 <p>Every mood is played for free by adjusting a standard animation. <strong>Generate moods…</strong> (the pet's <strong>⋯</strong> menu, a
 right-click on the pet, or <code>Ctrl+K</code> › <em>Pet: generate moods…</em>) draws the pet's own animation for a mood instead; it
@@ -297,7 +310,9 @@ works for any pet, also one from the Petdex. The dialog works like <a href="#rep
    version gets its number of frames from it.</li>
 <li><strong>Draw a new version</strong>: write <strong>What should look different (optional)</strong> (up to 500 characters, the counter shows the length) and click
    <strong>Draw a new version</strong>. The frame count and the cost are shown next to the button (paid, one image per mood);
-   <strong>Drawn by … · change</strong> picks the image provider and model. One mood is drawn at a time; the others wait.</li>
+   <strong>Drawn by … · change</strong> picks the image provider and model, <strong>Draw with</strong> › <strong>Video</strong> draws it
+   <a href="#draw-with-video">with video</a>. One mood is drawn at a time; the others wait. <strong>Make elsewhere</strong> below it lets you
+   <a href="#animations-and-moods-made-elsewhere">draw it in another tool</a> for free.</li>
 <li>Compare <strong>Now</strong> and <strong>New</strong>, then <strong>Use the new one</strong> (the pet plays it at once) or <strong>Discard</strong>. <strong>Draw again</strong>
    tries once more. Nothing changes on the pet before you pick <strong>Use the new one</strong>.</li>
 <li><strong>Apply and close</strong> saves every new version you did not discard. Closing the dialog with undecided new versions
@@ -305,6 +320,47 @@ works for any pet, also one from the Petdex. The dialog works like <a href="#rep
 <li><strong>Back to the original</strong> on a mood with its own animation drops it: the mood goes back to the free adjustment
    (free).</li>
 </ol>
+<h2 id="draw-with-video">Draw with video</h2>
+<p><strong>Repair animations</strong> and <strong>Generate moods</strong> can draw with a video model instead of images. When Hermes has a video
+generator set up that animates a picture (image-to-video) and <code>ffmpeg</code> is installed, both dialogs show <strong>Draw with</strong>:
+<strong>Images</strong> / <strong>Video</strong> (then <strong>Video</strong> is picked first).</p>
+<ul>
+<li><strong>Video</strong> makes one clip from the pet's look and cuts it into frames: smoother motion and a steadier look than
+  images, but it costs more and takes a few minutes. The price estimate shows before you draw (<em>Paid · model ·
+  seconds of video · about …</em>), what it really cost under the new version.</li>
+<li>The animation plays at 12 frames per second of its length (up to 96 frames); a shorter length plays the whole clip
+  faster.</li>
+<li><strong>Again from the saved video</strong> cuts the last clip of that animation again with the current length, for free.</li>
+<li>Without <code>ffmpeg</code> the dialog says so: install it (Linux: the <code>ffmpeg</code> package; Windows: ffmpeg.org, then add it to
+  PATH).</li>
+</ul>
+<h2 id="animations-and-moods-made-elsewhere">Animations and moods made elsewhere</h2>
+<p>Prefer another tool (a chat with an image or video model, say)? Every animation in <strong>Repair animations</strong> and every
+mood in <strong>Generate moods</strong> has a <strong>Make elsewhere</strong> part. It is free, and it works even when no image provider is set
+up:</p>
+<ol>
+<li><strong>Save picture…</strong> saves the pet's look, <strong>Copy prompt</strong> copies the exact prompt for this animation and <strong>Copy video
+   prompt</strong> the one for a video tool (image-to-video from the look). <strong>Prompt and parameters</strong> shows them with the
+   layout, background, size and file name.</li>
+<li>Draw it there and bring the result back with <strong>Upload file…</strong>, or drop the file onto the animation. Kyllene takes a
+   PNG/JPG/WebP strip, several strips, single PNG frames, a GIF or an MP4/WebM video (a video needs <code>ffmpeg</code>; at most
+   200 MB).</li>
+<li>The result shows as <strong>New</strong>: compare it with <strong>Now</strong>, then <strong>Use the new one</strong> or <strong>Discard</strong>. When the file has
+   another number of frames than the length expects, it plays as it is, and <strong>Set length to …</strong> makes the length
+   follow the file.</li>
+</ol>
+<p>GIFs, videos and single frames play smooth at 12 frames per second of their length (up to 96 frames).</p>
+<p><strong>Make elsewhere – all animations</strong> (in Generate moods <strong>Make elsewhere – all moods</strong>) at the top of the dialog gives
+one look picture and the prompts of every animation (<strong>Copy all</strong>). <strong>Upload files…</strong> or <strong>Upload folder…</strong> brings
+them back, each file to the animation its name says, then <strong>Use all n new</strong>. The palette opens this view directly:
+<em>Pet: animations made elsewhere (export / import)…</em> (hatched pets) and <em>Pet: moods made elsewhere (export / import)…</em>
+(any pet).</p>
+<h2 id="change-the-look">Change the look</h2>
+<p><strong>Change look…</strong> (a hatched pet's <strong>⋯</strong> menu, a right-click on the pet, or <code>Ctrl+K</code> › <em>Pet: change look…</em>) gives the
+pet a new look from a picture: choose it, drop it or paste it (<code>Ctrl+V</code>). Its background is removed, <strong>Now</strong> and
+<strong>New</strong> show side by side, and <strong>Use as the look</strong> saves it. Nothing is drawn or paid. Every new animation is then
+drawn from the new look, but the existing ones keep the old look until you redraw them: the dialog offers <strong>Repair
+animations</strong> and <strong>Generate moods</strong> for that.</p>
 <h2 id="pet-dialogs-in-their-own-window">Pet dialogs in their own window</h2>
 <p><strong>Hatch a pet</strong>, <strong>Repair animations</strong> and <strong>Generate moods</strong> take a while. Move one into a window of its own with
 <strong>Open in a new window</strong> (the window icon in its header) or the palette's <em>Pet: hatch a new one in a new window…</em>,
@@ -321,13 +377,14 @@ window. Nothing is lost on the way: drafts, notes and new animations you have no
 <h2 id="on-your-other-computers">On your other computers</h2>
 <p>With <a href="sync.html">sync</a> on, the shown pet and its size follow you: a Petdex pet installs itself on the other computer, a
 hatched one travels with its drawings, so you never hatch (and pay) twice. Its personality, brain, memory, skills,
-own moods and animation lengths travel with it. Whether the pet is shown, where it sits on the screen and its current
+look, own moods and animation lengths travel with it. Whether the pet is shown, where it sits on the screen and its current
 mood stay on each computer.</p>
 <h2 id="palette-commands-and-shortcuts">Palette commands and shortcuts</h2>
 <p><code>Ctrl+K</code> offers <em>Pet…</em>, <em>Pet: show</em> / <em>Pet: hide</em>, <em>Pet: into its own window</em> / <em>Pet: back into the app window</em>,
 <em>Pet: wander the window</em> / <em>Pet: stop wandering</em>, <em>Pet: line history…</em>, <em>Pet: hatch a new one…</em> / <em>Pet: hatch a new
 one in a new window…</em>, <em>Pet: repair animations…</em> / <em>Pet: repair animations in a new window…</em> (hatched pets) and
-<em>Pet: generate moods…</em> / <em>Pet: generate moods in a new window…</em>. Settings › Shortcuts has a <strong>Pet</strong> group: give
+<em>Pet: generate moods…</em> / <em>Pet: generate moods in a new window…</em>, plus <em>Pet: change look…</em> and <em>Pet: animations made
+elsewhere (export / import)…</em> (hatched pets) and <em>Pet: moods made elsewhere (export / import)…</em>. Settings › Shortcuts has a <strong>Pet</strong> group: give
 choosing the pet, show / hide, its own window, hatching (also in its own window) and the line history a key of your
 own (<strong>Set</strong>); the mouse actions (Shift+click, click, double-click, Alt + wheel) are listed there too.</p>
 <h2 id="troubleshooting">Troubleshooting</h2>
@@ -358,6 +415,14 @@ own (<strong>Set</strong>); the mouse actions (Shift+click, click, double-click,
 <tr>
 <td>Hatching cannot start</td>
 <td>No image provider that can draw from a reference image is set up in Hermes; the dialog lists what to set up (for example an OpenRouter key in Hermes › Keys).</td>
+</tr>
+<tr>
+<td><strong>Draw with</strong> › <strong>Video</strong> is missing</td>
+<td>Hermes has no video generator that animates a picture, or <code>ffmpeg</code> is not installed (the dialog says so).</td>
+</tr>
+<tr>
+<td>An uploaded file is refused</td>
+<td>The message says why: the poses must stand side by side on a flat or transparent background, a GIF or video goes on its own, and with several files each name must match one listed under <strong>Prompt and parameters</strong>.</td>
 </tr>
 <tr>
 <td>The pet's desktop window forgets its spot</td>
